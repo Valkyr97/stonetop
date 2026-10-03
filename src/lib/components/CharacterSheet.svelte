@@ -9,6 +9,7 @@
     availableLevel1Moves,
     evaluateSectionStatus,
     isCreationReady,
+    replaceBackgroundMoves,
     startingMoveIds,
     moveRepeatCap,
     movePrintedBoxes,
@@ -127,8 +128,11 @@
     if (readonly) return
     patch((d) => {
       const switching = d.identity.background_id !== bg.id
+      const fromId = d.identity.background_id
       d.identity.background_id = bg.id
-      d.moves.selected = startingMoveIds(playbook, bg.id, d.moves.selected)
+      d.moves.selected = switching
+        ? replaceBackgroundMoves(playbook, fromId, bg.id, d.moves.selected)
+        : startingMoveIds(playbook, bg.id, d.moves.selected)
       const prev =
         !switching
           ? ((d.setup.background_fields as Record<string, unknown> | undefined) ?? {})

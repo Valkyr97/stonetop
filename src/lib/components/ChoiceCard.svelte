@@ -190,6 +190,10 @@
   .choice.clickable {
     cursor: pointer;
   }
+  .choice[aria-disabled='true'] {
+    cursor: default;
+    opacity: 0.7;
+  }
   .choice.clickable:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;

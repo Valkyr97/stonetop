@@ -42,7 +42,26 @@ Vercel sirve archivos que existen (`/content/*.json`, assets) y el rewrite enví
 
 ## Cloudflare Pages
 
+Direct upload (sin GitHub), desde `MyVersion/` después de `npm run build` (Vite lee `.env.local` y las mete en el JS):
+
+1. Crea un token: [Create API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)  
+   Plantilla **Edit Cloudflare Workers** (incluye Pages) o un token custom con permiso **Account → Cloudflare Pages → Edit**.
+2. En PowerShell (esta sesión):
+
+```powershell
+$env:CLOUDFLARE_API_TOKEN = "pega-el-token"
+npx wrangler@3 pages deploy dist --project-name=stonetop
+```
+
+Node 20: usa Wrangler 3 (`npx wrangler@3 …`). Wrangler 4 pide Node 22.
+
+O en el dashboard: Workers & Pages → Create → Direct Upload de la carpeta `dist`.
+
+Si más adelante conectas GitHub:
+
 1. Build command: `npm run build`
 2. Output directory: `dist`
-3. Las mismas variables `VITE_*`
+3. Las mismas `VITE_*` en Settings → Environment variables (Production)
 4. Root directory `MyVersion` si el Git root es el monorepo
+
+Luego en Supabase Auth, Site URL = `https://stonetop.pages.dev` (o el dominio que asigne Cloudflare).

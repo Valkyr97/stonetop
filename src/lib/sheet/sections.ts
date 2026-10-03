@@ -132,26 +132,28 @@ export function isCreationReady(playbook: Playbook, state: CharacterState): bool
   return CORE_CREATION.every((id) => status[id] === 'complete')
 }
 
+export function backgroundMoveGrantIds(
+  playbook: Playbook,
+  backgroundId: string | null,
+): string[] {
+  const bg = playbook.backgrounds.find((b) => b.id === backgroundId)
+  return (bg?.grants ?? []).filter((g) => g.type === 'move').map((g) => g.id)
+}
+
+/**
+ * Rebuild starting moves. Extra picks may include another background's
+ * signature move (Ranger taking Animal Companion while Mighty Hunter).
+ * Drop leftover grants only when the *background itself* changes — see
+ * `replaceBackgroundMoves`.
+ */
 export function startingMoveIds(playbook: Playbook, backgroundId: string | null, selected: string[]) {
   const fixed = [...(playbook.starting_move_rules.fixed ?? [])]
-  const bg = playbook.backgrounds.find((b) => b.id === backgroundId)
-  const granted = (bg?.grants ?? []).filter((g) => g.type === 'move').map((g) => g.id)
-  // Signature moves from *other* backgrounds must not linger as free picks
-  // after switching (e.g. Seeker Patriot → Witch Hunter kept lets-make-a-deal).
-  const otherBgGrants = new Set<string>()
-  for (const other of playbook.backgrounds) {
-    if (other.id === backgroundId) continue
-    for (const g of other.grants ?? []) {
-      if (g.type === 'move') otherBgGrants.add(g.id)
-    }
-  }
-  for (const id of granted) otherBgGrants.delete(id)
+  const granted = backgroundMoveGrantIds(playbook, backgroundId)
 
   const taken = new Map<string, number>()
   const extras: string[] = []
   for (const id of selected) {
     if (fixed.includes(id) || granted.includes(id)) continue
-    if (otherBgGrants.has(id)) continue
     const move = playbook.moves.find((m) => m.id === id)
     const cap = moveRepeatCap(move)
     const n = (taken.get(id) ?? 0) + 1
@@ -160,6 +162,18 @@ export function startingMoveIds(playbook: Playbook, backgroundId: string | null,
     extras.push(id)
   }
   return [...fixed, ...granted, ...extras]
+}
+
+/** When switching backgrounds, drop the old background's granted moves, then apply the new ones. */
+export function replaceBackgroundMoves(
+  playbook: Playbook,
+  fromBackgroundId: string | null,
+  toBackgroundId: string,
+  selected: string[],
+): string[] {
+  const oldGrants = new Set(backgroundMoveGrantIds(playbook, fromBackgroundId))
+  const withoutOld = selected.filter((id) => !oldGrants.has(id))
+  return startingMoveIds(playbook, toBackgroundId, withoutOld)
 }
 
 /** Matches book phrasing including “Each additional time you take this move…”. */

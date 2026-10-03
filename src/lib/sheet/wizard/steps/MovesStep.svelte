@@ -95,10 +95,6 @@
     ),
   )
 
-  function nameOf(id: string): string {
-    return moveById(playbook, id)?.name ?? id
-  }
-
   function gateFor(move: MoveDef) {
     return moveGateInfo(sheet, playbook, move)
   }
@@ -224,11 +220,25 @@
 {#if grantedIds.length}
   <section class="move-block">
     <h3>You start with</h3>
-    <ul class="granted-list">
+    <div class="choices">
       {#each grantedIds as id (id)}
-        <li>{nameOf(id)}</li>
+        {@const move = moveById(playbook, id)}
+        {@const takes = takesOf(id)}
+        {@const bumpCap = move ? statBumpCap(move) : null}
+        <div class="list-row held">
+          <ChoiceCard
+            title={move?.name ?? id}
+            selected={true}
+            disabled={true}
+            ruleText={move?.rule_text}
+            {...(move ? trackProps(move) : {})}
+          />
+          {#if move && !readonly && showExtras(move)}
+            {@render moveExtras(move, takes, bumpCap)}
+          {/if}
+        </div>
       {/each}
-    </ul>
+    </div>
   </section>
 {/if}
 
@@ -280,44 +290,50 @@
   </section>
 {/each}
 
-<section class="move-block">
-  <h3>
-    {#if plan.chooseCount > 0}
+{#if plan.chooseCount > 0}
+  <section class="move-block">
+    <h3>
       Choose {plan.chooseCount}
       <span class="count-muted">({free.length}/{plan.chooseCount})</span>
-    {:else}
-      Moves
-    {/if}
-  </h3>
-  <div class="choices">
-    {#each listRows as { move, depth } (move.id)}
-      {@const on = selected.has(move.id)}
-      {@const gate = gateFor(move)}
-      {@const takes = takesOf(move.id)}
-      {@const bumpCap = statBumpCap(move)}
-      <div
-        class="list-row"
-        class:nested={depth > 0}
-        class:gated={gate.gated && !on}
-        class:held={on}
-        style={`--depth: ${depth}`}
-      >
-        <ChoiceCard
-          title={move.name}
-          selected={on}
-          disabled={readonly || (!on && (gate.gated || !canMarkNew(move)))}
-          meta={gate.gated && !on ? gate.reasons[0] : undefined}
-          ruleText={move.rule_text}
-          {...trackProps(move)}
-          onclick={gate.gated && !on ? undefined : () => toggleListMove(move)}
-        />
-        {#if on && !readonly && showExtras(move)}
-          {@render moveExtras(move, takes, bumpCap)}
-        {/if}
-      </div>
-    {/each}
-  </div>
-</section>
+    </h3>
+    <div class="choices">
+      {#each listRows as { move, depth } (move.id)}
+        {@const on = selected.has(move.id)}
+        {@const gate = gateFor(move)}
+        {@const takes = takesOf(move.id)}
+        {@const bumpCap = statBumpCap(move)}
+        {@const blocked = !on && (gate.gated || !canMarkNew(move))}
+        <div
+          class="list-row"
+          class:nested={depth > 0}
+          class:gated={blocked}
+          class:held={on}
+          style={`--depth: ${depth}`}
+        >
+          <ChoiceCard
+            title={move.name}
+            selected={on}
+            disabled={readonly || blocked}
+            meta={gate.gated && !on ? gate.reasons[0] : undefined}
+            ruleText={move.rule_text}
+            {...trackProps(move)}
+            onclick={blocked ? undefined : () => toggleListMove(move)}
+          />
+          {#if on && !readonly && showExtras(move)}
+            {@render moveExtras(move, takes, bumpCap)}
+          {/if}
+        </div>
+      {/each}
+    </div>
+  </section>
+{:else}
+  <section class="move-block">
+    <p class="hint">
+      This playbook has no extra starting-move picks. You can continue once any fields
+      on the moves above are filled in.
+    </p>
+  </section>
+{/if}
 
 <style>
   .move-block {
@@ -345,6 +361,11 @@
   }
   .list-row.gated.held :global(.choice) {
     opacity: 1;
+  }
+  .hint {
+    margin: 0 0 0.55rem;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
   }
   .free-extras {
     display: grid;

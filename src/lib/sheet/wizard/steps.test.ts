@@ -2,7 +2,8 @@
 import { describe, it, expect } from 'vitest'
 import { emptyCharacterState } from '../../content/types'
 import { stepValid } from './steps'
-import { startingMoveIds } from '../sections'
+import { replaceBackgroundMoves, startingMoveIds } from '../sections'
+import { setCreationTakes } from '../engine/moveTakes'
 import { applyBackgroundSelectionEffects } from './backgroundEffects'
 import { freeChosenMoves, startingMovesPlan } from '../engine/moves'
 
@@ -76,26 +77,39 @@ describe('wizard gates', () => {
     expect(stepValid('moves', playbook, state)).toBe(true)
   })
 
-  it('drops other background grants when normalizing selected moves', () => {
+  it('keeps another background’s signature move if the player picked it', () => {
     const playbook = pack.content.playbooks.find((p: any) => p.id === 'seeker')
-    const selected = startingMoveIds(playbook, 'witch-hunter', [
+    const selected = startingMoveIds(playbook, 'witch-hunter', ['lets-make-a-deal'])
+    expect(selected).toEqual([
       'well-versed',
       'work-with-what-youve-got',
       'everything-bleeds',
-      'polyglot',
       'lets-make-a-deal',
     ])
-    expect(selected).toEqual(['well-versed', 'work-with-what-youve-got', 'everything-bleeds'])
+  })
+
+  it('drops previous background grants when switching, not free picks', () => {
+    const playbook = pack.content.playbooks.find((p: any) => p.id === 'seeker')
+    const patriot = startingMoveIds(playbook, 'patriot', ['attuned'])
+    expect(patriot).toContain('lets-make-a-deal')
+    const switched = replaceBackgroundMoves(playbook, 'patriot', 'witch-hunter', patriot)
+    expect(switched).toEqual([
+      'well-versed',
+      'work-with-what-youve-got',
+      'everything-bleeds',
+      'attuned',
+    ])
+  })
+
+  it('ranger can take Animal Companion as a free pick', () => {
+    const playbook = pack.content.playbooks.find((p: any) => p.id === 'ranger')
     const state = emptyCharacterState(playbook)
-    state.identity.background_id = 'witch-hunter'
-    state.moves.selected = selected
-    state.setup.background_fields = {
-      background_topic: 'fae',
-      major_arcanum: 'major-twisted-spear',
-    }
-    applyBackgroundSelectionEffects(state, playbook)
-    state.setup.well_versed_topics = ['fae', 'things-below']
-    state.setup.move_fields = { 'well-versed': { additional_topic: 'things-below' } }
-    expect(stepValid('moves', playbook, state)).toBe(true)
+    state.identity.background_id = 'mighty-hunter'
+    state.moves.selected = startingMoveIds(playbook, 'mighty-hunter', [])
+    const result = setCreationTakes(state, playbook, 'animal-companion', 1)
+    expect(result.ok).toBe(true)
+    if (!result.ok) return
+    expect(result.state.moves.selected).toContain('animal-companion')
+    expect(stepValid('moves', playbook, result.state)).toBe(true)
   })
 })
