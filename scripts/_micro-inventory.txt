@@ -1,0 +1,55 @@
+inserts: [
+  {
+    "id": "inventory",
+    "manual": false,
+    "req": null
+  },
+  {
+    "id": "followers",
+    "manual": true,
+    "req": null
+  },
+  {
+    "id": "animal-companion",
+    "manual": false,
+    "req": {
+      "character_has_move": "animal-companion"
+    }
+  },
+  {
+    "id": "crew",
+    "manual": false,
+    "req": {
+      "playbook": "marshal"
+    }
+  },
+  {
+    "id": "initiates-of-danu",
+    "manual": false,
+    "req": {
+      "background": "initiate"
+    }
+  },
+  {
+    "id": "invocations",
+    "manual": false,
+    "req": {
+      "playbook": "lightbearer"
+    }
+  },
+  {
+    "id": "ghost",
+    "manual": true,
+    "req": null
+  },
+  {
+    "id": "revenant",
+    "manual": true,
+    "req": null
+  },
+  {
+    "id": "thrall",
+    "manual": true,
+    "req": null
+  }
+]\n\n=== blessed The Blessed ===\nbase {"damage_die":"d6","max_hp":18,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"sacred-pouch","title":"Sacred pouch","choiceIds":["remarkable-trait"],"promptCount":0,"lineRows":3},{"id":"earth-mother","title":"The Earth Mother","choiceIds":["shrine","offerings"],"promptCount":0,"lineRows":0}]\nsetup keys earth_mother\n  setup.earth_mother {"shrine_state":{"type":"single_choice","options":["loved and well-used","offerings at sacred places elsewhere","given a wide berth/propitiated","neglected or forgotten"]},"offerings":{"type":"multi_choice","min":2,"max":3,"options":["fruits of harvest","figurines/effigies","whisky/spirits","salt/crystals","pure rain water","metal nails/tools","blo\n  bg initiate fields [{"key":"initiates","type":"multi_choice","max":3}]\n  move big-magic fields [{"key":"additional_pouch_trait","type":"single_choice_reference","options":[]}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys fixed,choose,options,sacred_pouch_setup\n\n=== fox The Fox ===\nbase {"damage_die":"d8","max_hp":16,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"tall-tales","title":"Tall tales","choiceIds":["that-time","ended-up","left-to-show"],"promptCount":0,"lineRows":0}]\nsetup keys tall_tales\n  setup.tall_tales {"repeatable":true,"suggested_count":2,"fields":[{"key":"start","type":"single_choice","options":["lost in Great Wood","lost in Flats","lost in Steplands","lost in Ferrier's Fen","lost in Foothills","lost in Huffel Peaks","on watch during a crinwin raid","dared the Ruined Tower","riled Hillfolk","braved the Labyrinth","stole an old man's book","pok\n  bg a-life-of-crime fields [{"key":"extra_move","type":"single_choice"},{"key":"extra_possession","type":"single_choice"}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys choose,options\n\n=== heavy The Heavy ===\nbase {"damage_die":"d10","max_hp":20,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"history-of-violence","title":"A history of violence","choiceIds":["everyone-talks","less-keen","up-at-night"],"promptCount":0,"lineRows":0}]\nsetup keys history_of_violence\n  setup.history_of_violence {"everyone_talks_about":{"type":"multi_choice","min":1,"max":2,"options":["drove off a thunder drake","killed a hagr in the Foothills","slew a dozen crinwin","tossed adventurers out","bested Ivan Claws","dragged yourself/another home bleeding","struck by lightning and woke with marks"]},"less_keen_to_discuss":{"type":"multi_choice","min":1,"max":2,\n  bg storm-marked fields [{"key":"lightning_story","type":"text"}]\n  move armored fields [{"key":"starting_armor","type":"single_choice","options":["iron_hauberk","bronze_cuirass","scale_coat"]}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys choose,options\n\n=== judge The Judge ===\nbase {"damage_die":"d6","max_hp":20,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"the-chronicle","title":"The Chronicle","choiceIds":["plus-side","but-alas"],"promptCount":0,"lineRows":0},{"id":"the-lawkeeper","title":"The Lawkeeper","choiceIds":["shrine","demands"],"promptCount":0,"lineRows":0}]\nsetup keys chronicle,lawkeeper\n  setup.chronicle {"features":{"type":"multi_choice","choose":3,"options":["sturdy Maker vault","room to grow","hidden underground","one magically sealed entrance","minor preservation magic","warded against spirits/magic","living quarters/office"]},"drawbacks":{"type":"multi_choice","choose":2,"options":["on the outskirts by the Old Wall","cramped/chaotic/overflowin\n  setup.lawkeeper {"shrine":{"type":"single_choice","options":["hub of frequent rites","mainly high holidays/home shrines","neglected except by a few","grim judgment/punishment and shunned","newly established, cramped and spare"]},"aratis_demands":{"type":"multi_choice","choose":3,"options":["truth and honesty","hospitality","punish thieves/oathbreakers","strict die\n  bg missionary fields [{"key":"additional_neighbors","type":"multi_choice","max":2}]\n  bg prophet fields [{"key":"sanction","type":"counter","initial":0}]\n  move armored fields [{"key":"starting_armor","type":"single_choice","options":["iron_hauberk","bronze_cuirass","scale_coat"]}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys fixed,choose,options\n\n=== lightbearer The Lightbearer ===\nbase {"damage_die":"d4","max_hp":18,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"},{"type":"insert","id":"invocations"}]\nextras [{"id":"praise-the-day","title":"Praise the day","choiceIds":["worship-is","worshipped-through","shrine","predecessor","came-into-powers"],"promptCount":0,"lineRows":0}]\nsetup keys praise_the_day\n  setup.praise_the_day {"worship_status":{"type":"single_choice","options":["ancient and widespread","most common in Lygos/south","new/unheard-of locally","old and mostly forgotten","persecuted"]},"worship_style":{"type":"multi_choice","min":1,"max":2,"options":["solemn hymns","serene meditation","joyful song","ascetic denial","fervent dancing","formal ceremonies","drugs\n  bg auspicious-birth fields [{"key":"circle","type":"uses","max":1,"initial":1}]\n  bg itinerant-mystic fields [{"key":"enigma","type":"counter","max":3,"initial":3}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys choose,options\n\n=== marshal The Marshal ===\nbase {"damage_die":"d8","max_hp":20,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"},{"type":"insert","id":"crew"}]\nextras [{"id":"war-stories","title":"War stories","choiceIds":["last-action","action-questions"],"promptCount":0,"lineRows":0}]\nsetup keys war_stories\n  setup.war_stories {"battle":{"type":"single_choice","options":["crinwin night raid","bandits at the Ruined Tower","Hillfolk blood feud","Brennan and the Claws","hagr in the Foothills","beasts preying on the village"]},"questions":{"type":"prompt_answers","answer_at_least":3,"prompts":["when was it","who died and who mourns them","who was maimed and how","who saved s\n  bg scion fields [{"key":"veteran_upgrade","type":"single_choice"}]\n  move armored fields [{"key":"starting_armor","type":"single_choice","options":["iron_hauberk","bronze_cuirass","scale_coat"]}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys choose,options\n\n=== ranger The Ranger ===\nbase {"damage_die":"d8","max_hp":18,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"something-wicked","title":"Something wicked this way comes","choiceIds":["worried-about","threat-questions"],"promptCount":0,"lineRows":0}]\nsetup keys something_wicked\n  setup.something_wicked {"threat":{"type":"single_choice","options":["dark presence in the Great Wood","furtive figure at the Ruined Tower","large savage thing in northern foothills","suarachan growing bold in the Fen","Hillfolk refuse to speak of it"]},"questions":{"type":"prompt_answers","answer_at_least":3,"prompts":["what is it","what did you see and how close","what \n  bg wide-wanderer fields [{"key":"neighbor_contacts","type":"array"}]\n  bg beast-bonded fields [{"key":"bond_action","type":"single_choice"}]\n  move animal-companion fields [{"key":"configure_insert","type":"insert_reference","options":[]}]\n  move magnificent-specimen fields [{"key":"extra_type_options","type":"number","options":[]}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys fixed,choose,options\n\n=== seeker The Seeker ===\nbase {"damage_die":"d6","max_hp":16,"stat_array":[2,1,1,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"collection","title":"Collection","choiceIds":["major-arcana-questions"],"promptCount":0,"lineRows":0}]\nsetup keys collection\n  setup.collection {"major_arcanum":{"source":"background","story_questions":{"type":"prompt_answers","answer_at_least":2,"prompts":["where did you acquire it","from whose grasp","who else wants it","what did it cost you"]},"initial_progress_marks":{"value":1,"status":"pending_visual_verification","reason":"public extraction around this marker is malformed"}},"minor_\n  bg patriot fields [{"key":"major_arcanum","type":"single_choice_reference"}]\n  bg antiquarian fields [{"key":"major_arcanum","type":"single_choice_reference"}]\n  bg witch-hunter fields [{"key":"background_topic","type":"single_choice"},{"key":"major_arcanum","type":"single_choice_reference"}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  move well-versed fields [{"key":"additional_topic","type":"single_choice","options":["last-door-death-undead","civilizations-of-humanity","fae"]}]\n  special_possessions topKeys fixed,choose,options\n\n=== would-be-hero The Would-be Hero ===\nbase {"damage_die":"d6","max_hp":16,"stat_array":[1,0,0,0,0,-1]}\ngrants [{"type":"insert","id":"inventory"}]\nextras [{"id":"fear-and-anger","title":"Fear & anger","choiceIds":["fear","anger"],"promptCount":3,"lineRows":0}]\nsetup keys fear_and_anger\n  setup.fear_and_anger {"fear":{"type":"multi_choice","min":1,"max":2,"options":["fire/burning","not being taken seriously","not being cut out for this","death of loved ones","being alone and helpless","violence/blood/pain","monsters","your own capabilities","what you must do"]},"anger":{"type":"multi_choice","min":2,"max":3,"options":["bullying/slavery/oppression","want\n  bg driven fields [{"key":"driving_event","type":"single_choice"}]\n  bg destined fields [{"key":"omens","type":"counter","max":3,"initial":0},{"key":"destiny_tokens","type":"multi_choice","max":4}]\n  move improved-stat fields [{"key":"stat","type":"single_choice","options":["STR","DEX","INT"]}]\n  special_possessions topKeys choose,options

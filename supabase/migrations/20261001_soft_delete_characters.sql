@@ -1,0 +1,7 @@
+-- Applied to project mwhfcrscbpvxlaezthab (stonetop / eu-west-1) via MCP.
+-- Do NOT run against other Supabase projects.
+--
+-- Soft-delete for claimed characters:
+--   ALTER characters ADD deleted_at
+--   soft_delete_claimed_character(uuid, text)
+--   pull_character_state skips deleted_at IS NOT NULL

@@ -1,0 +1,345 @@
+.wizard .step h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+.wizard .step h3 {
+  margin: 1.25rem 0 0.55rem;
+  font-size: 1rem;
+}
+.wizard .step .req {
+  font-weight: 500;
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+.wizard .step .choices {
+  display: grid;
+  gap: 0.45rem;
+}
+.wizard .step .choices.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 40rem) {
+  .wizard .step .choices.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+.wizard .step .appearance-lines {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+.wizard .step .appearance-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.wizard .step .pill {
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: var(--btn-pad-y) 0.7rem;
+  font: inherit;
+  font-size: var(--text-sm);
+  min-height: var(--btn-min);
+  cursor: pointer;
+}
+.wizard .step .pill.on {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  box-shadow: 0 0 0 1px var(--accent);
+  font-weight: 600;
+}
+.wizard .step .pill:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.wizard .step .pill-custom {
+  border: 1px dashed var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: var(--btn-pad-y) 0.7rem;
+  font: inherit;
+  font-size: var(--text-sm);
+  min-height: var(--btn-min);
+  min-width: 8rem;
+}
+.wizard .step .pill-custom.on {
+  border-color: var(--accent);
+  border-style: solid;
+}
+.wizard .step .origin-card {
+  display: grid;
+  gap: 0.25rem;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  color: var(--ink);
+  padding: 0.85rem 1rem;
+  font: inherit;
+  cursor: pointer;
+}
+.wizard .step .origin-card.on {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+}
+.wizard .step .origin-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+.wizard .step .origin-note {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+.wizard .step .write-in {
+  width: 100%;
+  margin-top: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+}
+.wizard .step .intro-note {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+  resize: vertical;
+}
+.wizard .step .granted-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.25rem;
+}
+.wizard .step .count-muted {
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+.wizard .step .prompt-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+}
+.wizard .step .jump {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wizard .step .issue-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+.wizard .step .name-block {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+.wizard .step .details-sections {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+}
+.wizard .step .details-block h3 {
+  text-transform: capitalize;
+}
+.wizard .step .detail-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+.wizard .step .intro-steps {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+.wizard .step .intro-steps > li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.wizard .step .step-n {
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent) 14%, var(--paper-2));
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.wizard .step .q-list {
+  margin: 0 0 0.65rem;
+  padding-left: 1.1rem;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+.wizard .step .name-examples {
+  margin: 0.25rem 0 1rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
+.wizard .step .name-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.wizard .step .name-pick {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.7rem;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.wizard .step .name-pick.on {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  box-shadow: 0 0 0 1px var(--accent);
+  font-weight: 600;
+}
+.wizard .step .name-pick:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.wizard .step .ord {
+  display: inline-grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.wizard .step .pronoun-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin: 0.25rem 0 0.85rem;
+}
+.wizard .step .stat-array {
+  font-weight: 600;
+  color: var(--ink);
+}
+.wizard .step .stat-assign {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.75rem 0 0.5rem;
+}
+.wizard .step .stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+.wizard .step .stat-key {
+  width: 2.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.wizard .step .stat-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.wizard .step .stat-value {
+  min-width: 2.75rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.wizard .step .stat-value.on {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  box-shadow: 0 0 0 1px var(--accent);
+  font-weight: 600;
+}
+.wizard .step .stat-value:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.wizard .step .stat-status {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+.wizard .step .stat-status.ready {
+  color: var(--accent);
+  font-weight: 600;
+}
+.wizard .step .stat-status.warn {
+  color: var(--danger, #8c2f22);
+  font-weight: 600;
+}
+.wizard .step .nested {
+  margin: 0 0.25rem 0.5rem 1.4rem;
+  padding: 0.55rem 0.75rem;
+  border-left: 2px solid var(--line);
+  display: grid;
+  gap: 0.35rem;
+}
+.wizard .step .nested-label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+.wizard .step .nested-opt {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+}
+.wizard .step .review {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+.wizard .step .review dt {
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+.wizard .step .review dd {
+  margin: 0;
+}
+.wizard .step .warn {
+  color: var(--warn);
+  font-size: 0.88rem;
+}

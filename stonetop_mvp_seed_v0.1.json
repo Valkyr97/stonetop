@@ -1,0 +1,5725 @@
+{
+  "_meta": {
+    "game": "Stonetop",
+    "seed_name": "stonetop-mvp-content",
+    "schema_version": "0.1.0",
+    "generated_on": "2026-09-28",
+    "language": "en",
+    "scope": [
+      "player_playbooks",
+      "inserts",
+      "minor_arcana",
+      "major_arcana"
+    ],
+    "source_edition_note": "Structured from the public Stonetop Web Edition / Splatbook references available on 2026-09-28.",
+    "license": {
+      "game_text": "CC BY-SA 4.0",
+      "artwork": "excluded",
+      "artwork_note": "No Stonetop illustrations are included in this seed."
+    },
+    "verification_policy": {
+      "invented_values_allowed": false,
+      "ambiguous_controls": "leave pending instead of inferring",
+      "long_form_rule_text": "not embedded in this seed",
+      "source_traceability": true,
+      "implicit_source_states": "Do not invent a label for an unmarked/default state when the source sheet only labels depletion marks."
+    },
+    "counts": {
+      "playbooks": 9,
+      "inserts": 9,
+      "minor_arcana": 64,
+      "major_arcana": 18
+    }
+  },
+  "component_types": {
+    "checkbox": {
+      "value_type": "boolean"
+    },
+    "single_choice": {
+      "value_type": "string"
+    },
+    "single_choice_with_custom": {
+      "value_type": "string"
+    },
+    "multi_choice": {
+      "value_type": "array<string>"
+    },
+    "multi_choice_with_custom": {
+      "value_type": "array<string>"
+    },
+    "text": {
+      "value_type": "string"
+    },
+    "number": {
+      "value_type": "number"
+    },
+    "counter": {
+      "value_type": "integer"
+    },
+    "uses": {
+      "value_type": "integer",
+      "semantic": "used_or_remaining_is_renderer/domain-choice; persist one canonical convention"
+    },
+    "track": {
+      "value_type": "string",
+      "semantic": "one valid state at a time"
+    },
+    "checkbox_group": {
+      "value_type": "object<boolean>"
+    },
+    "reference_list": {
+      "value_type": "array<content_id>"
+    },
+    "single_reference_nullable": {
+      "value_type": "content_id|null"
+    },
+    "stat_assignment": {
+      "value_type": "object<number>"
+    },
+    "repeatable_text": {
+      "value_type": "array<string>"
+    },
+    "depletion_track": {
+      "value_type": "string|null",
+      "semantic": "null means no printed depletion mark is selected; only printed/source labels are enumerated"
+    }
+  },
+  "content": {
+    "playbooks": [
+      {
+        "name": "The Blessed",
+        "source": "https://stonetop-wiki.github.io/the-blessed.html",
+        "backgrounds": [
+          {
+            "name": "Initiate",
+            "grants": [
+              "move:rites-of-the-land",
+              "insert:initiates-of-danu"
+            ],
+            "id": "initiate",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Raised by Wolves",
+            "grants": [
+              "move:trackless-step"
+            ],
+            "id": "raised-by-wolves",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Vessel",
+            "grants": [
+              "move:danus-grasp"
+            ],
+            "id": "vessel",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Spirit Tongue",
+            "Call the Spirits"
+          ],
+          "background_granted": true,
+          "free_choices": 1
+        },
+        "moves": [
+          {
+            "id": "amulets-talismans",
+            "name": "Amulets & Talismans",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "barkskin",
+            "name": "Barkskin",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "big-magic",
+            "name": "Big Magic",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "danu-s-grasp",
+            "name": "Danu's Grasp",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "healer-s-arts",
+            "name": "Healer's Arts",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "heed-my-words",
+            "name": "Heed My Words",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "into-the-lion-s-den",
+            "name": "Into the Lion's Den",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "lightning-rod",
+            "name": "Lightning Rod",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "rites-of-the-land",
+            "name": "Rites of the Land",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "spirit-tongue",
+            "name": "Spirit Tongue",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "borrow-power",
+            "name": "Borrow Power",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "call-the-spirits",
+            "name": "Call the Spirits",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "trackless-step",
+            "name": "Trackless Step",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "veil",
+            "name": "Veil",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "wards-bindings",
+            "name": "Wards & Bindings",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "wild-soul",
+            "name": "Wild Soul",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "nature-s-wrath",
+            "name": "Nature's Wrath",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "potent-workings",
+            "name": "Potent Workings",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "shared-souls",
+            "name": "Shared Souls",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "suck-the-poison-out",
+            "name": "Suck the Poison Out",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "voice-of-the-earth-mother",
+            "name": "Voice of the Earth Mother",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [
+          {
+            "key": "sacred_pouch_stock",
+            "type": "counter",
+            "max": 16,
+            "source_status": "verified"
+          }
+        ],
+        "id": "blessed",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "delight",
+              "label": "Delight"
+            },
+            {
+              "id": "detachment",
+              "label": "Detachment"
+            },
+            {
+              "id": "nurture",
+              "label": "Nurture"
+            },
+            {
+              "id": "preservation",
+              "label": "Preservation"
+            },
+            {
+              "id": "reverence",
+              "label": "Reverence"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 18
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Fox",
+        "source": "https://stonetop-wiki.github.io/the-fox.html",
+        "backgrounds": [
+          {
+            "name": "The Natural",
+            "id": "the-natural",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "A Life of Crime",
+            "grants_choice": {
+              "moves": [
+                "Burgle",
+                "Light Fingers"
+              ],
+              "count": 1
+            },
+            "id": "a-life-of-crime",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "The Prodigal Returned",
+            "id": "the-prodigal-returned",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "choice_groups": [
+            {
+              "options": [
+                "Ambush",
+                "Skill at Arms"
+              ],
+              "count": 1
+            },
+            {
+              "options": [
+                "Danger Sense",
+                "Perceptive"
+              ],
+              "count": 1
+            }
+          ],
+          "free_choices": 1
+        },
+        "moves": [
+          {
+            "id": "all-in-the-wrist",
+            "name": "All in the Wrist",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "ambush",
+            "name": "Ambush",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "burgle",
+            "name": "Burgle",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "catlike",
+            "name": "Catlike",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "dabbler",
+            "name": "Dabbler",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "danger-sense",
+            "name": "Danger Sense",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "free-running",
+            "name": "Free Running",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "irresistible",
+            "name": "Irresistible",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "laugh-at-danger",
+            "name": "Laugh at Danger",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "light-fingers",
+            "name": "Light Fingers",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "perceptive",
+            "name": "Perceptive",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "rapier-wit",
+            "name": "Rapier Wit",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "skill-at-arms",
+            "name": "Skill at Arms",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "parry-riposte",
+            "name": "Parry & Riposte",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "silver-tongued",
+            "name": "Silver Tongued",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "under-your-skin",
+            "name": "Under Your Skin",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "battle-dancer",
+            "name": "Battle Dancer",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "cheap-shot",
+            "name": "Cheap Shot",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "eye-on-the-door",
+            "name": "Eye on the Door",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "pants-on-fire",
+            "name": "Pants on Fire",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "second-intent",
+            "name": "Second Intent",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "slippery",
+            "name": "Slippery",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "fox",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "conscience",
+              "label": "Conscience"
+            },
+            {
+              "id": "freedom",
+              "label": "Freedom"
+            },
+            {
+              "id": "comfort",
+              "label": "Comfort"
+            },
+            {
+              "id": "prestige",
+              "label": "Prestige"
+            },
+            {
+              "id": "trickery",
+              "label": "Trickery"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 16
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Heavy",
+        "source": "https://stonetop-wiki.github.io/the-heavy.html",
+        "backgrounds": [
+          {
+            "name": "Sheriff",
+            "id": "sheriff",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Blood-soaked Past",
+            "id": "blood-soaked-past",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Storm-marked",
+            "grants": [
+              "major_arcanum:storm-markings"
+            ],
+            "initial_arcana_marks": 1,
+            "id": "storm-marked",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Dangerous",
+            "Hard to Kill"
+          ],
+          "choice_groups": [
+            {
+              "options": [
+                "Armored",
+                "Uncanny Reflexes"
+              ],
+              "count": 1
+            }
+          ]
+        },
+        "moves": [
+          {
+            "id": "armored",
+            "name": "Armored",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "battle-joy",
+            "name": "Battle Joy",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "berserker",
+            "name": "Berserker",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "carved-out-of-wood",
+            "name": "Carved Out of Wood",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "dangerous",
+            "name": "Dangerous",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "formidable",
+            "name": "Formidable",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "frosty",
+            "name": "Frosty",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "guardian",
+            "name": "Guardian",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "intimidating",
+            "name": "Intimidating",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "hard-to-kill",
+            "name": "Hard to Kill",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "unstoppable",
+            "name": "Unstoppable",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "musclebound",
+            "name": "Musclebound",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "payback",
+            "name": "Payback",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "relentless",
+            "name": "Relentless",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "seasoned-warrior",
+            "name": "Seasoned Warrior",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "situational-awareness",
+            "name": "Situational Awareness",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "uncanny-reflexes",
+            "name": "Uncanny Reflexes",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "unfettered",
+            "name": "Unfettered",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "terror-on-the-field",
+            "name": "Terror on the Field",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "bringer-of-ruin",
+            "name": "Bringer of Ruin",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "cut-from-granite",
+            "name": "Cut from Granite",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "mighty-thews",
+            "name": "Mighty Thews",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "nemesis",
+            "name": "Nemesis",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "steadfast-guardian",
+            "name": "Steadfast Guardian",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "stone-cold",
+            "name": "Stone Cold",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "heavy",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "peace",
+              "label": "Peace"
+            },
+            {
+              "id": "pride",
+              "label": "Pride"
+            },
+            {
+              "id": "recklessness",
+              "label": "Recklessness"
+            },
+            {
+              "id": "trouble",
+              "label": "Trouble"
+            },
+            {
+              "id": "violence",
+              "label": "Violence"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 20
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Judge",
+        "source": "https://stonetop-wiki.github.io/the-judge.html",
+        "backgrounds": [
+          {
+            "name": "Legacy",
+            "id": "legacy",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Missionary",
+            "id": "missionary",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Prophet",
+            "trackers": [
+              {
+                "key": "sanction",
+                "type": "counter",
+                "source_status": "verified"
+              }
+            ],
+            "id": "prophet",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Censure",
+            "Chronicler of Stonetop"
+          ],
+          "free_choices": 2
+        },
+        "moves": [
+          {
+            "id": "aegis-of-faith",
+            "name": "Aegis of Faith",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "armored",
+            "name": "Armored",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "bear-witness",
+            "name": "Bear Witness",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "break-bread",
+            "name": "Break Bread",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "bulwark",
+            "name": "Bulwark",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "censure",
+            "name": "Censure",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "castigate",
+            "name": "Castigate",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "chronicler-of-stonetop",
+            "name": "Chronicler of Stonetop",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "for-the-greater-good",
+            "name": "For the Greater Good",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "hound-of-aratis",
+            "name": "Hound of Aratis",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "like-a-dog-with-a-bone",
+            "name": "Like a Dog with a Bone",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "knowledge-is-power",
+            "name": "Knowledge Is Power",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "many-hands-make-light-work",
+            "name": "Many Hands Make Light Work",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "a-bundle-of-sticks-unbroken",
+            "name": "A Bundle of Sticks Unbroken",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "the-hammer-and-the-book",
+            "name": "The Hammer and the Book",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "truth-or-consequences",
+            "name": "Truth or Consequences",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "binding-arbitration",
+            "name": "Binding Arbitration",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "vision-unclouded",
+            "name": "Vision Unclouded",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "well-read",
+            "name": "Well-read",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "a-mighty-rampart",
+            "name": "A Mighty Rampart",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "armistice",
+            "name": "Armistice",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "condemn",
+            "name": "Condemn",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "proclamation",
+            "name": "Proclamation",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "mirrorshield",
+            "name": "Mirrorshield",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "the-tower-eternal",
+            "name": "The Tower Eternal",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "judge",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "ambition",
+              "label": "Ambition"
+            },
+            {
+              "id": "dispassion",
+              "label": "Dispassion"
+            },
+            {
+              "id": "harmony",
+              "label": "Harmony"
+            },
+            {
+              "id": "orthodoxy",
+              "label": "Orthodoxy"
+            },
+            {
+              "id": "zeal",
+              "label": "Zeal"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 20
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Lightbearer",
+        "source": "https://stonetop-wiki.github.io/the-lightbearer.html",
+        "backgrounds": [
+          {
+            "name": "Auspicious Birth",
+            "trackers": [
+              {
+                "key": "background_circle",
+                "type": "uses",
+                "max": 1,
+                "source_status": "verified"
+              }
+            ],
+            "id": "auspicious-birth",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Itinerant Mystic",
+            "trackers": [
+              {
+                "key": "enigma",
+                "type": "counter",
+                "max": 3,
+                "initial": 3,
+                "source_status": "verified"
+              }
+            ],
+            "id": "itinerant-mystic",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Soul on Fire",
+            "id": "soul-on-fire",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Consecrated Flame",
+            "Invoke the Sun God"
+          ],
+          "free_choices": 1
+        },
+        "moves": [
+          {
+            "id": "a-candle-against-the-dark",
+            "name": "A Candle Against the Dark",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "luminous-shield",
+            "name": "Luminous Shield",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "all-is-illuminated",
+            "name": "All Is Illuminated",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "and-behold-a-pale-horse",
+            "name": "And Behold a Pale Horse",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "consecrated-flame",
+            "name": "Consecrated Flame",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "fire-within",
+            "name": "Fire Within",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "guiding-light",
+            "name": "Guiding Light",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "helior-s-unblinking-eye",
+            "name": "Helior's Unblinking Eye",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "invoke-the-sun-god",
+            "name": "Invoke the Sun God",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "keep-the-home-fires-burning",
+            "name": "Keep the Home-fires Burning",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "lamplighter",
+            "name": "Lamplighter",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "piety",
+            "name": "Piety",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "purifying-flames",
+            "name": "Purifying Flames",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "radiant-countenance",
+            "name": "Radiant Countenance",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "rise-like-the-sun",
+            "name": "Rise Like the Sun",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "spring-s-first-thaw",
+            "name": "Spring's First Thaw",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "burn-twice-as-bright",
+            "name": "Burn Twice as Bright",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "empowered-invocations",
+            "name": "Empowered Invocations",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "glorious-servant",
+            "name": "Glorious Servant",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "hungry-flames",
+            "name": "Hungry Flames",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "light-more-light",
+            "name": "Light, More Light",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "wielder-of-the-white-flame",
+            "name": "Wielder of the White Flame",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "lightbearer",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "charity",
+              "label": "Charity"
+            },
+            {
+              "id": "hope",
+              "label": "Hope"
+            },
+            {
+              "id": "mercy",
+              "label": "Mercy"
+            },
+            {
+              "id": "praise",
+              "label": "Praise"
+            },
+            {
+              "id": "righteousness",
+              "label": "Righteousness"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 18
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Marshal",
+        "source": "https://stonetop-wiki.github.io/the-marshal.html",
+        "backgrounds": [
+          {
+            "name": "Scion",
+            "grants": [
+              "move:veteran-crew"
+            ],
+            "crew_auto_tags": [
+              "respected"
+            ],
+            "id": "scion",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Penitent",
+            "crew_auto_tags": [
+              "warriors"
+            ],
+            "id": "penitent",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Luminary",
+            "grants": [
+              "move:we-happy-few"
+            ],
+            "crew_auto_tags": [
+              "devoted"
+            ],
+            "id": "luminary",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Crew",
+            "Logistics"
+          ],
+          "background_granted": true,
+          "free_choices": 1
+        },
+        "moves": [
+          {
+            "id": "armored",
+            "name": "Armored",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "arts-of-war",
+            "name": "Arts of War",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "crew",
+            "name": "Crew",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "veteran-crew",
+            "name": "Veteran Crew",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "front-line-leader",
+            "name": "Front Line Leader",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "logistics",
+            "name": "Logistics",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "read-the-land",
+            "name": "Read the Land",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "prepare-a-welcome",
+            "name": "Prepare a Welcome",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "set-up-strike",
+            "name": "Set-up Strike",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "shake-it-off",
+            "name": "Shake It Off",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "shield-wall",
+            "name": "Shield Wall",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "sir-permission-to-die-sir",
+            "name": "Sir, Permission to Die, Sir",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "speak-softly",
+            "name": "Speak Softly",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "stentorian",
+            "name": "Stentorian",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "take-the-measure",
+            "name": "Take the Measure",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "we-happy-few",
+            "name": "We Happy Few",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "battlefield-grace",
+            "name": "Battlefield Grace",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "heroes-to-the-last",
+            "name": "Heroes to the Last",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "focus-fire",
+            "name": "Focus Fire",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "like-an-open-book",
+            "name": "Like an Open Book",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "noble-mien",
+            "name": "Noble Mien",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "peace-through-strength",
+            "name": "Peace Through Strength",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "marshal",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "authority",
+              "label": "Authority"
+            },
+            {
+              "id": "caution",
+              "label": "Caution"
+            },
+            {
+              "id": "drive",
+              "label": "Drive"
+            },
+            {
+              "id": "honor",
+              "label": "Honor"
+            },
+            {
+              "id": "ruthlessness",
+              "label": "Ruthlessness"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 20
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Ranger",
+        "source": "https://stonetop-wiki.github.io/the-ranger.html",
+        "backgrounds": [
+          {
+            "name": "Mighty Hunter",
+            "grants": [
+              "move:expert-tracker",
+              "move:stalker"
+            ],
+            "id": "mighty-hunter",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Wide Wanderer",
+            "grants": [
+              "move:mental-map"
+            ],
+            "id": "wide-wanderer",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Beast-bonded",
+            "grants": [
+              "move:animal-companion"
+            ],
+            "progressive_choices": {
+              "levels": [
+                1,
+                3,
+                5,
+                7,
+                9
+              ],
+              "count_each": 1,
+              "options": [
+                "Gauge its distance and direction from you",
+                "Call it back to your side",
+                "Sense its emotional state",
+                "Get a brief impression of what it senses",
+                "Lend it your strength"
+              ]
+            },
+            "id": "beast-bonded",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Home on the Range"
+          ],
+          "background_granted": true,
+          "free_choices": 1
+        },
+        "moves": [
+          {
+            "id": "a-safe-place",
+            "name": "A Safe Place",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "animal-companion",
+            "name": "Animal Companion",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "magnificent-specimen",
+            "name": "Magnificent Specimen",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "big-game-hunter",
+            "name": "Big Game Hunter",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "blot-out-the-sun",
+            "name": "Blot Out the Sun",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "call-the-shot",
+            "name": "Call the Shot",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "expert-tracker",
+            "name": "Expert Tracker",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "home-on-the-range",
+            "name": "Home on the Range",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "mental-map",
+            "name": "Mental Map",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "naturalist",
+            "name": "Naturalist",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "on-the-hoof",
+            "name": "On the Hoof",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "pack-horse",
+            "name": "Pack Horse",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "pathfinder",
+            "name": "Pathfinder",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "predator",
+            "name": "Predator",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "sniff-out-corruption",
+            "name": "Sniff Out Corruption",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "stalker",
+            "name": "Stalker",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "survivalist",
+            "name": "Survivalist",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "warden-of-the-wild",
+            "name": "Warden of the Wild",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "wild-speech",
+            "name": "Wild Speech",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "worldly",
+            "name": "Worldly",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "alpha",
+            "name": "Alpha",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "beast-of-legend",
+            "name": "Beast of Legend",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "constant-vigilance",
+            "name": "Constant Vigilance",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "giant-slayer",
+            "name": "Giant Slayer",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "trailblazer",
+            "name": "Trailblazer",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "walk-it-off",
+            "name": "Walk It Off",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [],
+        "id": "ranger",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "adventure",
+              "label": "Adventure"
+            },
+            {
+              "id": "independence",
+              "label": "Independence"
+            },
+            {
+              "id": "stewardship",
+              "label": "Stewardship"
+            },
+            {
+              "id": "tenacity",
+              "label": "Tenacity"
+            },
+            {
+              "id": "wonder",
+              "label": "Wonder"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 18
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Seeker",
+        "source": "https://stonetop-wiki.github.io/the-seeker.html",
+        "backgrounds": [
+          {
+            "name": "Patriot",
+            "grants": [
+              "move:lets-make-a-deal"
+            ],
+            "major_arcanum_choice": [
+              "Hec'tumel Codex",
+              "Red Scepter",
+              "Staff of the Lidless Orb"
+            ],
+            "id": "patriot",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Antiquarian",
+            "grants": [
+              "move:polyglot"
+            ],
+            "major_arcanum_choice": [
+              "Noruba's Ice Sphere",
+              "Azure Hand",
+              "Mindgem"
+            ],
+            "id": "antiquarian",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Witch Hunter",
+            "grants": [
+              "move:everything-bleeds"
+            ],
+            "major_arcanum_choice": [
+              "Demonhide Cloak",
+              "Redwood Effigy",
+              "Twisted Spear"
+            ],
+            "id": "witch-hunter",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Well Versed",
+            "Work With What You've Got"
+          ],
+          "background_granted": true
+        },
+        "moves": [
+          {
+            "id": "attuned",
+            "name": "Attuned",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "conduit-of-power",
+            "name": "Conduit of Power",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "countermeasures",
+            "name": "Countermeasures",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "everything-bleeds",
+            "name": "Everything Bleeds",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "everything-burns",
+            "name": "Everything Burns",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "initiate-of-the-secret-arts",
+            "name": "Initiate of the Secret Arts",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "let-s-make-a-deal",
+            "name": "Let's Make a Deal",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "logbook",
+            "name": "Logbook",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "magpie",
+            "name": "Magpie",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "never-at-a-loss",
+            "name": "Never at a Loss",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "polyglot",
+            "name": "Polyglot",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "cryptologist",
+            "name": "Cryptologist",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "quick-study",
+            "name": "Quick Study",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "safety-first",
+            "name": "Safety First",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "sage-advice",
+            "name": "Sage Advice",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "well-versed",
+            "name": "Well Versed",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "work-with-what-you-ve-got",
+            "name": "Work With What You've Got",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "arcane-adept",
+            "name": "Arcane Adept",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "deep-insight",
+            "name": "Deep Insight",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improvise",
+            "name": "Improvise",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "mind-over-magic",
+            "name": "Mind over Magic",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "overchannel",
+            "name": "Overchannel",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "proof-against-detection",
+            "name": "Proof Against Detection",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [
+          {
+            "key": "collection_minor_arcana",
+            "type": "reference_list",
+            "target": "minor_arcanum",
+            "source_status": "verified"
+          },
+          {
+            "key": "collection_major_arcana",
+            "type": "reference_list",
+            "target": "major_arcanum",
+            "source_status": "verified"
+          }
+        ],
+        "id": "seeker",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "cunning",
+              "label": "Cunning"
+            },
+            {
+              "id": "curiosity",
+              "label": "Curiosity"
+            },
+            {
+              "id": "hubris",
+              "label": "Hubris"
+            },
+            {
+              "id": "mystery",
+              "label": "Mystery"
+            },
+            {
+              "id": "vision",
+              "label": "Vision"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 16
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      },
+      {
+        "name": "The Would-be Hero",
+        "source": "https://stonetop-wiki.github.io/the-would-be-hero.html",
+        "backgrounds": [
+          {
+            "name": "Impetuous Youth",
+            "id": "impetuous-youth",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Driven",
+            "id": "driven",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          },
+          {
+            "name": "Destined",
+            "trackers": [
+              {
+                "key": "omens",
+                "type": "counter",
+                "max": 3,
+                "source_status": "verified"
+              }
+            ],
+            "id": "destined",
+            "control": {
+              "type": "single_choice",
+              "group": "background"
+            }
+          }
+        ],
+        "starting_moves": {
+          "fixed": [
+            "Anger Is a Gift",
+            "Potential for Greatness"
+          ],
+          "free_choices": 2
+        },
+        "moves": [
+          {
+            "id": "anger-is-a-gift",
+            "name": "Anger Is a Gift",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "speak-truth-to-power",
+            "name": "Speak Truth to Power",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "better-part-of-valor",
+            "name": "Better Part of Valor",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "i-get-knocked-down",
+            "name": "I Get Knocked Down",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "but-i-get-up-again",
+            "name": "But I Get Up Again",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "improved-stat",
+            "name": "Improved Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "in-over-your-head",
+            "name": "In Over Your Head",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "iron-will",
+            "name": "Iron Will",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "inquiring-minds",
+            "name": "Inquiring Minds",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "never-gonna-keep-me-down",
+            "name": "Never Gonna Keep Me Down",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "potential-for-greatness",
+            "name": "Potential for Greatness",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "resourceful",
+            "name": "Resourceful",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "something-to-remember-me-by",
+            "name": "Something to Remember Me By",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "tough-love",
+            "name": "Tough Love",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "underestimated",
+            "name": "Underestimated",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "up-with-people",
+            "name": "Up with People",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "versatile",
+            "name": "Versatile",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "a-force-to-be-reckoned-with",
+            "name": "A Force to Be Reckoned With",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "big-damn-hero",
+            "name": "Big Damn Hero",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "superior-stat",
+            "name": "Superior Stat",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "undaunted",
+            "name": "Undaunted",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          },
+          {
+            "id": "voice-of-experience",
+            "name": "Voice of Experience",
+            "selected_control": {
+              "type": "checkbox"
+            },
+            "rule_text": null,
+            "rule_text_status": "not_embedded",
+            "source_status": "name_verified"
+          }
+        ],
+        "unique_state": [
+          {
+            "key": "fear",
+            "type": "track",
+            "source_status": "pending_detail_normalization"
+          },
+          {
+            "key": "anger_resolve",
+            "type": "counter",
+            "source_status": "verified"
+          }
+        ],
+        "id": "would-be-hero",
+        "type": "playbook",
+        "verification": {
+          "catalog": "verified",
+          "core_choices": "verified",
+          "move_names": "verified",
+          "move_rule_bodies": "not_embedded",
+          "special_possessions": "pending_full_normalization",
+          "appearance_and_origin_options": "pending_full_normalization"
+        },
+        "instinct": {
+          "type": "single_choice",
+          "options": [
+            {
+              "id": "defiance",
+              "label": "Defiance"
+            },
+            {
+              "id": "doubt",
+              "label": "Doubt"
+            },
+            {
+              "id": "earnestness",
+              "label": "Earnestness"
+            },
+            {
+              "id": "optimism",
+              "label": "Optimism"
+            },
+            {
+              "id": "sacrifice",
+              "label": "Sacrifice"
+            }
+          ]
+        },
+        "common_state": {
+          "stats": {
+            "type": "stat_assignment",
+            "stats": [
+              "STR",
+              "DEX",
+              "INT",
+              "WIS",
+              "CON",
+              "CHA"
+            ],
+            "available_values": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              -1
+            ]
+          },
+          "debilities": {
+            "type": "checkbox_group",
+            "options": [
+              "weakened",
+              "dazed",
+              "miserable"
+            ]
+          },
+          "hp": {
+            "type": "counter",
+            "min": 0,
+            "max": 16
+          },
+          "armor": {
+            "type": "counter",
+            "min": 0
+          },
+          "xp": {
+            "type": "counter",
+            "min": 0
+          },
+          "level": {
+            "type": "counter",
+            "min": 1
+          },
+          "character_name": {
+            "type": "text"
+          },
+          "origin": {
+            "type": "single_choice_with_custom"
+          },
+          "appearance": {
+            "type": "multi_choice_with_custom"
+          }
+        }
+      }
+    ],
+    "inserts": [
+      {
+        "id": "inventory",
+        "type": "insert",
+        "name": "Inventory",
+        "source": "https://stonetop-wiki.github.io/inventory.html",
+        "verification": "verified_structure",
+        "state_schema": {
+          "load": {
+            "type": "derived_band",
+            "bands": [
+              {
+                "label": "light",
+                "max": 3
+              },
+              {
+                "label": "normal",
+                "min": 4,
+                "max": 6
+              },
+              {
+                "label": "heavy",
+                "min": 7,
+                "max": 9
+              }
+            ]
+          },
+          "prosperity": {
+            "type": "single_choice",
+            "values": [
+              -1,
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "custom_load_slots": {
+            "type": "repeatable_text",
+            "count": 9
+          }
+        },
+        "gear": [
+          {
+            "name": "Supplies",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "uses",
+                "type": "uses",
+                "max_formula": "4 + prosperity"
+              }
+            ],
+            "id": "supplies",
+            "source_status": "verified"
+          },
+          {
+            "name": "More supplies",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "uses",
+                "type": "uses",
+                "max_formula": "4 + prosperity"
+              }
+            ],
+            "id": "more-supplies",
+            "source_status": "verified"
+          },
+          {
+            "name": "Even more supplies",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "uses",
+                "type": "uses",
+                "max_formula": "4 + prosperity"
+              }
+            ],
+            "id": "even-more-supplies",
+            "source_status": "verified"
+          },
+          {
+            "name": "Mess kit",
+            "load": 1,
+            "id": "mess-kit",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Bedroll",
+            "load": 1,
+            "id": "bedroll",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Blanket",
+            "load": 1,
+            "id": "blanket",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Change of clothes",
+            "load": 1,
+            "id": "change-of-clothes",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Rope (~25 ft)",
+            "load": 1,
+            "id": "rope-25-ft",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Shovel",
+            "load": 1,
+            "id": "shovel",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Sledge / litter / travois",
+            "load": 2,
+            "id": "sledge-litter-travois",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Snow-shoes",
+            "load": 1,
+            "id": "snow-shoes",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Torch",
+            "load": 1,
+            "id": "torch",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Oil lamp",
+            "load": 1,
+            "controls": [
+              {
+                "key": "fuel_hours",
+                "type": "counter",
+                "max": 3
+              }
+            ],
+            "id": "oil-lamp",
+            "source_status": "verified"
+          },
+          {
+            "name": "Extra oil",
+            "load": 1,
+            "controls": [
+              {
+                "key": "fuel_hours",
+                "type": "counter",
+                "max": 5
+              }
+            ],
+            "id": "extra-oil",
+            "source_status": "verified"
+          },
+          {
+            "name": "Firewood",
+            "load": 2,
+            "id": "firewood",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Hatchet, iron",
+            "load": 1,
+            "id": "hatchet-iron",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Mallet, iron/wood",
+            "load": 1,
+            "id": "mallet-iron-wood",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Mattock, iron",
+            "load": 1,
+            "id": "mattock-iron",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Maul, iron",
+            "load": 2,
+            "id": "maul-iron",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Staff",
+            "load": 1,
+            "id": "staff",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Spear, iron",
+            "load": 1,
+            "id": "spear-iron",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Long spear, iron",
+            "load": 2,
+            "id": "long-spear-iron",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Bow & iron arrows",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "ammo",
+                "type": "depletion_track",
+                "states": [
+                  {
+                    "value": "low",
+                    "label": "low ammo"
+                  },
+                  {
+                    "value": "all_out",
+                    "label": "all out"
+                  }
+                ],
+                "unmarked_state": {
+                  "label": null,
+                  "status": "implicit_on_source_sheet"
+                }
+              }
+            ],
+            "id": "bow-iron-arrows",
+            "source_status": "verified"
+          },
+          {
+            "name": "Extra arrows",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "ammo",
+                "type": "depletion_track",
+                "states": [
+                  {
+                    "value": "low",
+                    "label": "low ammo"
+                  },
+                  {
+                    "value": "all_out",
+                    "label": "all out"
+                  }
+                ],
+                "unmarked_state": {
+                  "label": null,
+                  "status": "implicit_on_source_sheet"
+                }
+              }
+            ],
+            "id": "extra-arrows",
+            "source_status": "verified"
+          },
+          {
+            "name": "Javelins, a few, iron",
+            "load": 1,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "all_out",
+                "type": "checkbox",
+                "label": "all out"
+              }
+            ],
+            "id": "javelins-a-few-iron",
+            "source_status": "verified"
+          },
+          {
+            "name": "Shield",
+            "load": 2,
+            "id": "shield",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Thick hides",
+            "load": 2,
+            "id": "thick-hides",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "name": "Cloak",
+            "load": 1,
+            "id": "cloak",
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          }
+        ],
+        "small_items": [
+          {
+            "id": "knife-dagger-iron",
+            "name": "Knife/dagger, iron",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "sling",
+            "name": "Sling",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "ammo",
+                "type": "depletion_track",
+                "states": [
+                  {
+                    "value": "low",
+                    "label": "low ammo"
+                  },
+                  {
+                    "value": "all_out",
+                    "label": "all out"
+                  }
+                ],
+                "unmarked_state": {
+                  "label": null,
+                  "status": "implicit_on_source_sheet"
+                }
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "rushlight",
+            "name": "Rushlight",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "tinderbox",
+            "name": "Tinderbox",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "needle-thread",
+            "name": "Needle & thread",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "handful-of-coppers",
+            "name": "Handful of coppers",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "whisky-skin",
+            "name": "Whisky skin",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              },
+              {
+                "key": "uses",
+                "type": "uses",
+                "max": 2
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "awl",
+            "name": "Awl",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "bowstring",
+            "name": "Bowstring",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "chalk",
+            "name": "Chalk",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "charcoal",
+            "name": "Charcoal",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "clay-jar",
+            "name": "Clay jar",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "cloth-rag",
+            "name": "Cloth/rag",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "comb",
+            "name": "Comb",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "cup",
+            "name": "Cup",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "extra-socks",
+            "name": "Extra socks",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "gloves",
+            "name": "Gloves",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "little-box",
+            "name": "Little box",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "sack-empty",
+            "name": "Sack, empty",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "sawdust",
+            "name": "Sawdust",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "tallow",
+            "name": "Tallow",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "twine-cord",
+            "name": "Twine/cord",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "waterskin",
+            "name": "Waterskin",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "whetstone",
+            "name": "Whetstone",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          },
+          {
+            "id": "whistle",
+            "name": "Whistle",
+            "load": 0,
+            "controls": [
+              {
+                "key": "carried",
+                "type": "checkbox"
+              }
+            ],
+            "source_status": "verified"
+          }
+        ],
+        "small_item_custom_slots": 10
+      },
+      {
+        "id": "animal-companion",
+        "type": "insert",
+        "name": "Animal Companion",
+        "source": "https://stonetop-wiki.github.io/animal-companion.html",
+        "verification": "verified_structure_partial_catalog",
+        "state_schema": {
+          "name": {
+            "type": "text"
+          },
+          "type": {
+            "type": "single_choice"
+          },
+          "max_hp": {
+            "type": "number"
+          },
+          "current_hp": {
+            "type": "counter"
+          },
+          "armor": {
+            "type": "number"
+          },
+          "damage_die": {
+            "type": "single_choice"
+          },
+          "damage_tags": {
+            "type": "text"
+          },
+          "traits": {
+            "type": "multi_choice"
+          },
+          "instinct": {
+            "type": "text"
+          },
+          "cost": {
+            "type": "text"
+          }
+        },
+        "known_verified_examples": [
+          {
+            "type_name": "Bird",
+            "base_max_hp": 5,
+            "base_armor": 1,
+            "base_damage_die": "d4"
+          }
+        ],
+        "detail_status": "pending_full_type_and_trait_normalization"
+      },
+      {
+        "id": "crew",
+        "type": "insert",
+        "name": "Crew",
+        "source": "https://stonetop-wiki.github.io/crew.html",
+        "verification": "verified_structure_partial_catalog",
+        "state_schema": {
+          "members": {
+            "type": "reference_list"
+          },
+          "current_hp_each": {
+            "type": "counter"
+          },
+          "max_hp_each": {
+            "type": "number",
+            "default": 6
+          },
+          "armor": {
+            "type": "number",
+            "default": 0
+          },
+          "damage_die": {
+            "type": "single_choice",
+            "default": "d6"
+          },
+          "tags": {
+            "type": "multi_choice"
+          },
+          "loyalty": {
+            "type": "counter"
+          },
+          "instinct": {
+            "type": "text"
+          },
+          "cost": {
+            "type": "text"
+          }
+        },
+        "verified_tag_catalog": [
+          "archers",
+          "athletic",
+          "brave",
+          "cunning",
+          "devoted",
+          "group",
+          "hardy",
+          "intimidating",
+          "observant",
+          "patient",
+          "respected",
+          "stealthy",
+          "warriors"
+        ],
+        "conditional_tags": [
+          {
+            "name": "exceptional",
+            "requires": "move:heroes-to-the-last"
+          }
+        ],
+        "detail_status": "pending_full_inventory_individuals_and_order-followers_normalization"
+      },
+      {
+        "id": "initiates-of-danu",
+        "type": "insert",
+        "name": "Initiates of Danu",
+        "source": "https://stonetop-wiki.github.io/initiates-of-danu.html",
+        "verification": "verified_member_names_partial_stats",
+        "members": [
+          {
+            "name": "Enfys",
+            "id": "enfys"
+          },
+          {
+            "name": "Afon",
+            "id": "afon"
+          },
+          {
+            "name": "Gwendyl",
+            "id": "gwendyl"
+          },
+          {
+            "name": "Olwin",
+            "id": "olwin"
+          },
+          {
+            "name": "Seren the Eldest",
+            "id": "seren-the-eldest"
+          }
+        ],
+        "detail_status": "pending_full_follower_card_normalization"
+      },
+      {
+        "id": "invocations",
+        "type": "insert",
+        "name": "Invocations",
+        "source": "https://stonetop-wiki.github.io/invocations.html",
+        "verification": "verified_structure_partial_catalog",
+        "state_schema": {
+          "known_invocations": {
+            "type": "reference_list"
+          },
+          "ongoing_invocation": {
+            "type": "single_reference_nullable"
+          }
+        },
+        "known_verified_entries": [
+          {
+            "name": "Bath of Healing Light",
+            "id": "bath-of-healing-light"
+          }
+        ],
+        "detail_status": "pending_full_invocation_catalog_normalization"
+      },
+      {
+        "id": "followers",
+        "type": "insert",
+        "name": "Followers",
+        "source": "https://stonetop-wiki.github.io/followers.html",
+        "verification": "verified_structure",
+        "state_schema": {
+          "name": {
+            "type": "text"
+          },
+          "tags": {
+            "type": "multi_choice_with_custom"
+          },
+          "max_hp": {
+            "type": "number"
+          },
+          "current_hp": {
+            "type": "counter"
+          },
+          "armor": {
+            "type": "number"
+          },
+          "damage_die": {
+            "type": "single_choice"
+          },
+          "damage_tags": {
+            "type": "text"
+          },
+          "instinct": {
+            "type": "text"
+          },
+          "cost": {
+            "type": "text"
+          },
+          "loyalty": {
+            "type": "counter"
+          },
+          "moves": {
+            "type": "repeatable_text"
+          },
+          "relationships": {
+            "type": "repeatable_text"
+          }
+        }
+      },
+      {
+        "id": "ghost",
+        "type": "insert",
+        "name": "Ghost",
+        "source": "https://stonetop-wiki.github.io/ghost.html",
+        "verification": "verified_structure_partial_details",
+        "state_schema": {
+          "instinct": {
+            "type": "single_choice",
+            "options": [
+              "Denial",
+              "Obsession",
+              "Ennui"
+            ]
+          },
+          "terrible_purpose": {
+            "type": "single_choice",
+            "options": [
+              "Longing",
+              "Vengeance",
+              "Duty"
+            ]
+          },
+          "moves_selected": {
+            "type": "reference_list"
+          },
+          "consequences": {
+            "type": "checkbox_group"
+          }
+        },
+        "known_moves": [
+          "Unliving",
+          "Disembodied"
+        ],
+        "detail_status": "pending_complete_moves_and_consequences_normalization"
+      },
+      {
+        "id": "revenant",
+        "type": "insert",
+        "name": "Revenant",
+        "source": "https://stonetop-wiki.github.io/revenant.html",
+        "verification": "verified_structure_partial_details",
+        "state_schema": {
+          "instinct": {
+            "type": "single_choice",
+            "options": [
+              "Denial",
+              "Obsession",
+              "Ennui"
+            ]
+          },
+          "terrible_purpose": {
+            "type": "single_choice",
+            "options": [
+              "Longing",
+              "Vengeance",
+              "Duty"
+            ]
+          },
+          "moves_selected": {
+            "type": "reference_list"
+          },
+          "consequences": {
+            "type": "checkbox_group"
+          }
+        },
+        "known_moves": [
+          "Unliving",
+          "Undying",
+          "Implacable"
+        ],
+        "detail_status": "pending_complete_consequences_normalization"
+      },
+      {
+        "id": "thrall",
+        "type": "insert",
+        "name": "Thrall",
+        "source": "https://stonetop-wiki.github.io/thrall.html",
+        "verification": "verified_structure_partial_details",
+        "state_schema": {
+          "master": {
+            "type": "text"
+          },
+          "impulse": {
+            "type": "single_choice_with_custom"
+          },
+          "instinct": {
+            "type": "single_choice",
+            "options": [
+              "Fascination",
+              "Resistance",
+              "Shame"
+            ]
+          },
+          "moves_selected": {
+            "type": "reference_list"
+          },
+          "marks": {
+            "type": "checkbox_group"
+          }
+        },
+        "detail_status": "pending_impulse_move_and_marks_catalog_normalization"
+      }
+    ],
+    "arcana": {
+      "minor": [
+        {
+          "id": "laoj-daveth-s-galvanic-infusion",
+          "ordinal": 1,
+          "type": "minor_arcanum",
+          "name": "Laoj Daveth's Galvanic Infusion",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "truth-seeds",
+          "ordinal": 2,
+          "type": "minor_arcanum",
+          "name": "Truth Seeds",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "old-mother-s-wine",
+          "ordinal": 3,
+          "type": "minor_arcanum",
+          "name": "Old Mother's Wine",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "aalz-galt-s-sudden-sinkhole",
+          "ordinal": 4,
+          "type": "minor_arcanum",
+          "name": "Aalz Galt's Sudden Sinkhole",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "shell-game-of-souls",
+          "ordinal": 5,
+          "type": "minor_arcanum",
+          "name": "Shell Game of Souls",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "thunderous-bellow",
+          "ordinal": 6,
+          "type": "minor_arcanum",
+          "name": "Thunderous Bellow",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-fiery-veil",
+          "ordinal": 7,
+          "type": "minor_arcanum",
+          "name": "The Fiery Veil",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-tomb-bog-s-mark",
+          "ordinal": 8,
+          "type": "minor_arcanum",
+          "name": "The Tomb-bog's Mark",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "fear-of-the-flame",
+          "ordinal": 9,
+          "type": "minor_arcanum",
+          "name": "Fear of the Flame",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "mantle-wraiths",
+          "ordinal": 10,
+          "type": "minor_arcanum",
+          "name": "Mantle Wraiths",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "shattering-words-of-aalz-childric",
+          "ordinal": 11,
+          "type": "minor_arcanum",
+          "name": "Shattering Words of Aalz Childric",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "ffyrnig-tonic",
+          "ordinal": 12,
+          "type": "minor_arcanum",
+          "name": "Ffyrnig Tonic",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "song-of-the-dool-trees",
+          "ordinal": 13,
+          "type": "minor_arcanum",
+          "name": "Song of the Dool Trees",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "ward-of-still-waters",
+          "ordinal": 14,
+          "type": "minor_arcanum",
+          "name": "Ward of Still Waters",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "ice-weaving",
+          "ordinal": 15,
+          "type": "minor_arcanum",
+          "name": "Ice Weaving",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-six-locks-of-sajua",
+          "ordinal": 16,
+          "type": "minor_arcanum",
+          "name": "The Six Locks of Sajua",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "helior-s-shining-ring",
+          "ordinal": 17,
+          "type": "minor_arcanum",
+          "name": "Helior's Shining Ring",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "nerth-serpent-s-vigor",
+          "ordinal": 18,
+          "type": "minor_arcanum",
+          "name": "Nerth Serpent's Vigor",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "goldleaf-cloak",
+          "ordinal": 19,
+          "type": "minor_arcanum",
+          "name": "Goldleaf Cloak",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "opening-the-way",
+          "ordinal": 20,
+          "type": "minor_arcanum",
+          "name": "Opening the Way",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-drowning-scale",
+          "ordinal": 21,
+          "type": "minor_arcanum",
+          "name": "The Drowning Scale",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "preserving-runes",
+          "ordinal": 22,
+          "type": "minor_arcanum",
+          "name": "Preserving Runes",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "peacebond",
+          "ordinal": 23,
+          "type": "minor_arcanum",
+          "name": "Peacebond",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-eye-opened",
+          "ordinal": 24,
+          "type": "minor_arcanum",
+          "name": "The Eye, Opened",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "sanctifying-mark",
+          "ordinal": 25,
+          "type": "minor_arcanum",
+          "name": "Sanctifying Mark",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-green-lord-s-shade",
+          "ordinal": 26,
+          "type": "minor_arcanum",
+          "name": "The Green Lord's Shade",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "chimeric-transmogrification",
+          "ordinal": 27,
+          "type": "minor_arcanum",
+          "name": "Chimeric Transmogrification",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-sylvan-web",
+          "ordinal": 28,
+          "type": "minor_arcanum",
+          "name": "The Sylvan Web",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "flying-cloak",
+          "ordinal": 29,
+          "type": "minor_arcanum",
+          "name": "Flying Cloak",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "satchel-of-plenty",
+          "ordinal": 30,
+          "type": "minor_arcanum",
+          "name": "Satchel of Plenty",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "dancing-wind-spirit",
+          "ordinal": 31,
+          "type": "minor_arcanum",
+          "name": "Dancing Wind Spirit",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "call-of-the-hunt",
+          "ordinal": 32,
+          "type": "minor_arcanum",
+          "name": "Call of the Hunt",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "convocation-of-the-soil",
+          "ordinal": 33,
+          "type": "minor_arcanum",
+          "name": "Convocation of the Soil",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "unliving-chimera",
+          "ordinal": 34,
+          "type": "minor_arcanum",
+          "name": "Unliving Chimera",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "impudent-polymorph",
+          "ordinal": 35,
+          "type": "minor_arcanum",
+          "name": "Impudent Polymorph",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "make-pliant-the-stone",
+          "ordinal": 36,
+          "type": "minor_arcanum",
+          "name": "Make Pliant the Stone",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "plaster-of-joining",
+          "ordinal": 37,
+          "type": "minor_arcanum",
+          "name": "Plaster of Joining",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "cold-mind-iron-body",
+          "ordinal": 38,
+          "type": "minor_arcanum",
+          "name": "Cold Mind, Iron Body",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "little-friend",
+          "ordinal": 39,
+          "type": "minor_arcanum",
+          "name": "Little Friend",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "revealing-light",
+          "ordinal": 40,
+          "type": "minor_arcanum",
+          "name": "Revealing Light",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "darkwalker-cloak",
+          "ordinal": 41,
+          "type": "minor_arcanum",
+          "name": "Darkwalker Cloak",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-flesh-is-like-clay",
+          "ordinal": 42,
+          "type": "minor_arcanum",
+          "name": "The Flesh Is Like Clay",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "fetch-s-mask",
+          "ordinal": 43,
+          "type": "minor_arcanum",
+          "name": "Fetch's Mask",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "witch-bottle",
+          "ordinal": 44,
+          "type": "minor_arcanum",
+          "name": "Witch Bottle",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "wishing-candles",
+          "ordinal": 45,
+          "type": "minor_arcanum",
+          "name": "Wishing Candles",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "baleful-utterance",
+          "ordinal": 46,
+          "type": "minor_arcanum",
+          "name": "Baleful Utterance",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "aetherium-spear",
+          "ordinal": 47,
+          "type": "minor_arcanum",
+          "name": "Aetherium Spear",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "staff-of-magnetism",
+          "ordinal": 48,
+          "type": "minor_arcanum",
+          "name": "Staff of Magnetism",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "groundskimmer",
+          "ordinal": 49,
+          "type": "minor_arcanum",
+          "name": "Groundskimmer",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "thunderbolt-bow",
+          "ordinal": 50,
+          "type": "minor_arcanum",
+          "name": "Thunderbolt Bow",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "bronze-protector",
+          "ordinal": 51,
+          "type": "minor_arcanum",
+          "name": "Bronze Protector",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "sublime-words",
+          "ordinal": 52,
+          "type": "minor_arcanum",
+          "name": "Sublime Words",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "flaming-sword",
+          "ordinal": 53,
+          "type": "minor_arcanum",
+          "name": "Flaming Sword",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "searing-touch",
+          "ordinal": 54,
+          "type": "minor_arcanum",
+          "name": "Searing Touch",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "sigil-of-authority",
+          "ordinal": 55,
+          "type": "minor_arcanum",
+          "name": "Sigil of Authority",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "horn-of-storms",
+          "ordinal": 56,
+          "type": "minor_arcanum",
+          "name": "Horn of Storms",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "moonstone",
+          "ordinal": 57,
+          "type": "minor_arcanum",
+          "name": "Moonstone",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "hand-of-aals-sannan",
+          "ordinal": 58,
+          "type": "minor_arcanum",
+          "name": "Hand of Aals Sannan",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "bittersweet-elixir",
+          "ordinal": 59,
+          "type": "minor_arcanum",
+          "name": "Bittersweet Elixir",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-broom-s-lullaby",
+          "ordinal": 60,
+          "type": "minor_arcanum",
+          "name": "The Broom's Lullaby",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-angry-little-god",
+          "ordinal": 61,
+          "type": "minor_arcanum",
+          "name": "The Angry Little God",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "the-silver-branch",
+          "ordinal": 62,
+          "type": "minor_arcanum",
+          "name": "The Silver Branch",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "void-elemental",
+          "ordinal": 63,
+          "type": "minor_arcanum",
+          "name": "Void Elemental",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        },
+        {
+          "id": "runes-of-creation",
+          "ordinal": 64,
+          "type": "minor_arcanum",
+          "name": "Runes of Creation",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_card_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-c-minor-arcana.html"
+        }
+      ],
+      "major": [
+        {
+          "id": "staff-of-the-lidless-orb",
+          "ordinal": 1,
+          "type": "major_arcanum",
+          "name": "Staff of the Lidless Orb",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "twisted-spear",
+          "ordinal": 2,
+          "type": "major_arcanum",
+          "name": "Twisted Spear",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "demonhide-cloak",
+          "ordinal": 3,
+          "type": "major_arcanum",
+          "name": "Demonhide Cloak",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "noruba-s-ice-sphere",
+          "ordinal": 4,
+          "type": "major_arcanum",
+          "name": "Noruba's Ice Sphere",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "mindgem",
+          "ordinal": 5,
+          "type": "major_arcanum",
+          "name": "Mindgem",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "whispering-rocks",
+          "ordinal": 6,
+          "type": "major_arcanum",
+          "name": "Whispering Rocks",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "blood-quenched-sword",
+          "ordinal": 7,
+          "type": "major_arcanum",
+          "name": "Blood-quenched Sword",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "shield-of-the-wisent-witch",
+          "ordinal": 8,
+          "type": "major_arcanum",
+          "name": "Shield of the Wisent Witch",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "hec-tumel-codex",
+          "ordinal": 9,
+          "type": "major_arcanum",
+          "name": "Hec'tumel Codex",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "red-scepter",
+          "ordinal": 10,
+          "type": "major_arcanum",
+          "name": "Red Scepter",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "ring-of-daagon",
+          "ordinal": 11,
+          "type": "major_arcanum",
+          "name": "Ring of Daagon",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "rune-laden-scales",
+          "ordinal": 12,
+          "type": "major_arcanum",
+          "name": "Rune-laden Scales",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "blackwood-fetishes",
+          "ordinal": 13,
+          "type": "major_arcanum",
+          "name": "Blackwood Fetishes",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "storm-markings",
+          "ordinal": 14,
+          "type": "major_arcanum",
+          "name": "Storm Markings",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "ineffable-words",
+          "ordinal": 15,
+          "type": "major_arcanum",
+          "name": "Ineffable Words",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "redwood-effigy",
+          "ordinal": 16,
+          "type": "major_arcanum",
+          "name": "Redwood Effigy",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "hungering-maw-of-hlad",
+          "ordinal": 17,
+          "type": "major_arcanum",
+          "name": "Hungering Maw of Hlad",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        },
+        {
+          "id": "azure-hand",
+          "ordinal": 18,
+          "type": "major_arcanum",
+          "name": "Azure Hand",
+          "grantable": true,
+          "catalog_status": "verified",
+          "detail_status": "pending_full_front_progress_mysteries_consequences_normalization",
+          "rule_text": null,
+          "source": "https://stonetop-wiki.github.io/appendix-d-major-arcana.html"
+        }
+      ]
+    }
+  },
+  "pending_verification": [
+    {
+      "area": "Long-form rules text",
+      "status": "excluded_from_this_seed",
+      "reason": "The seed intentionally contains verified structure, catalogs, IDs and UI-state semantics, but not bulk verbatim book prose. Rule-body fields are null and source-linked."
+    },
+    {
+      "area": "Playbook appearance/origin/name tables",
+      "status": "pending_full_normalization",
+      "reason": "Verified as present and interactive, but not yet normalized into per-option records for all nine playbooks."
+    },
+    {
+      "area": "Playbook special possessions",
+      "status": "pending_full_normalization",
+      "reason": "Several possessions contain nested uses/load/text blanks and need item-by-item semantic normalization rather than treating every printed diamond as the same control."
+    },
+    {
+      "area": "Move-specific embedded fields and trackers",
+      "status": "pending_full_normalization",
+      "reason": "Move names and selection checkboxes are verified. Nested text blanks, uses, hold, level notes and prerequisite relationships are not exhaustively normalized for every move."
+    },
+    {
+      "area": "Animal Companion",
+      "status": "pending_full_type_and_trait_normalization",
+      "reason": "Core fields and the Bird example are verified; the complete animal-type/trait catalog has not been normalized."
+    },
+    {
+      "area": "Crew",
+      "status": "pending_full_subsections",
+      "reason": "Core stats and tag catalog are represented; inventory, individual-member details and Order Followers subsections remain to normalize."
+    },
+    {
+      "area": "Initiates of Danu",
+      "status": "pending_full_follower_cards",
+      "reason": "All five named initiates are included; their complete individual follower-card stats/moves are not yet normalized."
+    },
+    {
+      "area": "Invocations",
+      "status": "pending_full_catalog",
+      "reason": "Insert state model and one verified invocation are included; the complete invocation list is not yet normalized."
+    },
+    {
+      "area": "Ghost / Revenant / Thrall",
+      "status": "pending_complete_insert_details",
+      "reason": "Core state shapes and verified instincts/moves are included, but all consequences/marks/impulses are not yet normalized."
+    },
+    {
+      "area": "Minor Arcana details",
+      "status": "pending_64_card_details",
+      "reason": "All 64 names and ordinals are verified. Card-specific tags, requirements, front/reverse text and controls are intentionally left pending."
+    },
+    {
+      "area": "Major Arcana details",
+      "status": "pending_18_card_details",
+      "reason": "All 18 names and ordinals are verified. Per-Arcanum progress boxes, mysteries, unlock conditions and consequences are not yet normalized."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Stonetop Web Edition",
+      "url": "https://stonetop-wiki.github.io/",
+      "role": "primary public structured reference"
+    },
+    {
+      "name": "Splatbook - Stonetop",
+      "url": "https://www.splatbook.app/stonetop/reference",
+      "role": "cross-check for section and move catalogs"
+    }
+  ]
+}

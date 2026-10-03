@@ -1,0 +1,20 @@
+{
+  "version": "0.1.1",
+  "generated_on": "2026-10-02",
+  "packs": [
+    {
+      "id": "creation",
+      "file": "packs/creation-v0.1.json",
+      "version": "0.1.1",
+      "sha256": "4aad544ea9af3467eadabadf685a8bbc90f9d13192c9af7a3f840bda9a1dcbfd",
+      "required": true
+    },
+    {
+      "id": "arcana",
+      "file": "packs/arcana-v0.1.json",
+      "version": "0.1.1",
+      "sha256": "ebcc9c8193e5ecf3e45a90f83dccea5bc6c472b7aed605aaa69e420cd9809bd4",
+      "required": false
+    }
+  ]
+}

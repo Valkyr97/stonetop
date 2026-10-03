@@ -1,0 +1,22 @@
+-- Applied to project mwhfcrscbpvxlaezthab (stonetop / eu-west-1) via MCP.
+-- Do NOT run against other Supabase projects.
+
+-- See remote migrations:
+--   stonetop_core_schema
+--   content_packs_storage
+--   join_campaign_by_code_rpc
+--   harden_function_grants
+--   player_local_claim_and_gm_only_rls
+--     - characters.player_id nullable; added claim_secret_hash + local_client_id
+--     - characters/content_grants/arcana_state SELECT policies are GM-only now
+--       (players never authenticate; RLS no longer checks player_id = auth.uid())
+--     - new SECURITY DEFINER RPCs used by unauthenticated players, guarded by a
+--       per-character claim secret instead of a Supabase session:
+--       claim_character, push_character_state, pull_character_state,
+--       pull_character_grants, pull_character_arcana, push_arcana_state
+--     - EXECUTE on these RPCs is granted to anon + authenticated explicitly
+--       (no PUBLIC grants); Supabase advisors flag them as "anon can execute
+--       SECURITY DEFINER" by design — that IS the auth mechanism.
+--   soft_delete_claimed_character / characters.deleted_at
+--     - soft_delete_claimed_character(uuid, text) for claim-secret soft delete
+--     - pull_character_state skips rows with deleted_at set

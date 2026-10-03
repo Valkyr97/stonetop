@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+/*
+ * Stonetop charcoal-and-parchment skin (reimplemented for MyVersion).
+ * Trade-dress cues match Book I / Splatbook's Stonetop theme tokens —
+ * uncoated paper, near-black ink, Great Wood green (light) and charcoal,
+ * cream, olive (dark) — without copying their CSS/Svelte sources. Fonts
+ * are SIL OFL (Libre Caslon Text, IM Fell). Dark is the default; a light
+ * palette is available via the `dark` class toggle on <html> (see
+ * src/lib/theme.ts).
+ */
+:root {
+  --ink: #111111;
+  --ink-muted: #555555;
+  --paper: #faf9f7;
+  --paper-2: #ffffff;
+  --line: rgba(0, 0, 0, 0.14);
+  --accent: #2a4a2a;
+  --accent-contrast: #ffffff;
+  --chip: color-mix(in srgb, var(--accent) 10%, var(--paper-2));
+  --warn: #b45309;
+  --danger: #8c2f22;
+  --radius: 0.35rem;
+  --font-body: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+  --font-display: 'IM Fell English', 'Libre Caslon Text', Georgia, serif;
+  /* Compact sheet scale — prefer printed-playbook density over app chrome. */
+  --text: 0.875rem;
+  --text-sm: 0.8125rem;
+  --text-prose: 0.875rem;
+  --btn-pad-y: 0.28rem;
+  --btn-pad-x: 0.6rem;
+  --btn-min: 1.7rem;
+
+  color-scheme: light;
+  font-family: var(--font-body);
+  font-size: var(--text);
+  line-height: 1.4;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark {
+  --ink: #ece5d8;
+  --ink-muted: #a89f8d;
+  --paper: #17150f;
+  --paper-2: #201d16;
+  --line: rgba(236, 229, 216, 0.16);
+  --accent: #7fa46a;
+  --accent-contrast: #14170f;
+  --chip: color-mix(in srgb, var(--accent) 16%, var(--paper-2));
+  --warn: #d9a566;
+  --danger: #d98b74;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  transition: background-color 0.15s ease;
+}
+
+a {
+  color: var(--accent);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-size: inherit;
+}
+
+.action {
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: 0;
+  border-radius: var(--radius);
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  min-height: var(--btn-min);
+  cursor: pointer;
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+.action:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.action.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.action.danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.lede,
+.hint,
+.help,
+.meta {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.prose,
+.insert-prose,
+.move-prose {
+  font-size: var(--text-prose);
+  line-height: 1.4;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+.brand-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.prose em,
+.insert-prose em {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.prose strong,
+.insert-prose strong {
+  font-weight: 700;
+}
+
+.prose strong em,
+.prose em strong,
+.insert-prose strong em,
+.insert-prose em strong {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.prose .boxes,
+.insert-prose .boxes,
+.move-prose .boxes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  vertical-align: -0.12em;
+  margin: 0 0.12rem;
+  padding: 0.08rem 0;
+}
+
+.prose .box,
+.insert-prose .box,
+.move-prose .box {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1.5px solid currentColor;
+  border-radius: 1px;
+  display: inline-block;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.prose .circle,
+.insert-prose .circle,
+.move-prose .circle {
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}

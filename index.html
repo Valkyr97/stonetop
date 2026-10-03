@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17150f" />
+    <script>
+      // Apply any stored theme preference before first paint so the page
+      // never flashes the opposite theme. Dark is the default; light only
+      // applies once a device has explicitly toggled to it.
+      try {
+        if (localStorage.getItem('stonetop.theme') === 'light') {
+          document.documentElement.classList.remove('dark')
+        }
+      } catch {}
+    </script>
+    <title>Stonetop</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

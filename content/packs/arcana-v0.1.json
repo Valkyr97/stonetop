@@ -1,0 +1,2618 @@
+{
+  "_meta": {
+    "game": "Stonetop",
+    "artifact": "arcana_normalized",
+    "version": "0.1.1",
+    "generated_on": "2026-10-02",
+    "language": "en",
+    "source_manifest": "stonetop_arcana_source_v0.1.json",
+    "counts": {
+      "minor_arcana": 64,
+      "major_arcana": 18,
+      "total": 82
+    },
+    "verification_states": [
+      "verified",
+      "verified_structure",
+      "partial_pending_interpretation",
+      "pending_interpretation",
+      "unavailable"
+    ],
+    "policy": {
+      "invented_values_allowed": false,
+      "semantic_inference_allowed": false,
+      "unknown_values_are_null": true,
+      "missing_is_not_false": true,
+      "rule_prose_is_external": false,
+      "only_source-explicit_state_is_normalized": true
+    },
+    "recommended_usage": {
+      "content_identity_and_delivery": "safe_for_seed",
+      "verified_controls": "safe_for_seed",
+      "pending_controls": "do_not_make_gameplay-authoritative",
+      "rule_text": "ingested_from_cc_by_sa_corpus"
+    },
+    "attribution": {
+      "text": "Stonetop and Stonetop: The Wider World and Other Wonders by Jeremy Strandberg (Lampblack & Brimstone). All game text © the authors; released under CC BY-SA 4.0. Extracted marker-line corpus via Bryan-Legend/stonetop-wiki-generator (MIT for generator code; book text CC BY-SA 4.0). Artwork excluded.",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "corpus": "https://github.com/Bryan-Legend/stonetop-wiki-generator/tree/master/extracted",
+      "wiki": "https://stonetop-wiki.github.io/"
+    },
+    "ingestion": {
+      "at": "2026-10-02T09:40:40.761Z",
+      "matched": 82,
+      "total": 82
+    }
+  },
+  "arcana": {
+    "minor": [
+      {
+        "id": "minor-laoj-daveth-s-galvanic-infusion",
+        "ordinal": 1,
+        "type": "minor_arcanum",
+        "name": "Laoj Daveth's Galvanic Infusion",
+        "grantable": true,
+        "source_ref": "minor-laoj-daveth-s-galvanic-infusion",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***touch a piece of aetherium and draw its power into yourself***, roll +CON: **on a 7+**, you absorb the power and gain 1d8 HP (even if this puts you above your max HP); **but on a 7-9**, the aetherium is drained and crumbles into a chalky mass of verdigris.\n\nThe spell lasts until you dismiss it or until you roll a 6- on any move. While it lasts, you need not sleep and remain highly alert and focused—gain advantage on any rolls with WIS.\n\nIf you remain awake for more than a few days, your body grows ever more exhausted and you risk hallucination, paranoia, and addiction.\n\nWhen ***the spell ends,*** you lose 1d8 HP.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-laoj-daveths-galvanic-infusion.txt"
+        }
+      },
+      {
+        "id": "minor-truth-seeds",
+        "ordinal": 2,
+        "type": "minor_arcanum",
+        "name": "Truth Seeds",
+        "grantable": true,
+        "source_ref": "minor-truth-seeds",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***soak a pair of gwir-nettle seedpods in your own blood, whisper secrets over them, and say the words of power***, they become truth seeds\n\n(*magical)*.\n\nWhen you and another ***each eat a truth seed and make promises to each other***, the seeds stay in your guts and ensure that the promises are kept.\n\nWhen you ***break your promise***, the truth seed in your gut sprouts violently into a full-grown gwir-nettle, dealing 1d10+3 damage with advantage (*messy*, ignores armor) and now you've got a gwir-nettle growing out of you.\n\nIf the ***other party breaks their promise***, they suffer the same fate.\n\n2",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-truth-seeds.txt"
+        }
+      },
+      {
+        "id": "minor-old-mother-s-wine",
+        "ordinal": 3,
+        "type": "minor_arcanum",
+        "name": "Old Mother's Wine",
+        "grantable": true,
+        "source_ref": "minor-old-mother-s-wine",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "lost_memories",
+            "type": "counter",
+            "min": 0,
+            "max": 6,
+            "status": "verified"
+          },
+          {
+            "key": "wine_uses",
+            "type": "uses",
+            "max": 5,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Lost memories: ◇◇◇◇◇◇\n\nWhen you ***sacrifice a memory to a berry- laden elder tree***, tell us what you gave up. Mark 1 lost memory and roll 1d6; if you roll less than your lost memories, change your instinct and clear your marks.\n\nWhen you ***harvest the berries and spend a season making wine from them***, gain a skin of Old Mother's Wine (5 uses, magical).\n\nWhen you ***get tipsy on Old Mother's Wine***, expend a use. For a night and a day, your eyes are open to Fae magic, meaning:\n\n• You see the truth behind Fae illusions and glamours\n\n• You are immune to Fae enchantments\n\n• You can freely enter Fae domains and walk the Fae paths\n\n• Time passes normally for you while in Fae domains",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-old-mothers-wine.txt"
+        }
+      },
+      {
+        "id": "minor-aalz-galt-s-sudden-sinkhole",
+        "ordinal": 4,
+        "type": "minor_arcanum",
+        "name": "Aalz Galt's Sudden Sinkhole",
+        "grantable": true,
+        "source_ref": "minor-aalz-galt-s-sudden-sinkhole",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***sing a rumbling note and focus your will upon a point of earth or stone***, mark a debility and roll +INT:\n\n**On a 10+**, the earth or stone that you focus on remains intact, but the earth or stone beneath it crumbles, dissolves, and flows away, creating an empty pocket about as wide as your arms can encircle and about as deep as you are tall. The surface seems stable, but is prone to crack or break under stress.\n\n**On a 7-9**, the song works as above, but it siphons even more energy from your body. Mark another debility and take 2d4 damage (ignores armor).\n\n4",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-aalz-galts-sudden-sinkhole.txt"
+        }
+      },
+      {
+        "id": "minor-shell-game-of-souls",
+        "ordinal": 5,
+        "type": "minor_arcanum",
+        "name": "Shell Game of Souls",
+        "grantable": true,
+        "source_ref": "minor-shell-game-of-souls",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "souls",
+            "type": "counter",
+            "min": 0,
+            "max_formula": "CON",
+            "printed_slots": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Souls (max CON): ◇◇◇\n\nWhen you ***touch a dying, intelligent being, speaking their name and words of binding***, roll +INT:\n\n**on a 10+**, you bind their soul to your flesh; **on a 7-9**, you bind their soul but weaken yours—reduce your max HP by 1d4+1.\n\nYour flesh can bind a number of souls equal to your CON. They manifest in dreams and struggle for control when your mind or body are weak. Write their names here:\n\nWhen you ***roll a 6- on Death's Door***, you can release a bound soul to go through the Last Door in your place. If you do, you survive as if you rolled a 7-9. Your body, though, still bears the marks of that which would have killed you.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-shell-game-of-souls.txt"
+        }
+      },
+      {
+        "id": "minor-thunderous-bellow",
+        "ordinal": 6,
+        "type": "minor_arcanum",
+        "name": "Thunderous Bellow",
+        "grantable": true,
+        "source_ref": "minor-thunderous-bellow",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***channel the storm primeval and utter a thunderous bellow***, take 1d6 damage (ignores armor) and roll +CON: **on a 10+**, everyone nearby (except you) must choose 2; **on a 7-9**, everyone nearby (except you) must choose 1.\n\n• Drop what they're carrying and cover their ears\n\n• Be deafened and disoriented for a few moments\n\n• Stagger a few steps away from you 6",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-thunderous-bellow.txt"
+        }
+      },
+      {
+        "id": "minor-the-fiery-veil",
+        "ordinal": 7,
+        "type": "minor_arcanum",
+        "name": "The Fiery Veil",
+        "grantable": true,
+        "source_ref": "minor-the-fiery-veil",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***precisely inscribe the flowing runes of the fiery veil along the outside of an area***, the area is warded for as long as the runes remain intact.\n\nWhen anyone ***tries to scry on the warded area from afar, or view it from the spirit realm***, they see only a curtain of fire. If they insist on peering through the curtain, they are burned for 1d10 damage (advantage, ignores armor) and appear to those inside as a ghostly image wreathed in flames.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-fiery-veil.txt"
+        }
+      },
+      {
+        "id": "minor-the-tomb-bog-s-mark",
+        "ordinal": 8,
+        "type": "minor_arcanum",
+        "name": "The Tomb-bog's Mark",
+        "grantable": true,
+        "source_ref": "minor-the-tomb-bog-s-mark",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "geas_phrase",
+            "type": "text_template",
+            "slots": 1,
+            "status": "verified",
+            "note": "The source offers two phrase forms; exact prose remains in the authoritative source file."
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***use mud from the tomb-bog to mark someone with the sign of Aratis and pronounce them guilty of a crime***, you can place a geas upon them. Phrase it as one of the following:\n\n• You must never again ____.\n\n• Henceforth, you must always seek to ____ when you have the chance.\n\nShould they ***fail to follow the geas***, their life is forfeit and the tomb-bog spirit will track them down and smother them.\n\nShould they ***prove themselves innocent to the tomb-bog spirit***, your life is forfeit instead.\n\n8",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-tomb-bogs-mark.txt"
+        }
+      },
+      {
+        "id": "minor-fear-of-the-flame",
+        "ordinal": 9,
+        "type": "minor_arcanum",
+        "name": "Fear of the Flame",
+        "grantable": true,
+        "source_ref": "minor-fear-of-the-flame",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "heat",
+            "type": "counter",
+            "min": 0,
+            "max": 6,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Heat: ◇◇◇◇◇◇\n\nWhen you ***spend an hour or so on the rug, meditating on the fear of fire that all natural things possess***, you hold Terror and mark 1 Heat.\n\n◇ **Terror**: When you ***unleash the Terror you hold***, all who see you fear you as they would fear the flame primeval, until you dismiss the effect.\n\nWhen you ***dismiss the effect***, roll 1d6. If the roll is less than your Heat, then clear all your Heat and you painfully manifest a permanent sign of your connection to the flames: a blistered scar, reddish skin, glowing eyes, a sulfurous smell, etc.\n\nWhen ***a season passes without you unleashing Terror***, reduce your Heat by 1.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-fear-of-the-flame.txt"
+        }
+      },
+      {
+        "id": "minor-mantle-wraiths",
+        "ordinal": 10,
+        "type": "minor_arcanum",
+        "name": "Mantle Wraiths",
+        "grantable": true,
+        "source_ref": "minor-mantle-wraiths",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "mantle_wraiths",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*Group* (3), *spirit, undead, terrifying, vicious*\n\n**HP** 13; **Armor** 1 (amorphous)\n\n**Damage** life drain d8 (*hand*, ignores armor)\n\n**Instinct** to run rampant\n\n**Special qualities** powerless in daylight\n\n• Whisper their longings to the wearer\n\n• Manifest a form of shadow and cold (harmed only by silver and salt)\n\n• Hurl themselves at the living\n\n• Suck the vitality from their prey\n\n**Cost** souls feasted upon (Loyalty ◇◇◇ )\n\n**HP**\n\nStarts at 13 each\n\n10",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-mantle-wraiths.txt"
+        }
+      },
+      {
+        "id": "minor-shattering-words-of-aalz-childric",
+        "ordinal": 11,
+        "type": "minor_arcanum",
+        "name": "Shattering Words of Aalz Childric",
+        "grantable": true,
+        "source_ref": "minor-shattering-words-of-aalz-childric",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***carve the shattering words of Aalz Childric into stone or rock***, designate a key word or phrase.\n\nWhen you or another ***speaks the key word or phrase and wills the spell to trigger***, you roll\n\n+CON: **on a 10+**, the rune-carved stone shatters and is immediately reduced to rubble; **on a 7-9**, the stone cracks and buckles, slowly breaking apart into a number of pieces.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-shattering-words-of-aalz-childric.txt"
+        }
+      },
+      {
+        "id": "minor-ffyrnig-tonic",
+        "ordinal": 12,
+        "type": "minor_arcanum",
+        "name": "Ffyrnig Tonic",
+        "grantable": true,
+        "source_ref": "minor-ffyrnig-tonic",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "tonic_uses",
+            "type": "uses",
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***pickle fresh ffyrnig root in a suspension of boar bile for two full moons***, it becomes a skin of ffyrnig tonic (3 uses, *magical*).\n\nWhen you ***take a draught of ffyrnig tonic,*** pick 1:\n\n• Regain HP equal to ½ half your max\n\n• Clear a debility\n\nAlso, you have advantage on your next roll to take bold, physical action. But until you take such an action, you have disadvantage on any rolls that\n\nrequire patience, care, or thoughtfulness.\n\nWhen you ***drink a second draught of ffyrnig tonic before getting a good night's sleep***, it has no effect other than to make you ill (mark a debility).\n\n12",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-ffyrnig-tonic.txt"
+        }
+      },
+      {
+        "id": "minor-song-of-the-dool-trees",
+        "ordinal": 13,
+        "type": "minor_arcanum",
+        "name": "Song of the Dool Trees",
+        "grantable": true,
+        "source_ref": "minor-song-of-the-dool-trees",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "dool_spirit",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***stand among dool trees and play the proper tune on a flute of a murderer's bone***, you summon a dool spirit and bind it to your service.\n\nTreat it as a follower. Only one dool spirit will serve you at a time.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-song-of-the-dool-trees.txt"
+        }
+      },
+      {
+        "id": "minor-ward-of-still-waters",
+        "ordinal": 14,
+        "type": "minor_arcanum",
+        "name": "Ward of Still Waters",
+        "grantable": true,
+        "source_ref": "minor-ward-of-still-waters",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "strain",
+            "type": "counter",
+            "min": 0,
+            "max": 7,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Strain: ◇◇◇◇◇◇◇\n\nWhen you ***cut yourself with iron or steel and toss the blooded metal into the pool***, you form a bond with the waters. So long as you carry a vial of the pool's water on your person, you are protected by the ward of still waters.\n\nWhen you are so protected and ***subject to magic that attempts to sense or affect your thoughts, actions, or emotions***, the magic targets the still waters of the pool instead—possibly befuddling the magic's source.\n\nEach time the ward of still waters protects you, mark 1 Strain and then roll 1d6. If your roll is less than your current Strain, the water you carry loses its potency. When you ***return to the pool and renew your bond***, clear all Strain.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-ward-of-still-waters.txt"
+        }
+      },
+      {
+        "id": "minor-ice-weaving",
+        "ordinal": 15,
+        "type": "minor_arcanum",
+        "name": "Ice Weaving",
+        "grantable": true,
+        "source_ref": "minor-ice-weaving",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "When you ***will dark ice to form***, lose 1 HP, +1\n\nHP for each of the following you desire:\n\n• It's enough to make a small wall or encase a person (else, it's ◇◇ at most)\n\n• It's hard as stone\n\n• It's solid to spirits, able to block/harm/ hinder them Then, roll +CON: **on a 10+**, pick 2; **on a 7-9**, pick 1, or pick 2 and lose 2 more HP.\n\n• It forms quickly, even violently (else, it takes minutes, even hours)\n\n• It forms at up to *near* range (else, it forms at only *hand* range)\n\n• Its shape is as intricate as you can imagine (else, it's just a crude block)\n\nThe ice persists until it's broken, melted by intense heat, or you let it melt. You cannot regain the spent HP while it persists.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Source extraction contains an ambiguous diamond/load-like fragment inside the effect text; not normalized as a control."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-ice-weaving.txt"
+        }
+      },
+      {
+        "id": "minor-the-six-locks-of-sajua",
+        "ordinal": 16,
+        "type": "minor_arcanum",
+        "name": "The Six Locks of Sajua",
+        "grantable": true,
+        "source_ref": "minor-the-six-locks-of-sajua",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "disturbance",
+            "type": "counter",
+            "min": 0,
+            "max": 7,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Disturbance: ◇◇◇◇◇◇◇\n\nWhen you ***smear the blood of the dying onto an open Lock of Sajua and then close the lock***, roll\n\n+CON: **on a 10+**, their soul is bound in the lock;\n\n**on a 7-9**, their soul is bound, but all mundane metal in your presence rusts or tarnishes, corrodes and weakens.\n\nWhen you ***extract a promise from a bound soul***\n\n***and then open the lock that binds it***, the soul is compelled to fulfill the letter of its promise before it goes its own way. Tell the GM to treat it as a ghost (though not necessarily as a follower); the open lock serves as its tether, at least for now.\n\nEach time you release a soul, mark 1 Disturbance and roll 1d6. If you roll less than your Disturbance, you hear the call of the Pale Hunter in the distance. Expect a visit soon.\n\n16",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-six-locks-of-sajua.txt"
+        }
+      },
+      {
+        "id": "minor-helior-s-shining-ring",
+        "ordinal": 17,
+        "type": "minor_arcanum",
+        "name": "Helior's Shining Ring",
+        "grantable": true,
+        "source_ref": "minor-helior-s-shining-ring",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "daylight",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Daylight: ◇◇◇\n\nWhen you ***spend the better part of a day wearing the ring and worshipping Helior in full sunlight***, hold 1 Daylight.\n\nWhen you ***wear the ring in shadows or darkness and spend 1 Daylight***, the ring shines forth with holy light (*near*, *area*) that is painful for creatures of darkness to look at. It glows for a few hours, until you extinguish it, or until another effect (like the Lightbearer's Invocations) uses up its fuel or snuffs it out.\n\nAlas, the ring also shines like a psychic beacon while it shines, alerting servants of darkness for miles around to your presence and location.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-heliors-shining-ring.txt"
+        }
+      },
+      {
+        "id": "minor-nerth-serpent-s-vigor",
+        "ordinal": 18,
+        "type": "minor_arcanum",
+        "name": "Nerth Serpent's Vigor",
+        "grantable": true,
+        "source_ref": "minor-nerth-serpent-s-vigor",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "vitality",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Vitality: ◇◇◇\n\nWhen you ***crush the life from the Nerth Serpent and devour its still-warm heart***, hold 3 Vitality.\n\nWhile you hold Vitality, you age very slowly.\n\nSpend Vitality 1-for-1 to:\n\n• Shrug off a poison, sickness, or curse\n\n• Survive a lethal wound or injury\n\n• Recover fully from a permanent injury or impairment (with a few days' rest)\n\n• Perform a feat of extraordinary strength, prowess, or endurance\n\nEach time you spend Vitality, you manifest a permanent mark of the wild (antlers, hide-like skin, animal eyes, etc.) or such a mark becomes more pronounced. Tell us what it is.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-nerth-serpents-vigor.txt"
+        }
+      },
+      {
+        "id": "minor-goldleaf-cloak",
+        "ordinal": 19,
+        "type": "minor_arcanum",
+        "name": "Goldleaf Cloak",
+        "grantable": true,
+        "source_ref": "minor-goldleaf-cloak",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇, *warm*, *magical*\n\nWhen you ***wear a goldleaf cloak that you have tanned yourself and that has been fitted to your exact measurements***, then all of these are true:\n\n• You are immune to effects that drain, steal, or snuff out your vitality, energy, or life force.\n\n• You are immune to effects that calm or dampen your emotions.\n\n• You are surrounded by a constant golden glow (*hand*, *area*), making it nearly impossible to hide.\n\nWhen you ***die and are buried in the earth, wrapped in your goldleaf cloak***, you return to life as if you were buried at the roots of the Golden Oak. Your cloak, however, rots away to mulch and tatters.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-goldleaf-cloak.txt"
+        }
+      },
+      {
+        "id": "minor-opening-the-way",
+        "ordinal": 20,
+        "type": "minor_arcanum",
+        "name": "Opening the Way",
+        "grantable": true,
+        "source_ref": "minor-opening-the-way",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "cinnabar_uses",
+            "type": "uses",
+            "initial_formula": "1d4+8",
+            "printed_capacity": 12,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇ pouch of powdered cinnabar (◇◇◇◇◇◇◇◇◇◇◇◇ uses, Value 2)\n\nWhen you ***use ink of powdered cinnabar to carefully trace the sigils of one portal inside the permanent sigils of another, and then invoke the axiom of local contagion***, a passage opens between the portals and remains until you leave their presence or dismiss the axiom. The sigils you drew then vanish. Passage through the portals is usually safe and instantaneous.\n\nWhen you ***stand before one portal and hold the sigils of another portal perfectly in your mind***, mark a debility to manifest those sigils as lines of glowing light. When you ***then invoke the axiom of local contagion***, roll +INT: **on a 10+**, the portals open, but close as soon as your focus falters; **on a 7-9**, as a 10+ but only if you mark another debility; **on a 6-**, mark a debility and pass out from the strain.\n\n20",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-opening-the-way.txt"
+        }
+      },
+      {
+        "id": "minor-the-drowning-scale",
+        "ordinal": 21,
+        "type": "minor_arcanum",
+        "name": "The Drowning Scale",
+        "grantable": true,
+        "source_ref": "minor-the-drowning-scale",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "breath",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Breath: ◇◇◇\n\nWhen you ***lean over a dying person, suck out their final breath, and breathe it into the pendant***, roll +CON: **on a 10+**, hold +1 Breath; **on a 7-9**, pick 1:\n\n• Hold 1 Breath, but it tears at your lungs; mark *miserable* and suffer a nasty coughing fit.\n\n• The pendant greedily sucks in the last breath, grows colder, and sighs; you, alas, gain no benefit.\n\nSo long as you hold Breath, you are unfazed and unharmed by extreme cold. Spend 1 Breath to go without air for as long as an hour.\n\nWhen you ***remove the pendant***, lose any Breath you hold.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-drowning-scale.txt"
+        }
+      },
+      {
+        "id": "minor-preserving-runes",
+        "ordinal": 22,
+        "type": "minor_arcanum",
+        "name": "Preserving Runes",
+        "grantable": true,
+        "source_ref": "minor-preserving-runes",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***trace the runes along the inside of a room or container***, they gleam silver and fade, preserving the contents from dust, spoilage, rust, etc. Lose 1 HP, plus 1 HP for each of the following that are true:\n\n• The container/room is more than a few feet long in any dimension\n\n• The container is portable (else, the effect ends if it is moved)\n\n• The effect lasts indefinitely, as long as the runes are intact (else, it starts when the room/container is sealed and ends when it is unsealed)\n\nOnce the runes are in place, roll +CON: **on a 10+**, you regain the lost HP normally; **on a 7-9**, you can't regain the lost HP until a season passes *or* the effect ends, whichever comes first; **on a 6-**, you can't regain the lost HP until the effect ends\n\nand then a season passes (and don't mark XP).",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-preserving-runes.txt"
+        }
+      },
+      {
+        "id": "minor-peacebond",
+        "ordinal": 23,
+        "type": "minor_arcanum",
+        "name": "Peacebond",
+        "grantable": true,
+        "source_ref": "minor-peacebond",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***mark a place with the peace-bond glyphs***, violence (even to defend oneself) is suppressed in the area as long as the glyphs remain. The longer one stays in a peacebonded area, and the more tightly woven the glyphs are, the greater the effect.\n\nWhen you ***attempt to commit violence within***\n\n***a peacebonded area, or to harm the peacebond***\n\n***glyphs themselves***, you hesitate.\n\nIf you ***will yourself to continue***, lose 1d4 HP and roll +WIS: **on a 10+**, go for it; **on a 7-9**, you act but have disadvantage on any rolls to commit violence (including damage); **on a 6-**, you fail to act and mark *dazed*.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-peacebond.txt"
+        }
+      },
+      {
+        "id": "minor-the-eye-opened",
+        "ordinal": 24,
+        "type": "minor_arcanum",
+        "name": "The Eye, Opened",
+        "grantable": true,
+        "source_ref": "minor-the-eye-opened",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***spend a few minutes quietly meditating and opening your mind's eye***, it appears on your forehead as a shining point of light. Base matter and energy are dim and colorless to you, but you see minds and auras in luminous detail.\n\nWhile your ***mind's eye is open***, you can ask the GM \"What thinking entities are present here?\"\n\nand get an honest answer.\n\nWhen you ***Seek Insight while your mind's eye is open***, the questions you can ask become these instead:\n\n• Are they lying or trying to mislead?\n\n• What are they really feeling right now?\n\n• What do they intend to do?\n\n• What here are they most afraid of?\n\n• Is something controlling their mind, emotions, or actions, and if so, what?\n\n24",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-eye-opened.txt"
+        }
+      },
+      {
+        "id": "minor-sanctifying-mark",
+        "ordinal": 25,
+        "type": "minor_arcanum",
+        "name": "Sanctifying Mark",
+        "grantable": true,
+        "source_ref": "minor-sanctifying-mark",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***mark an object with the sigil of sanctification***, it repels beings of darkness, chaos, and death. Each time you place the mark, part of you (eyes, hair, skin, tongue, etc.) becomes paler, eventually turning a shocking white.\n\nWhen a ***being of darkness, chaos, or death first tests the power of your mark***, roll +INT: **on a 10+**, all such creatures are kept at bay so long as your mark remains inviolate; **on a 7-9**, such creatures feel the urge to flee and are held back for now, but powerful entities can force themselves to ignore it.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-sanctifying-mark.txt"
+        }
+      },
+      {
+        "id": "minor-the-green-lord-s-shade",
+        "ordinal": 26,
+        "type": "minor_arcanum",
+        "name": "The Green Lord's Shade",
+        "grantable": true,
+        "source_ref": "minor-the-green-lord-s-shade",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***make an offering of good liquor, fresh fruit, or fresh-cooked meat and call up the shade of the skull***, it manifests before you in shadows.\n\nThe shade knows much about ancient times, the Green Lords, and their workings. It has no power, but can answer questions. Before it does, it will demand the right to \"ride\" you and experience the pleasures of living. (**Instinct** to fulfill its increasingly specific longings.)\n\nWhile it rides you, the shade communicates only through impulse and desire. When it ***compels you to act against your wishes***, mark XP if you comply. If you resist, you are Defying Danger.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-green-lords-shade.txt"
+        }
+      },
+      {
+        "id": "minor-chimeric-transmogrification",
+        "ordinal": 27,
+        "type": "minor_arcanum",
+        "name": "Chimeric Transmogrification",
+        "grantable": true,
+        "source_ref": "minor-chimeric-transmogrification",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***hold forth a bit of one beast (fur, bone, etc.) and speak the words of chimeric transmogrification upon another***, roll +INT: **on a 10+**, the spell works; **on a 7-9**, the spell works but only if you mark a debility.\n\nWhen ***the spell works***, roll 1d10+CON. If your roll **equals or exceeds the target's current HP**, name a feature of the beast you hold—the target's form twists and buckles, gaining that feature until they sleep for a few hours. The experience is disorienting and alarming; most beasts and people will panic. If you roll **less than the target's current HP**, their form twists and buckles alarmingly for a few seconds, but they fight off the transformation. **Either way**, the bit of the beast you hold is lost, shriveling away to nothing.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-chimeric-transmogrification.txt"
+        }
+      },
+      {
+        "id": "minor-the-sylvan-web",
+        "ordinal": 28,
+        "type": "minor_arcanum",
+        "name": "The Sylvan Web",
+        "grantable": true,
+        "source_ref": "minor-the-sylvan-web",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***lie down in the rainbow moss and cast your mind into the Great Wood***, say what you are looking for and roll +WIS: **on a 10+**, pick 3; **on a 7-9**, pick 1.\n\n• You learn the location of your quarry\n\n• You get a sense of your quarry's recent activities, or the activity surrounding it\n\n• You discover something unexpected about the forest, or that which can be found within it (ask the GM what you learn)\n\n• You spend only an hour or so adrift (else, you spend all day)\n\nWhatever you learn, it is limited by and filtered through the senses the forest.\n\n28",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-sylvan-web.txt"
+        }
+      },
+      {
+        "id": "minor-flying-cloak",
+        "ordinal": 29,
+        "type": "minor_arcanum",
+        "name": "Flying Cloak",
+        "grantable": true,
+        "source_ref": "minor-flying-cloak",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "bound_spirit",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***wear the cloak and speak the word of command***, the storm-spirit in the cloak springs to life and obeys you as a follower. It never wants to land; you must spend its Loyalty or Persuade it.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-flying-cloak.txt"
+        }
+      },
+      {
+        "id": "minor-satchel-of-plenty",
+        "ordinal": 30,
+        "type": "minor_arcanum",
+        "name": "Satchel of Plenty",
+        "grantable": true,
+        "source_ref": "minor-satchel-of-plenty",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***feed the satchel 1 Surplus of freshly harvested foodstuffs***, it fits even though it should not. Until next autumn's harvest, the satchel will provide 1 use of provisions each day. They are fresh and nourishing, but different each time (and not at all what you fed the satchel).\n\n**1d6** today's food is...\n\n1 Actively unpleasant, needs cooking\n\n2 Bland but tolerable, needs cooking\n\n3 Delicious, needs cooking\n\n4 Actively unpleasant, ready to eat\n\n5 Bland but tolerable, ready to eat\n\n6 Delicious, ready to eat\n\nWhen you ***draw more than 1 use of provisions from the satchel in a given day***, it provides up to 10 uses but will produce no more until you feed it again next autumn.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-satchel-of-plenty.txt"
+        }
+      },
+      {
+        "id": "minor-dancing-wind-spirit",
+        "ordinal": 31,
+        "type": "minor_arcanum",
+        "name": "Dancing Wind Spirit",
+        "grantable": true,
+        "source_ref": "minor-dancing-wind-spirit",
+        "controls": [
+          {
+            "key": "front_progress",
+            "type": "progress",
+            "slots": 3,
+            "status": "pending_interpretation",
+            "reason": "Progress is visible/trackable, but its exact app-state semantics are kept pending rather than inferred."
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "When you ***play a tune to make the wind itself dance***, the andalau (zephyr spirit) tied to the flute manifests. Treat it as a follower; it holds\n\n1 Loyalty to start. When you ***dismiss the spirit while it holds no Loyalty***, the flute splits and falls apart; the andalau is set free.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Progress presentation is non-standard compared with ordinary C-marked discovery requirements."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-dancing-wind-spirit.txt"
+        }
+      },
+      {
+        "id": "minor-call-of-the-hunt",
+        "ordinal": 32,
+        "type": "minor_arcanum",
+        "name": "Call of the Hunt",
+        "grantable": true,
+        "source_ref": "minor-call-of-the-hunt",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 2,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***howl at the rising moon, face smeared in blood and wearing only the pelt***, you take on the aspect of a wolf and call a pack to your side.\n\nName your quarry and roll...\n\n**On 7+**, you corner your prey and deal 2d6+4 damage (*messy*) before the pack disperses and you cast off your wolf-self; **on a 10+**, also pick 1;\n\n**on a 7-9**, also pick 2.\n\n• Your pack savages one or more innocents\n\n• You suffer 2d6+4 *messy* damage yourself\n\n• Your instinct becomes \"to act like a bloodthirsty wolf\" until you Level Up.\n\n**On a 6-**, your prey eludes you and you must still pick 2 from the list above.\n\n32",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-call-of-the-hunt.txt"
+        }
+      },
+      {
+        "id": "minor-convocation-of-the-soil",
+        "ordinal": 33,
+        "type": "minor_arcanum",
+        "name": "Convocation of the Soil",
+        "grantable": true,
+        "source_ref": "minor-convocation-of-the-soil",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***spill your blood on the soil and speak the words of convocation***, the spirits of the soil will stir and wake, filling the soil with life and energy and nutrients.\n\nWhen you ***cast this spell on the fields in early spring, spilling a scary amount of your blood***, mark all three debilities and lose all but 1 HP.\n\nIf the steading spends 1 Surplus to plant in the fallow fields, this autumn's harvest will generate\n\n1d4+1 extra Surplus.\n\nHowever, you must roll +WIS: **on a 10+**, there is no consequence; **on a 7-9**, before midsummer, you must water the soil with the lifeblood of a large, healthy beast (like a horse, mule, wisent, or aurochs) or else the extra crops will fail and the extra Surplus will be lost; **on a 6-**, the spell works but you stir some dangerous spirit or growth from the soil, or set free some evil imprisoned in the earth.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-convocation-of-the-soil.txt"
+        }
+      },
+      {
+        "id": "minor-unliving-chimera",
+        "ordinal": 34,
+        "type": "minor_arcanum",
+        "name": "Unliving Chimera",
+        "grantable": true,
+        "source_ref": "minor-unliving-chimera",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*Undead, construct, terrifying, clumsy*\n\n**HP** 3; **Armor** 4 (0 vs. bronze)\n\n**Damage** varies d6 (*hand*, maybe others)\n\n**Instinct** to get confused and lash out\n\n• Do something one of its component beasts could do\n\n• Moan, wretchedly and disturbingly\n\n**Cost** lots of fresh blood (Loyalty ◇◇◇ )",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-unliving-chimera.txt"
+        }
+      },
+      {
+        "id": "minor-impudent-polymorph",
+        "ordinal": 35,
+        "type": "minor_arcanum",
+        "name": "Impudent Polymorph",
+        "grantable": true,
+        "source_ref": "minor-impudent-polymorph",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "ire",
+            "type": "counter",
+            "min": 0,
+            "max": 9,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Ire ◇◇◇◇◇◇◇◇◇\n\nWhen you ***interrupt the idyllic afterlife of the Green Lord bound to the jar and demand that it change your form,*** describe the change and pick as many as you dare:\n\n• The change lasts as long as you like (else, it lasts till you get a 6- on a move)\n\n• The change is quick and easy (else, it takes minutes or even hours)\n\n• You adapt to the new form quickly (else, mark a debility)\n\n• Pick 2 of your stats; swap their values until the change ends\n\nThen roll +CHA: **on a 10+**, the spirit works the change, just as you asked; **on a 7-9**, it works the change, but you gain Ire equal to the number of choices you've made; **on a 6-**, the spirit rebels and wracks your body, dealing 1d10 damage per Ire you hold. If you survive, clear all Ire.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-impudent-polymorph.txt"
+        }
+      },
+      {
+        "id": "minor-make-pliant-the-stone",
+        "ordinal": 36,
+        "type": "minor_arcanum",
+        "name": "Make Pliant the Stone",
+        "grantable": true,
+        "source_ref": "minor-make-pliant-the-stone",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***strike the chime forcefully and will yourself to maintain your grip upon it***, mark a debility and roll +CON.\n\n**On a 10+**, you maintain control and the chime will ring for about a minute. While it rings, any stone, crystal, or glass you touch with the chime becomes soft and malleable, easily shaped and molded. The longer the contact, the more material becomes pliant. It regains its hardness when the ringing stops, but keeps its current shape.\n\n**On a 7-9**, pick 1:\n\n• Maintain control as per a 10+, but you must pour yourself into the effort—mark another debility\n\n• Realize that you can't control it and dampen the chime before it causes any harm (say how)\n\n36",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-make-pliant-the-stone.txt"
+        }
+      },
+      {
+        "id": "minor-plaster-of-joining",
+        "ordinal": 37,
+        "type": "minor_arcanum",
+        "name": "Plaster of Joining",
+        "grantable": true,
+        "source_ref": "minor-plaster-of-joining",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "uses",
+            "type": "uses",
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Uses ◇◇◇\n\nWhen you ***pour water, a pinch of blood, and special reagents (Value 1) into the urn and sing over it for a full day and night***, the urn gains 1 use (3 uses max) of plaster.\n\nWhen you ***use the plaster to join two or more pieces of stone, rock, or crystal*** and let the plaster set for a few hours, the pieces will fuse together. Different materials will show a natural, gradient seam.\n\nSimilar materials will fuse together seamlessly.\n\nA single use of the plaster can cover an area up to a few inches wide and tall. Multiple uses can join together larger pieces of stone. Unused plaster will last indefinitely as long as the urn stays sealed.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-plaster-of-joining.txt"
+        }
+      },
+      {
+        "id": "minor-cold-mind-iron-body",
+        "ordinal": 38,
+        "type": "minor_arcanum",
+        "name": "Cold Mind, Iron Body",
+        "grantable": true,
+        "source_ref": "minor-cold-mind-iron-body",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "preparation",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Preparation ◇◇◇\n\nWhen you ***Bolster by spending downtime in isolation, fasting, and meditation with the prayer beads***, hold Preparation (as per the Bolster move).\n\nWhile you ***hold at least 1 Preparation***, you require only an hour of sleep each night, can endure cold weather without *warm* clothing, and need not consume supplies or provisions when traveling or making camp. After about ten days of such hard living, lose 1 Preparation.\n\nAlso, you can spend 1 Preparation to:\n\n• Add +1 to any roll, after it is made (maximum +1 per roll)\n\n• Clear a debility, or refuse to mark one\n\n• Perform a feat of extreme endurance\n\n• Ignore harm from a source of elemental energy (fire, cold, lightning, etc.)",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-cold-mind-iron-body.txt"
+        }
+      },
+      {
+        "id": "minor-little-friend",
+        "ordinal": 39,
+        "type": "minor_arcanum",
+        "name": "Little Friend",
+        "grantable": true,
+        "source_ref": "minor-little-friend",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "tulpa",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "You have created a tulpa, which you treat as a follower. Pick 2 additional tags, an instinct, 2 additional moves, and its cost.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Follower-card layout is partially flattened/malformed in the generated source."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-little-friend.txt"
+        }
+      },
+      {
+        "id": "minor-revealing-light",
+        "ordinal": 40,
+        "type": "minor_arcanum",
+        "name": "Revealing Light",
+        "grantable": true,
+        "source_ref": "minor-revealing-light",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "duration_hours",
+            "type": "counter",
+            "min": 0,
+            "max": 5,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***spend a day preparing the special ingredients*** (Value 1) ***according to the secret recipe***, you create a ◇ jar of magic butter (◇◇◇\n\n◇◇ hours).\n\nWhen you ***light the lamp using the magic butter and intone the mantra***, the lamp gives off a pale, heatless light so long as you continue to chant.\n\nWithin this light:\n\n• Active spirits are visible, even if they are not manifest\n\n• Illusions, glamours, and veils are stripped away\n\n• Shapechangers can be seen for what they truly are\n\n• Hidden things radiate a bright aura\n\n• Lies spoken are visible as black smoke that lingers near the ground Alas, the light draws the ire of any wraiths (or other hungry undead spirits) nearby.\n\n40",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-revealing-light.txt"
+        }
+      },
+      {
+        "id": "minor-darkwalker-cloak",
+        "ordinal": 41,
+        "type": "minor_arcanum",
+        "name": "Darkwalker Cloak",
+        "grantable": true,
+        "source_ref": "minor-darkwalker-cloak",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "charges",
+            "type": "counter",
+            "min": 0,
+            "max": 4,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Charges ◇◇◇◇\n\nWhen you ***open your own veins and drench the fur with your own fresh blood,*** lose 1d8 HP and mark a debility. If the cloak holds no Charges, it gains 1d4 Charges. The scars from the wound are bright white and never fade.\n\nWhen you ***suffer a blow or physical injury while wearing the Darkwalker Cloak***, it loses 1 Charge and you transform into a cloud of shadow. You suffer no harm after all and can flit and fly about for a few seconds before reforming. Everything you touch while in this shadowy form is laced with hoarfrost. This effect does not trigger if the fur has no Charges.\n\nWhen ***direct sunlight or holy light touch the Darkwalker Cloak,*** or ***anyone but you dons it***, it loses all its Charges.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-darkwalker-cloak.txt"
+        }
+      },
+      {
+        "id": "minor-the-flesh-is-like-clay",
+        "ordinal": 42,
+        "type": "minor_arcanum",
+        "name": "The Flesh Is Like Clay",
+        "grantable": true,
+        "source_ref": "minor-the-flesh-is-like-clay",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "mutation_choice",
+            "type": "single_choice",
+            "status": "pending_interpretation",
+            "reason": "The source extraction flattens a mark-one choice block; options are not normalized until manually rechecked."
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "When you ***cruelly kill a warm-blooded being in the cave,*** one of similar size to yourself, and ***smear both its blood and yours upon the stones,*** mark 1:\n\n• Gain unholy resilience: increase your max HP by 2 and gain +1 armor against anything but bronze.\n\n• Gain one of your victim's physical traits (their strength, their speed, their looks, their strong heart, etc.).\n\n• Heal yourself of a permanent injury (regrowing a limb, removing a scar, fixing a bad knee, etc.).\n\n***Each time you use this power***, mark all three debilities. With each use, some of the red crystal vanishes from the cave. After the third use, the crystal and the cave's power are gone.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Reverse-side mark-one choices are flattened by extraction."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-flesh-is-like-clay.txt"
+        }
+      },
+      {
+        "id": "minor-fetch-s-mask",
+        "ordinal": 43,
+        "type": "minor_arcanum",
+        "name": "Fetch's Mask",
+        "grantable": true,
+        "source_ref": "minor-fetch-s-mask",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "ken",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "Ken ◇◇◇\n\nWhen you ***wear the mask and eat someone's hair, blood, fingernail, etc.***, you and the mask become their flawless double until the next sunrise or you remove the mask.\n\nWhen you ***interact with an NPC known to whoever's visage you wear***, roll +CHA: **on a 10+**, hold 3 Ken; **on a 7-9**, hold 1 Ken; **on a 6-**, they are deeply suspicious. While interacting with them, spend Ken 1-for-1 to ask the GM:\n\n• What do they expect me to do/say?\n\n• What do they hope/want from me?\n\n• What secret do I keep from them?\n\nWhen you ***remove the mask after wearing someone's visage***, roll +CON: **on a 10+**, it hurts but comes off okay; **on a 7-9**, your face is raw and painful, mark a debility; **on a 6-**, lose 1d4 HP, mark a debility, and the mask leaves lasting, distinctive scars.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Printed tag/load line is malformed in extraction."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-fetchs-mask.txt"
+        }
+      },
+      {
+        "id": "minor-witch-bottle",
+        "ordinal": 44,
+        "type": "minor_arcanum",
+        "name": "Witch Bottle",
+        "grantable": true,
+        "source_ref": "minor-witch-bottle",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "sway",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Sway ◇◇◇\n\nWhen you ***tie strands of someone's hair around an item that they made or owned, set them afire, and drop them still-burning into the empty bottle,*** hold 3 Sway over them. The cinders continue to burn and glow until the Sway is gone. Spend 1 Sway while speaking their true name to…\n\n• Twist their senses, making them perceive something untrue\n\n• Plague them with nightmares until they wash in rain or snow\n\n• Cause an emotion in their heart to swell, possibly overwhelming them\n\nIf the person you currently hold Sway over finds and breaks the Witch Bottle, you will yourself suffer all the torments you have ever inflicted with it.\n\n44",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-witch-bottle.txt"
+        }
+      },
+      {
+        "id": "minor-wishing-candles",
+        "ordinal": 45,
+        "type": "minor_arcanum",
+        "name": "Wishing Candles",
+        "grantable": true,
+        "source_ref": "minor-wishing-candles",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "uses",
+            "type": "uses",
+            "max": 5,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Uses: ◇◇◇◇◇\n\nWhen you ***spend a few days following the unsavory recipe from the scroll*** (Value 1), gain 1d4+1\n\nWishing Candles.\n\nWhen you ***burn a Wishing Candle and utter the ugly incantation***, say what you wish to acquire:\n\nit will come into your possession soon. Roll the Die of Fate to learn the cost. If it was an item of Value 1 or less, roll twice and take your pick.\n\n1d6 cost\n\n1 The crops fail/2d4 Surplus is lost\n\n2 One of the village's resources or assets is lost/stolen/ruined/etc.\n\n3 A neighbor takes seriously ill or suffers a freak accident/loss\n\n4 Weird events plague the village; panic looms\n\n5-6 No cost to speak of, this time",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-wishing-candles.txt"
+        }
+      },
+      {
+        "id": "minor-baleful-utterance",
+        "ordinal": 46,
+        "type": "minor_arcanum",
+        "name": "Baleful Utterance",
+        "grantable": true,
+        "source_ref": "minor-baleful-utterance",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***speak the dread word***, name an object that your voice can reach—it shatters, unravels, or is otherwise unmade.\n\nThen roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, pick 1 in addition to whatever else the GM says; **regardless**, if the item you destroyed was *indestructible*, pick 1 more.\n\n• Your throat burns and your tongue blisters; mark *miserable* and you can barely whisper for a few days.\n\n• Your ears and those of all who heard the word start bleeding (1d4 damage, ignores armor, temporarily deafened).\n\n• 1d4 other objects of the GM's choice also shatter/unravel/are unmade.\n\n• This place is corrupted by the Things Below; if already corrupted, it gets worse; otherwise, it is now a shunned place, a place of disquiet and unease.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-baleful-utterance.txt"
+        }
+      },
+      {
+        "id": "minor-aetherium-spear",
+        "ordinal": 47,
+        "type": "minor_arcanum",
+        "name": "Aetherium Spear",
+        "grantable": true,
+        "source_ref": "minor-aetherium-spear",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": true
+          },
+          {
+            "key": "front_requirements_3_to_5",
+            "type": "reversible_checkboxes",
+            "count": 3,
+            "status": "verified",
+            "note": "A failure can explicitly clear the last three front-side boxes; do not model all five as immutable unlocks."
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇, *close*, *thrown, magical,* +1 damage\n\nWhen you ***Clash with the aetherium spear and get a 7+***, you can mark a debility to blast your foe with lightning, dealing +1d6 damage (*forceful*, *loud*).\n\nWhen you point the aetherium spear at your foes and bellow a thunderous warcry, mark a debility and unleash a blast of lightning (*far*, *area*, *forceful*, *loud*, *dangerous*), rolling +STR to Let Fly instead of +DEX (and you cannot choose to deplete ammo). **On a 6-**, in addition to whatever else the GM says, the spearhead is drained of power and the birchwood shaft is reduced to cinders—clear the last 3 check boxes on the front of this card.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-aetherium-spear.txt"
+        }
+      },
+      {
+        "id": "minor-staff-of-magnetism",
+        "ordinal": 48,
+        "type": "minor_arcanum",
+        "name": "Staff of Magnetism",
+        "grantable": true,
+        "source_ref": "minor-staff-of-magnetism",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "charge",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Charge: ◇◇◇\n\nWhen ***lightning courses through the staff,*** it holds\n\n3 Charge (max 3).\n\nWhen ***the staff holds Charge and you focus your will and senses through it***, you can sense iron, steel, cobalt, and nickel within *near* range and move such objects slowly and awkwardly. You can manipulate only items that you could lift with one hand.\n\nWhen you ***tap into the power stored within the staff***, pick 1:\n\n• Extend its effects up to *far* range\n\n• Move items quickly and suddenly, fast enough to attack or defend (*dangerous*)\n\n• Manipulate an object of considerable mass, as much as you can deadlift\n\nEach time you tap into the staff's power, roll\n\n1d6. If you roll higher than the staff's current\n\nCharge, it loses 1 Charge.\n\n48",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-staff-of-magnetism.txt"
+        }
+      },
+      {
+        "id": "minor-groundskimmer",
+        "ordinal": 49,
+        "type": "minor_arcanum",
+        "name": "Groundskimmer",
+        "grantable": true,
+        "source_ref": "minor-groundskimmer",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*large, magical, dangerous,* requires a crew of 2 The groundskimmer can carry about as much as a fully-loaded wagon. When you ***grasp the tiller and focus***, you can adjust how much the craft's aetherium repels the earth. When you ***properly adjust it to match its current load***, it hovers a few feet above the earth and can sail across the landscape. In a good wind at a safe pace, it can cover the breadth of the Flats in ~8 hours. Sailing into the wind is much slower, and requires a zig-zag course.\n\nBad weather, high speed, flying too high, rough terrain, dodging obstacles, damage, impact, and sudden changes in load all involve Defying Danger (by you/your crew/your passengers).\n\nSailing the Great Wood is impossible (too dense). Going offroad in the Steplands, Foothills, or mountains is suicidal; even sticking to the Makers' Roads in those regions is dangerous.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-groundskimmer.txt"
+        }
+      },
+      {
+        "id": "minor-thunderbolt-bow",
+        "ordinal": 50,
+        "type": "minor_arcanum",
+        "name": "Thunderbolt Bow",
+        "grantable": true,
+        "source_ref": "minor-thunderbolt-bow",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "ammo_or_load_state",
+            "type": null,
+            "status": "pending_interpretation",
+            "reason": "The public extraction mangles the printed load/ammo line."
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "◇, *far*, *forceful*, *magical*, *loud*, *reload*, ignores armor, ◇ plenty left, low ammo, all out ◇◇\n\nWhen you ***speak the secret word***, the bow activates and hums ominously. When you then ***wear the aetherium glove and grasp where the string should be***, a crackling line of lightning appears between the horns.\n\nWhen you ***draw back the lightning***, a thunderbolt forms where an arrow should be. It manifests over the course of a deep breath, after which you can Let Fly.\n\nYou must charge the bow with lightning to replenish its ammo.\n\nWhen you ***draw back the lightning for at least ten deep breathes***, deplete your ammo. Your next shot deals +1d4 damage (+*area*, +*dangerous*), but if you roll snake eyes to Let Fly, the bow explodes (3d6 damage, *reach*, *area*, *forceful*, *loud*).",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Printed load/ammo line is malformed in extraction."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-thunderbolt-bow.txt"
+        }
+      },
+      {
+        "id": "minor-bronze-protector",
+        "ordinal": 51,
+        "type": "minor_arcanum",
+        "name": "Bronze Protector",
+        "grantable": true,
+        "source_ref": "minor-bronze-protector",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "readiness",
+            "type": "counter",
+            "min": 0,
+            "max": 4,
+            "status": "verified"
+          },
+          {
+            "key": "bronze_protector",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*Construct, spirit, durable, vigilant, overbearing, mute, gullible*\n\n**HP** 13; **Armor** 3 (metal)\n\n**Damage** pummel 1d8 (*hand*)\n\n**Special qualities** fireproof; holds +1 Readiness on a 7+ to Defend; requires a smithy and tools to regain HP **Instinct** to be overzealous in guarding you\n\n• Loom menacingly, belching smoke\n\n• Start fires, cause collateral damage\n\n• Run low on fuel\n\n**Cost** profuse gratitude (Loyalty: ◇◇◇ )\n\n**HP**\n\nStarts at 13",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-bronze-protector.txt"
+        }
+      },
+      {
+        "id": "minor-sublime-words",
+        "ordinal": 52,
+        "type": "minor_arcanum",
+        "name": "Sublime Words",
+        "grantable": true,
+        "source_ref": "minor-sublime-words",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "voice_state",
+            "type": "ordered_state",
+            "values": [
+              "raspy_voice",
+              "coughing_fits",
+              "mute"
+            ],
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇ raspy voice, ◇ coughing fits, ◇ mute\n\nWhen you ***spend supplies (Value 2) and a full***\n\n***season a-crafting, chanting the Sublime Words***\n\n***all the while,*** roll +WIS. No matter what, you've damaged your voice (mark a status above) but made a thing of true beauty (Value 4). **On a 10+**, pick 1, or 2 and further damage your voice; **on a 7-9**, pick 1 and further damage your voice.\n\n• Its beauty will persist through the ages\n\n• It eases pain and lifts grief\n\n• It inspires others to better themselves\n\n**On a 6-**, it stokes greed in those who see it and fear in those who own it, worse if those qualities were already there. Expect bloodshed.\n\nWhen you ***rest your voice for a season*** (no shouting, little talking, not using the Sublime Words), clear one status above.\n\n52",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-sublime-words.txt"
+        }
+      },
+      {
+        "id": "minor-flaming-sword",
+        "ordinal": 53,
+        "type": "minor_arcanum",
+        "name": "Flaming Sword",
+        "grantable": true,
+        "source_ref": "minor-flaming-sword",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "blaze",
+            "type": "ordered_die_state",
+            "values": [
+              null,
+              "d4",
+              "d6",
+              "d8",
+              "d10"
+            ],
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇, *close*, *beautiful*, +1 damage, 1 piercing\n\nBlaze: ◇ nil, ◇ 1d4, ◇ 1d6, ◇ 1d8, ◇ 1d10\n\nWhen you ***call on the fire spirit within,*** the blade erupts in flames (+*magical*, +*dangerous*) and casts light (*reach*, *area*). The hilt gets hot; wear thick gloves!\n\nWhen you ***Clash with the Flaming Sword***, after you resolve the move and deal damage, increase the Blaze die one step.\n\nWhen you ***roll to make a move while wielding the sword***, take damage equal to the Blaze die (ignores armor).\n\nWhen you ***deal damage with the sword***, add the Blaze die.\n\nWhen you ***sheathe the sword***, the fire goes out and cannot be relit until the Blaze die is nil.\n\nReduce the Blaze die once each hour.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-flaming-sword.txt"
+        }
+      },
+      {
+        "id": "minor-searing-touch",
+        "ordinal": 54,
+        "type": "minor_arcanum",
+        "name": "Searing Touch",
+        "grantable": true,
+        "source_ref": "minor-searing-touch",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***call up the fire from your soul and pour it into your hands***, roll +CON: **on a 7+**, your hands blaze like white-hot iron (see below); **but on a 10+**, first pick 1; **and on a 7-9**, first pick 2:\n\n• It takes minutes of intense focus\n\n• It burns your life force; lose 2d4 HP\n\n• The pain is terrible; mark a debility\n\n**On a 6-**, whatever else the GM says, you cannot do this again until you Convalesce.\n\nWhile your ***hands are ablaze***, your touch deals 1d10 damage (*hand*, *messy*, *dangerous*, 1 piercing), sets fire to wood, boils water, heats metal. Your hands are unharmed by the heat, but your gear and the rest of your body has no such protection.\n\nBe careful.\n\nYour hands blaze as long as you maintain your focus, up to a minute or maybe two.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-searing-touch.txt"
+        }
+      },
+      {
+        "id": "minor-sigil-of-authority",
+        "ordinal": 55,
+        "type": "minor_arcanum",
+        "name": "Sigil of Authority",
+        "grantable": true,
+        "source_ref": "minor-sigil-of-authority",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "authority",
+            "type": "counter",
+            "min": 0,
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "Authority: ◇◇◇\n\nWhen you ***Strengthen Your Bond*** with a member of your community, you can choose to hold\n\n+1 Authority (max 3) in lieu of your follower holding +1 Loyalty. If you ***remove the ring***, lose all Authority.\n\nWhen you ***Persuade your follower(s) while holding Authority***, you have advantage.\n\nYou can spend Authority 1-for-1 to:\n\n• Wrap yourself in majesty for up to a few minutes, drawing all attention, cowing the weak-willed, and speaking in a voice that all can hear (*far*, *area*)\n\n• Will someone in your presence to do as you wish, attempting to Persuade them without words\n\n• Have one of your nearby followers suffer an attack on your behalf, as if they held Readiness from Defending",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-sigil-of-authority.txt"
+        }
+      },
+      {
+        "id": "minor-horn-of-storms",
+        "ordinal": 56,
+        "type": "minor_arcanum",
+        "name": "Horn of Storms",
+        "grantable": true,
+        "source_ref": "minor-horn-of-storms",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "storm_parameters",
+            "type": "text_fields",
+            "status": "pending_interpretation",
+            "reason": "Onset/intensity/duration fields are visible, but exact field grouping is retained in source rather than guessed."
+          }
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "When you ***get yourself good and drunk from the horn,*** mark a debility. You call up a storm, centered on your location. Roll four d4s. For each additional debility you mark, roll an extra d4.\n\n***Until the storm passes***, you can't clear debilities.\n\nAssign one d4 to each of the following:\n\n____ **Onset: 1** = next day; **2-3** = in a few hours; **4** = within the hour.\n\n____ **Intensity: 1** = dangerous to be out in;\n\n**2-3** = damages weak structures; **4** = lays waste to weak structures and damages sturdy ones.\n\n____ **Reach: 1** = a mile or so; **2-3** = a dozen miles or so; **4** = dozens or scores of miles.\n\n____ **Duration** (once it gets going)**: 1** = less than an hour; **2-3** = a few hours; **4** = a day or so.\n\n56",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Printed write-in grouping needs manual layout verification before field normalization."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-horn-of-storms.txt"
+        }
+      },
+      {
+        "id": "minor-moonstone",
+        "ordinal": 57,
+        "type": "minor_arcanum",
+        "name": "Moonstone",
+        "grantable": true,
+        "source_ref": "minor-moonstone",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "hours",
+            "type": "counter",
+            "min": 0,
+            "max": 5,
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇, *beautiful, magical*, *fragile*,\n\nhours: ◇◇◇◇◇\n\nWhen you ***spend a night beneath the full moon,*** directing its light into the moonstone, it gains 1 hour of light (max 5).\n\nWhen you ***hold the moonstone aloft in darkness and utter a sacred word***, it shines with pale white light (*area*, *near*) that shows no color, only shape and texture. The light reveals the undead, even spirits that have yet to manifest and entities masked by magic or disguise.\n\nWhen ***the moonstone is your only light source and you shout the proper word***, it blazes with silvery light and all undead in range take 1d6 damage per hour of light remaining (ignores armor). The moonstone then goes dark, its light expended until you charge it again.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-moonstone.txt"
+        }
+      },
+      {
+        "id": "minor-hand-of-aals-sannan",
+        "ordinal": 58,
+        "type": "minor_arcanum",
+        "name": "Hand of Aals Sannan",
+        "grantable": true,
+        "source_ref": "minor-hand-of-aals-sannan",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "consequence_choice",
+            "type": "single_choice",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you (and only you) ***touch the hand and speak the name of Aals Sannan,*** all three crystals dim and the power of the long-dead sorcerer infuses you. Reset your HP to max, clear your debilities, and heal any problematic wounds (if you were dying, you no longer are). Also, mark one:\n\n◇ Part of your look changes, to be more like Aals Sannan.\n\n◇ Your instinct changes, to something more cynical/manipulative/ambitious.\n\n◇ Your heart hardens towards someone you care about, so that you see them now as only a tool or a threat.\n\nWhen ***all three have been marked***, the three crystals crumble to dust. Clear all three marks but their effects remain. Also, clear the last three check boxes on the front of this card. Until you replace all three crystals, you can't use this arcanum.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-hand-of-aals-sannan.txt"
+        }
+      },
+      {
+        "id": "minor-bittersweet-elixir",
+        "ordinal": 59,
+        "type": "minor_arcanum",
+        "name": "Bittersweet Elixir",
+        "grantable": true,
+        "source_ref": "minor-bittersweet-elixir",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "age_state",
+            "type": "ordered_state",
+            "values": [
+              "youthful",
+              "mature",
+              "elderly"
+            ],
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇ youthful, ◇ mature, ◇ elderly\n\nWhen you ***fill the basin with a few years of your life***, it becomes a draught of honey and regret.\n\nEither mark the next age above (and update your look) as the lost years catch up with you, or mark one of the following (your choice):\n\n• Your mood shifts, dramatically (how?)\n\n• You see the Last Door (what's it like?)\n\n• Reduce STR, DEX, or CON by 1\n\n• You have less than a year to live\n\nWhen someone ***drinks down all of the bittersweet elixir, straight from the basin***, they pick 1:\n\n• Regain all HP, clear all debilities, and heal any active problematic wounds\n\n• Purge themselves of all poison/disease\n\n• Fully recover from a permanent injury by next season's end, or sooner",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-bittersweet-elixir.txt"
+        }
+      },
+      {
+        "id": "minor-the-broom-s-lullaby",
+        "ordinal": 60,
+        "type": "minor_arcanum",
+        "name": "The Broom's Lullaby",
+        "grantable": true,
+        "source_ref": "minor-the-broom-s-lullaby",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*magical, area, near*\n\nWhen you ***start sweeping an area as you softly sing the lullaby***, roll +CHA: **on a 7+**, those who see and hear you stop to watch and listen, at least for a bit, entranced or confused or bemused as fits their nature and the circumstances. They snap out of it if harmed or threatened. **Also, on a 10+**, you can hold their attention for the length of the lullaby, as long as no one is harmed or threatened.\n\nWhen you ***sing the full lullaby, sweeping all the while***, roll +CHA: **on a 10+**, all who hear you fall into a deep sleep and will be prone to dismiss this as just a dream; **on a 7-9**, all who hear you start to nod off or lapse into a light, jerking sleep, but they will certainly remember this when they come to; **on a 6-**, at least one of your audience snaps to and realizes just how weird this all is.\n\n60",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-brooms-lullaby.txt"
+        }
+      },
+      {
+        "id": "minor-the-angry-little-god",
+        "ordinal": 61,
+        "type": "minor_arcanum",
+        "name": "The Angry Little God",
+        "grantable": true,
+        "source_ref": "minor-the-angry-little-god",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 3,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "angry_little_god",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***put the idol in a prominent place and beseech it to attend its humble servant,*** it wakes (but is still inert). Treat it as a follower, though it hardly considers itself one.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-angry-little-god.txt"
+        }
+      },
+      {
+        "id": "minor-the-silver-branch",
+        "ordinal": 62,
+        "type": "minor_arcanum",
+        "name": "The Silver Branch",
+        "grantable": true,
+        "source_ref": "minor-the-silver-branch",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 7,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "branch_state",
+            "type": "ordered_state",
+            "values": [
+              "fresh",
+              "fading",
+              "bare"
+            ],
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "◇, *magical*, *beautiful*\n\n• ◇ fresh, ◇ fading, ◇ bare A few feet long, laden with white flowers and jingling golden fruits. Surprisingly sturdy, and stays fresh indefinitely unless its powers are used. Only one such branch can leave the Fae domain at a time.\n\nWhen you ***jingle the silver branch***, all who hear it (*reach*, *area* except you) are filled with bliss and forget their woes for a few hours. Roll +CHA:\n\n**on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n\n• The branch starts to fade; if already fading, it goes bare, its powers gone\n\n• Some (GM's choice of who) are blissed out for days or weeks, growing weak and wretched in the meantime\n\n• Some (GM's choice of who) become obsessed with hearing it jingle again",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-the-silver-branch.txt"
+        }
+      },
+      {
+        "id": "minor-void-elemental",
+        "ordinal": 63,
+        "type": "minor_arcanum",
+        "name": "Void Elemental",
+        "grantable": true,
+        "source_ref": "minor-void-elemental",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 4,
+            "status": "verified",
+            "mutable_after_unlock": false
+          },
+          {
+            "key": "void_elemental",
+            "type": "follower_reference",
+            "status": "verified"
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "*Spirit, primordial, confused, angry*\n\n**HP** 15; **Armor** 1 (lacks organs)\n\n**Damage** void touch 1d10 w/advantage (*hand*, *grabby*, ignores armor)\n\n**Special qualities** immune to most harm **Instinct** to rage at all the noise and chaos\n\n• Manifest as a black hole in reality\n\n• Snuff out a source of energy\n\n• Become confused, unsure what to do\n\n**HP**\n\nStarts at 15",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-void-elemental.txt"
+        }
+      },
+      {
+        "id": "minor-runes-of-creation",
+        "ordinal": 64,
+        "type": "minor_arcanum",
+        "name": "Runes of Creation",
+        "grantable": true,
+        "source_ref": "minor-runes-of-creation",
+        "controls": [
+          {
+            "key": "discovery_requirements",
+            "type": "checkbox_group",
+            "count": 5,
+            "status": "verified",
+            "mutable_after_unlock": false
+          }
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "When you ***carefully inscribe an object with the runes of creation***, pick 1 desired effect:\n\n• It will flow into any shape you imagine\n\n• It will become *indestructible*\n\n• It will become *beautiful*\n\n• It will blaze with terrible heat (1d10 damage, *messy*), if only for a moment\n\nWhen you ***speak the Silent Word that completes the spell*** (*far* range) mark a debility as elemental forces flow through you into the object. The effect works, but roll +CON: **on a 10+**, pick 1; **on a 7-9**, pick 1 and the GM picks another; **on a 6-**, all 3.\n\n• Mark another debility & lose 1d10 HP\n\n• The elements run amok, triggering a fire/earthquake/avalanche/storm/etc.\n\n• The effect lasts only while you focus on it, and then the object is damaged in a manner of the GM's choosing\n\n64",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/minor-runes-of-creation.txt"
+        }
+      }
+    ],
+    "major": [
+      {
+        "id": "major-staff-of-the-lidless-orb",
+        "ordinal": 1,
+        "type": "major_arcanum",
+        "name": "Staff of the Lidless Orb",
+        "grantable": true,
+        "source_ref": "major-staff-of-the-lidless-orb",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 7,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Progress unlocks reverse-side capabilities progressively."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **POWER OF THE LIDLESS ORB** When you ***bear the staff and call upon the power of the Orb***, choose one of the effects that you have marked:\n\n• Cast your sight afar, seeing either a time in the past of your current locale or the present of a distant place which you have previously visited. While you maintain the effect, you are blind to the world around you.\n\n• Hold the Orb before another creature's gaze and steal its sense of sight, blinding them until you use this effect again. When you see through the Lidless Orb, you can choose to see using the currently stolen sense of sight.\n\n• Hold the Orb before a mortal being's gaze, keeping it transfixed, mesmerized, and receptive to your suggestions. A weak-willed creature will obey outright; a strong-willed one might require convincing.\n\n• Point the Orb at a living victim and roll 2d4. If you roll higher than the victim's current HP, it's debilitated with nausea and vertigo while you remain in its presence (and possibly for some time thereafter). Otherwise, the victim reels momentarily but soon recovers.\n\nAfter you've chosen the effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, you decide either to mark a Consequence and have the effect occur, or to have the effect fail; **on a 6-**, ask the GM what happens (which may or may not involve marking a Consequence).\n\n• One of your eyes becomes strange, bulging, painful, and discolored. Your vision is more-or-less unaffected.\n\n• Your other eye withers, atrophies, and goes pale and empty. Painful warts sprout all around the socket. Permanently mark the *miserable* debility.\n\n• You begin to sprout warty, scale-like protrusions all over. These continue to grow until you gain +1 armor, but mortals who see these growths tend to be repulsed.\n\n• You become incapable of seeing beauty. Your senses are unaltered, but nothing strikes you as beautiful. Grotesque and horrific sights still move you and hold a strange fascination.\n\n• Replace your instinct with \"Disgust: To marvel at things horrific and grotesque.\"\n\n• You can clearly see the ugliness in other people. When you first meet an NPC, you can ask the GM \"What secret shame or guilt do they bear?\" and get an honest answer.\n\n• You become aware of El'rash-Orra, the Many Eyes, gazing up at you from Below. It whispers to you a task; refuse it—now or later—and the Lidless Orb goes dark, useless to you.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-staff-of-the-lidless-orb.txt"
+        }
+      },
+      {
+        "id": "major-twisted-spear",
+        "ordinal": 2,
+        "type": "major_arcanum",
+        "name": "Twisted Spear",
+        "grantable": true,
+        "source_ref": "major-twisted-spear",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 5,
+          "type": "task_checkboxes",
+          "reset": null,
+          "unlock_threshold": 3,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 8,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Three completed tasks unlock the Arcana; later completed tasks grant additional reverse-side moves."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **WHISPERS** When you ***grip the shaft of the Twisted Spear***, you can ask the GM, \"What spirits are active here?\" and get an honest answer.\n\n• **PROMISE OF DOOM** When you ***hold the Twisted Spear and speak aloud an oath to destroy a spirit or demon***, you do +2d4 damage against them and -4 damage to everything else. This lasts until you destroy them or forsake your oath. If you forsake your oath, mark a consequence.\n\n• **ROOTS OF THE ELDER TREE** When you ***stand with your feet firmly on the ground and strike a spirit, ghost, or demon***, you can mark a consequence to send your target coursing through you and into the depths of the earth, where it is bound fast.\n\n• **DARKNESS LINGERS** When you ***strike down a spirit or demon***, ask the GM for one of its moves and write it down; it is held in the Twisted Spear. When you ***use the stolen move***, roll +CON: **on a 10+**, you do it, just like that; **on a 7-9**, you do it, but choose 1:\n\n• The move is lost, bleeding away from the Spear\n\n• Mark a consequence\n\n• Deep beneath the elder tree from which the Spear was carved, something dark and terrible shifts and strains at the roots that bind it.\n\n• From now on, the first time you Make Camp each session, roll +WIS: **on a 10+**, your dreams are unpleasant and claustrophobic, but your sleep is restful; **on a 7-9**, you dream of that which is bound by the elder tree from which the Spear was carved—take disadvantage on your next roll, but ask the GM what you learn; **on a 6-**, the thing bound by the tree sees you, too. You awake, unrested, and will get no rest this night.\n\n• You are overwhelmed by a vision of the thing bound by the Spear's tree, its past and its terrible desires.\n\n• The elder tree from which the Spear was carved shudders and cracks, still whole but wounded and weakened.\n\n• A lesser evil escapes from the roots of the tree. Ask the GM what is now loose in the world.\n\n• The tree grows sick and weak, losing its leaves and sprouting only a few in spring.\n\n• Some natural thing is tainted by the dark power beneath the tree, and goes forth to wreak evil.\n\n• The tree dies. Its prisoners escape. And the Spear loses all power.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-twisted-spear.txt"
+        }
+      },
+      {
+        "id": "major-demonhide-cloak",
+        "ordinal": 3,
+        "type": "major_arcanum",
+        "name": "Demonhide Cloak",
+        "grantable": true,
+        "source_ref": "major-demonhide-cloak",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 5,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks the core reverse ability; a later consequence threshold grants another ability."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **THE FLESH REMEMBERS** When you ***first encounter a demon and search the Cloak's memories for its like***, roll +nothing: **on a 10+**, the flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated; **on a 7-9**, choose 1 from the list below.\n\n• The flesh of such a creature is present in the Cloak—you receive a vision of how it was defeated, but mark a Consequence\n\n• The flesh of such a creature is not present in the cloak; you learn nothing\n\nWhen you ***have marked 3 Consequences***, you gain the following move:\n\n• **UNHOLY VISAGE** ◇◇◇ When you ***take the appearance of a demon***, roll +CON: **on a 10+**, hold 3 Guise; **on a 7-9**, hold 1 Guise; **on a 6-**, hold 1 Guise and mark a Consequence. While you hold Guise, all perceive you as a demon, and magic that affects demons affects you, too. Spend Guise, 1-for-1 to:\n\n• Maintain your appearance in the face of divination or revealing light\n\n• Understand any language you hear, and reply in kind\n\n• Shrug off harm that your demonic form could ignore\n\n• Maneuver in a way consistent with your demonic form: flying, leaping, oozing, flitting as a shadow, etc.\n\n• You experience an overwhelming vision, from the point of view of a demon sewn into the Cloak. Ask the GM what you see and when you come to.\n\n• A number of seams fray and tear. The Cloak loses its powers until you sew a new piece of demon flesh into it.\n\n• The Cloak's stench grows stronger, noticeable even when you go unseen and unheard. You smell faintly of the Cloak even when you aren't wearing it.\n\n• You become incapable of fear while wearing the Cloak. If you ***wear the Cloak during a session***, your instinct becomes \"Recklessness: To act with no regard to danger or consequence.\"\n\n• You begin to hear the voices of the dark creatures sewn into the Cloak. The Cloak becomes a follower (see below). When you would mark a Consequence, you can choose to spend 1 of the Cloak's Loyalty instead.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-demonhide-cloak.txt"
+        }
+      },
+      {
+        "id": "major-noruba-s-ice-sphere",
+        "ordinal": 4,
+        "type": "major_arcanum",
+        "name": "Noruba's Ice Sphere",
+        "grantable": true,
+        "source_ref": "major-noruba-s-ice-sphere",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 7,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks the core reverse ability; every two consequences grants an additional move."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **MINDWALKING** ◇◇◇◇ When you ***use the Ice Sphere as a psychic anchor***, your consciousness leaves your body and walks the world as a spirit, invisible and insubstantial. Roll +INT: **on a 10+**, hold 3 Power; **on a 7-9**, hold 2 Power; **on a 6-**, hold 2 Power and mark a Consequence. While mindwalking, you may spend your Power, 1-for-1 to:\n\n• Manifest as a ghostly voice and/or presence\n\n• Manipulate an unattended item (small or ◇, no bigger)\n\n• Return instantly to the Ice Sphere from any distance For every 2 Consequences you mark, gain one of the following moves:\n\n• **A MIGHTY WILL** When you ***mindwalk***, hold +1 Power.\n\n• **FARWALKER** When you ***mindwalk***, you may spend 1 Power to instantly send your mind to any place you have ever visited, physically or mentally.\n\n• **TELEPATHY** When you ***mindwalk***, you may spend 1 Power to become able to communicate mentally with someone nearby, as long as you remain in their presence. They can choose whether to respond, and can attempt to ignore you, but cannot shut you out completely without magic of their own.\n\n• **THOUGHTCRAFTER** When you ***mindwalk***, you may spend 1 Power to animate a mass of loose material (gravel, snow, leaves, etc.) into a body no larger than your own. When you would roll STR, DEX, or CON in this form, use INT instead. This form has 10 HP. When reduced to 0 HP, it dissipates and you return to your physical body.\n\n• You draw the attention of some powerful, hungry entity of the spirit world. It has your scent.\n\n• Your physical body withers and fades—permanently mark the *weakened* debility\n\n• Your emotions dull. You can no longer be affected by fear, hate, passion, or other powerful emotions (for good or ill).\n\n• Replace your instinct with \"Detachment: To distance yourself from human connections and emotions.\"\n\n• Your skin tinges bluish; your body becomes cold to the touch. You are unaffected by even the bitterest cold, but find heat and warmth unbearable.\n\n• When you take damage from fire, roll twice and take the higher result.\n\n• When you ***roll 6- at Death's Door***, you have no choice: gain the Ghost insert (with the Ice Sphere as your tether).\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-norubas-ice-sphere.txt"
+        }
+      },
+      {
+        "id": "major-mindgem",
+        "ordinal": 5,
+        "type": "major_arcanum",
+        "name": "Mindgem",
+        "grantable": true,
+        "source_ref": "major-mindgem",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 4,
+          "type": "task_checkboxes",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 8,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Four restoration requirements replace a generic MARK track; completion restores/unlocks the servant form."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "FACE\tfront\n\nTH\tappendix d: major arcana\n\n◇◇ *, slow*, *indestructible*\n\nA chunk of makerglass the size of a human head; inspection reveals facets within facets, a thousandfold.\n\nWhen you ***touch the glass with bare skin and open your mind to it***, you contact the intelligence within—lonely, confused, longing for meaning and connection.\n\nIt will happily speak with you, mind-to-mind. It knows much about the past, but naught of its own history or purpose. At least, not yet.\n\nWhen you ***consult the Mindgem about the Makers, their arts, or their history***, ask a question and roll\n\n+INT: **on a 7+**, it answers but **on a 10+**, pick 1; **on a 7-9**, pick 2:\n\nThe answer is cryptic, vague, or lacking crucial context\n\nIt takes a long time—hours or even days—to get the answer\n\nYour mind is left reeling; take disadvantage on your next roll\n\n**On a 6-**, choose 1:\n\nIt wastes your time with irrelevant histories and data\n\nIt answers now, but refuses to answer further questions until you make progress towards restoring its body (or, if its body is assembled, until you pay its Cost).\n\nThe Mindgem knows that a body was crafted for it, and that it has likely survived—at least in part. It longs for the body to be whole, and to interact with the world. To assemble the Mindgem's body and unlock its mysteries:\n\nRecover its chassis of white granite, which weighs well over a ton\n\nRecover its ◇ \"heart,\" a chunk of makerglass that forever burns with terrible heat (*indestructible*, *dangerous*)\n\nRecover and repair the intricate ◇◇ bronze helm (*awkward, big*) that serves as a casing for the Mindgem\n\nPuzzle out how to assemble all the pieces\n\nWhen you've completed all the requirements, gain the Mighty Servant (see reverse).\n\nfront\n\nFACE\tback\n\nTH\tappendix d: major arcana\n\nMysteries of the Mindgem\n\nICON\ticons/construct.svg\n\nThe Mighty Servant\n\n*large*, *construct*, *Maker-wise*, *beautiful*, *meek*, *hardy*, *slow*, *strong*, *exceptional*\n\n**Special qualities** living stone, tireless **Cost** wonder, excitement, joy, discovery (Loyalty ◇◇◇ )\n\n**Instinct** to misunderstand\n\n• Perform a mighty feat of strength\n\n• Carry on implacably\n\n**HP** 24; **Armor** 4 (Made of stone)\n\n**Damage** stone fists d10+1 (*hand, close*, disadvantage)\n\nWhen ***the Mighty Servant makes a move at your behest*** (see Order Followers), on a 6-, in addition to whatever the GM says, mark a consequence.\n\nH2\tConsequences\n\nIt becomes frustrated/agitated and begins to obsessively do something destructive or dangerous to others\n\nIt begins to understand (or perhaps it remembers) lies and deception. It gains the *devious* tag and this move:\n\n• Reveal an earlier deception or half-truth\n\nIt develops a sense of pride; cross off the *meek* tag.\n\nIt realizes its potential as a weapon. Replace the *slow* tag with the *warrior* tag, and its damage becomes 1d10+5 (*hand, close, messy, forceful*, 3 piercing)\n\nIt becomes aggressive and reckless in battle. Its attacks gain the *area* and *dangerous* tags.\n\nIt remembers its original purpose. The GM will pick 1 or have you roll 1d4 on the table below to determine the Servant's new cost (replacing \"wonder, excitement, joy\").\n\n**1d4** purpose cost\n\n1 To punish Victory against Hillfolk, sorcerers, the Things Below\n\n2 To preserve Acquiring artifacts of the past, safely hiding them away\n\n3 To purge Destroying artifacts of the Green Lords or Things Below\n\n4 To build Progress towards building an enormous, enigmatic edifice\n\nIts instinct becomes \"to pursue its purpose.\" You must Persuade it to do anything unrelated to that purpose, and it will flat-out refuse to act against its purpose.\n\nIt wanders off in pursuit of its purpose, implacably pursuing it. It is no longer a follower, though you might still be able to Persuade it.\n\nPB\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-mindgem.txt"
+        }
+      },
+      {
+        "id": "major-whispering-rocks",
+        "ordinal": 6,
+        "type": "major_arcanum",
+        "name": "Whispering Rocks",
+        "grantable": true,
+        "source_ref": "major-whispering-rocks",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 5,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Progress unlocks shadow magic; later use can explicitly cross off available options."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **SHADOW MAGIC** When you ***hold a Whispering Rock and call out the shadows within***, choose one thing which you wish to do:\n\n• Cloak yourself in shadows and silence, moving unseen and unnoticed as long as you draw no attention to yourself and avoid the sun or sacred light\n\n• Name someone you know or to whom you have an arcane link (hair, clothing, or the like); you can see them, hear them, and whisper to them as if from a nearby shadow\n\n• Name someone you can see; the nearby shadows ensnare them, doing no harm but hampering their sight and movement Then, roll +CON: **on a 10+**, the effect lasts as long as you wish, but you have disadvantage on all rolls while you maintain it; **on a 7-9**, either mark a consequence and the effect lasts as on a 10+, or the effect flickers out after mere moments (your choice which); **on a 6-**, ask the GM what happens (which may or may not involve marking a consequence).\n\n• The rocks all cease to function until each is caressed by a dying breath.\n\n• The dark spirit in the rock you were using escapes, manifesting in the world. Cross off the Shadow Magic option that you just used until you force or convince the spirit to return to the rock.\n\n• Your eyes turn jet black. You can see sharply in even utter darkness, but you see no color and are blinded by sunlight.\n\n• You skin turns deathly pale or coal black (your choice) and chill to the touch. The sun burns your skin, but you go unharmed by even the bitterest cold.\n\n• You begin to suffer from dark and troubling dreams. When you ***Make Camp***, roll +WIS: **on a 10+**, a useful secret is revealed by your nightmares—ask the GM to describe them; **on a 7-9**, you get as good a night's sleep as you can; **on a 6-**, you get no rest for the night.\n\n• The spirits in the rocks take purchase in your soul. When ***the spirits compel you to action***, mark XP if you comply. If you resist, roll +WIS: **on a 10+**, you quickly shake off the compulsion; **on a 7-9**, it takes a few moments to break free; **on a 6-**, you come to your senses some time later, having done the-gods-know-what.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-whispering-rocks.txt"
+        }
+      },
+      {
+        "id": "major-blood-quenched-sword",
+        "ordinal": 7,
+        "type": "major_arcanum",
+        "name": "Blood-quenched Sword",
+        "grantable": true,
+        "source_ref": "major-blood-quenched-sword",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 5,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks the primary reverse move; a consequence threshold unlocks another."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **UNQUENCHED** When you ***Clash with a living, bleeding foe with the Blood-quenched Sword***, you may mark a Consequence to shift the result up one step (a 6- becomes a 7-9; a 7-9 becomes a 10-11; a 10-11 becomes 12+). You can do this only once per roll.\n\nWhen you ***have marked 3 consequences***, you gain A Flickering Flame.\n\n• **A FLICKERING FLAME** ◇◇◇ When you ***wield the Blood-quenched Blade and leap headlong into battle against multiple foes***, roll +CON: **on a 10+**, hold 3 Speed; **on a 7-9**, hold 2 Speed; **on a 6-**, hold 2 Speed, and mark a consequence.\n\nDuring this battle, you may spend Speed, 1-for-1 to do the following:\n\n• Attack any number of foes within your reach; roll Clash once and apply the result to all of them, but roll damage separately for each foe\n\n• Strike a weak point, ignoring your foe's armor\n\n• Disengage from a foe you are fighting\n\n• Name a foe on the scene but out of your reach; you cross the distance to them before any can react\n\nWhen you stop fighting, lose all Speed.\n\n• You lose yourself in a blood-rage, no longer distinguishing between friend, foe, and bystander.\n\nWhen you ***attack the nearest living creature***, you have advantage on damage rolls.\n\nWhen you ***attempt to stay your hand***, roll +WIS: **on a 10+**, you do so, and can choose to calm yourself and end the rage with a few moments focus; **on a 7-9**, you stay your hand, but must choose a different target for your rage; **on a 6-**, attack without mercy or doubt.\n\n• Pick someone who survives this battle (friend or foe). You are convinced that they covet the Blood-quenched Sword. Until you put them in their place, you are either *dazed* or *miserable* (your choice).\n\n• Your instinct becomes \"Paranoia: to accuse someone of plotting against or wanting to steal the Blood-quenched Sword, and do something about it.\"\n\n• You can no longer sleep or rest without the Blood-quenched Sword at hand.\n\n• You no longer gain sustenance from food. When you ***slay a living, bleeding creature with the Sword***, hold 1 Sustenance (max 3). When you would consume a ration, lose 1 Sustenance instead. ◇◇◇\n\n• You can always ask the GM \"Does this NPC disrespect me or intend to do me harm?\" and the GM will answer honestly \"Yes\" or \"No.\" If they answer \"Yes,\" gain advantage to end their life and take disadvantage to do anything else.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-blood-quenched-sword.txt"
+        }
+      },
+      {
+        "id": "major-shield-of-the-wisent-witch",
+        "ordinal": 8,
+        "type": "major_arcanum",
+        "name": "Shield of the Wisent Witch",
+        "grantable": true,
+        "source_ref": "major-shield-of-the-wisent-witch",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 5,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 8,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks the reverse-side spirit/herd functionality."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **SPIRITS OF THE HERD** When you ***proudly bear the Shield of the Wisent Witch and call upon the spirits of the herd***, choose 1 of the following effects:\n\n• So long as you bear the Shield and until one of you speaks in the tongues of men, you and any allies that you mark with mud from the forest floor take on the visage of a herd of wisents. While this spell lasts, you and your allies cover ground at great speed and can graze rather than consuming supplies/provisions.\n\n• As you charge your foes, conjure a herd of stampeding wisent to join you. Treat the herd as a weapon (+2d4 damage, *forceful*, *messy*, *area*, *dangerous*, *terrifying*) as you Clash. The herd vanishes once the charge's momentum is spent.\n\n• Hold 3 Might. You can spend Might 1-for-1 to: ◇◇◇\n\n• Plow past, over, or through an opponent or obstacle\n\n• Tear free from any physical restraint\n\n• Shrug off a physical blow, unfazed and unharmed After choosing an effect, roll +CON: **on a 10+**, the effect occurs as described; **on a 7-9**, the effect occurs, but only if you mark 1 Consequence; **on a 6-**, mark 1 Consequence, and the effect occurs—but the GM will tell you what goes wrong.\n\n• You give off a strong, musky scent no matter how much you bathe. It is distinctive and easily recognized.\n\n• Over the next few days, you grow 4-6 inches.\n\n• Over the next few days, your body mass doubles. Your size and relative strength remain mostly the same.\n\n• You consume twice the normal amount of supplies or provisions each day.\n\n• You make an inordinate amount of noise; your voice booms, your feet stomp heavily, even your breathing is loud.\n\n• Your attacks all gain the *forceful* tag (and become more so if they already were *forceful*) and large weapons lose the *awkward* tag. Alas, you hardly know your own strength and must be careful to avoid breaking things (including your friends).\n\n• Predators sense that you would be delicious and will choose to attack and eat you before just about any other potential prey.\n\n• You become territorial and overly defensive of your allies. When someone or thing ***disrespects you, challenges your authority, or directly threatens your allies***, you have disadvantage to do anything other than set them straight.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-shield-of-the-wisent-witch.txt"
+        }
+      },
+      {
+        "id": "major-hec-tumel-codex",
+        "ordinal": 9,
+        "type": "major_arcanum",
+        "name": "Hec'tumel Codex",
+        "grantable": true,
+        "source_ref": "major-hec-tumel-codex",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 4,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 7,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Each progress mark selects/unlocks one spell; the final mark grants an additional vessel ability."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **Call Up the Dead.** Touch a corpse; you conjure its shade, which must truthfully answer 3 questions. **Empowered:** Bind the shade to a tether as a revenant or a ghost; it must perform 3 tasks before being freed from your service.\n\n• **Serpentine.** Your soul slithers from your mouth in the form of an albino viper (*tiny*, *stealthy*, *quick*, *venomous*), leaving your body insensate until you slither back in. Use your normal stats while in this form. **Empowered:** Rather than your soul leaving your body, you physically transform into a man-sized serpent (2 armor, *stealthy*, *quick*, *venomous*, *forceful*, *grabby*).\n\n• **Snuff the Spirit.** Name a living victim within *near* range and roll 2d6. If the victim has fewer current HP than your roll, it dies suddenly. **Empowered:** each living creature near your victim is also affected.\n\n• **Torpor.** Lock eyes with someone and whisper soothing words. They start to fall asleep. If they resist, roll 3d4—if your roll exceeds their current HP, they fail. Once asleep, they do not age, need not eat/drink, and suffer no harm from poison or disease. They cannot be roused until they hear their name thrice-spoken. **Empowered**: Over 3d6 days, all physical harm heals, lost limbs (etc.) regenerate, poisons & diseases are cured, and the infirmities of age reverse.\n\n• **DARKSOME VESSEL** When you ***cast a Codex spell***, on a 12+ you can choose the Empowered effect. When you ***choose to mark a consequence before casting a spell***, don't roll; you get a 12+.\n\n• Over a few days, you lose all body hair. Your skin pales and develops scaly patches.\n\n• Over a few days, you lose all your remaining hair and grow a fine layer of scales over all your skin except that on your face. Gain +1 armor.\n\n• Your body temperature drops and your skin becomes cool to the touch; you have disadvantage on all rolls while exposed to the cold. Your metabolism also slows, and you need to consume supplies or provisions only once every 2 days.\n\n• Your heart rate and breathing slows, and you can hold supremely still for hours on end. You can easily be mistaken for dead. You only need to eat once every 3 days, but you gain no benefit from healing arts or magic.\n\n• Over a few days, your ears grow smaller and flatten against your head. Your tongue grows longer, and you can distend your jaw and throat to swallow things no human should be able to.\n\n• Your eyes grow milky, you no longer blink, and you have trouble seeing things that aren't moving. Your tongue becomes forked, and you gain a preternatural sense of smell and touch.\n\n• Anything that you perceive, Hec'tumel perceives it too.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-hectumel-codex.txt"
+        }
+      },
+      {
+        "id": "major-red-scepter",
+        "ordinal": 10,
+        "type": "major_arcanum",
+        "name": "Red Scepter",
+        "grantable": true,
+        "source_ref": "major-red-scepter",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 4,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [
+          {
+            "key": "charges",
+            "type": "counter",
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 9,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Progress unlocks the core reverse move; a consequence threshold unlocks another."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **BURNING HATRED** *(near, magical, reload)* When you ***point the Red Scepter at an object of your hatred and erase 1 charge***, roll +CHA: **on a 10+**, the Scepter deals 2d4 damage (*messy*, ignores armor), manifested as blistering burns; **on a 7-9**, as a 10+ but pick 1:\n\n• Mark a consequence\n\n• Spend a few seconds chanting and muttering before dealing damage\n\n• Cause any exposed, combustible items in range to burst into flames\n\n**On a 6-**, the GM says what happens (which may or may not involve marking a consequence).\n\nWhen you ***mark 3 Consequences***, you gain Fanning the Flames.\n\n• **FANNING THE FLAMES** When you ***use Inflame***, you can incite everyone who can hear you into violent action, not just an individual. If you do, roll once for the entire crowd, but each target makes their own choices. **On a 7-9**, you must also choose a Consequence; **on a 6-**, the GM chooses a Consequence for you in addition to whatever else happens.\n\nWhen you ***use Burning Hatred***, you can mark a consequence to target not just the person or thing you hate but also everything near them. Roll +CHA once but roll damage for each victim. Any combustibles on your targets also erupt into flame.\n\n• Your skin becomes feverish. You always feel hot and can't bear to wear *warm* gear.\n\n• Your eyes change, glowing like fiery embers. They flare with your temper.\n\n• The crystal tip of the Scepter cracks, and you cannot use the Scepter's powers until you have \"fed\" the Scepter another chunk of red crystal, one at least the size of your fist.\n\n• To gain any future charge, the victim you bleed must be awake and terrified.\n\n• To gain any future charge, the blood-letting must be brutal, messy, and wanton.\n\n• Henceforth, when you ***incite someone to violence with the Scepter and they act as you suggest***, they lose themselves to primal bloodlust. They feel no pain and revel in carnage until they are killed, restrained, or crippled.\n\n• When you ***use Burning Hatred***, something on your person or within reach also catches fire.\n\n• You always hear a dim howling in the back of your mind. When the wind blows, the howling grows in volume, making it difficult to hear anything other than insults or plans to commit violence.\n\n• When you ***Persuade using anything other than threats, pain, or violence***, the best you can get is a 7-9.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-red-scepter.txt"
+        }
+      },
+      {
+        "id": "major-ring-of-daagon",
+        "ordinal": 11,
+        "type": "major_arcanum",
+        "name": "Ring of Daagon",
+        "grantable": true,
+        "source_ref": "major-ring-of-daagon",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress changes the ring into a follower-like entity and unlocks a calling ability."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **CALL UP THE DEEP ONES** When you ***stand in heavy fog or before deep water and call on the servants of Daagon to serve you***, spend 1 Loyalty or mark a consequence and they appear. Treat them as followers, sharing a pool of Loyalty with the Ring itself. You can always choose to mark a consequence in lieu of spending their Loyalty.",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-ring-of-daagon.txt"
+        }
+      },
+      {
+        "id": "major-rune-laden-scales",
+        "ordinal": 12,
+        "type": "major_arcanum",
+        "name": "Rune-laden Scales",
+        "grantable": true,
+        "source_ref": "major-rune-laden-scales",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 5,
+          "type": "mark_track",
+          "reset": "on_completion",
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 7,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "When full, choose/gain an option, mark a consequence, and erase the progress marks."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **INDOMITABLE** When you ***wear the Scales and stand fast against a magical attack***, you can mark a consequence after you roll to add 3 to the result.\n\n• **MAGNET** When you ***witness a magical attack***, you can either spend 1 Readiness (from the Defend move) or mark a consequence to redirect the magic so that it affects only you. You can then stand fast against it.\n\n• **POWER SINK** When you ***wear the Rune-laden Scales and stand fast against a magical attack***, **on a 12+** the armor drains the attacker's power. That form of attack is lost to them, though they might regain it with time, study, or effort.\n\nWhen you ***wear the Rune-laden Scales and spend time in quiet communion with the elements***, the power absorbed by the armor dissipates harmlessly.\n\nIf you ***trigger Power Sink again before dissipating the absorbed power***, mark XP, ask the GM what happens, and brace yourself for the worst.\n\n• **PROOF AGAINST HARM** The Rune-laden Scales now provide you 3 armor, even against piercing and attacks that normally ignore armor.\n\nWhen you ***wear the Rune-laden Scales and find yourself at Death's Door***, you may mark a consequence before you roll to automatically get a 10+.\n\n• You no longer mark 1 (see reverse) when you simply *defeat* a being that wields chaotic magic; you must destroy it instead.\n\n• Mere minions and mindless horrors will no longer suffice. You only mark 1 for destroying a potent agent of chaos, such as a mighty demon or sorcerer.\n\n• When you ***use or knowingly submit to chaotic magic***, the Rune-laden Scales cease to benefit you or anyone you consider to be a friend or ally.\n\n• When you ***kill a living creature out of anger, fear, or passion***, even an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.\n\n• When you ***take any violent action out of anger, fear, or passion***, even against an agent of chaos, take disadvantage on all rolls until you ceremonially atone and purify yourself.\n\n• You come to the attention of one of the mightiest of the Things Below, and they make your doom—or your corruption—a priority.\n\n• You ascend into a vision state, in which you meet the spirit of the last hero to wear the Scales. Should you refuse the quest they offer, the Rune-laden Scales cease to function.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-rune-laden-scales.txt"
+        }
+      },
+      {
+        "id": "major-blackwood-fetishes",
+        "ordinal": 13,
+        "type": "major_arcanum",
+        "name": "Blackwood Fetishes",
+        "grantable": true,
+        "source_ref": "major-blackwood-fetishes",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified_with_source_anomaly"
+        },
+        "resources": [],
+        "consequences": {
+          "type": null,
+          "count": null,
+          "status": "pending_interpretation"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks named ghost/follower content; follower-card extraction has layout anomalies."
+        ],
+        "normalization_status": "partial_pending_interpretation",
+        "rule_text": "• **CALL FORTH AND COMMAND** When you ***mark both figurines with your own blood and call both Astor and Halix by name***, their ghosts manifest before you. Treat them as followers. They are bound to obey your direct commands and can take no overt action against you, but you might need to Persuade them to do anything other than follow your orders to the letter.\n\nWhen you ***dismiss either Astor or Halix***, both return to their figurines until you call them forth again.\n\nWhen e***ither Astor or Halix is banished or reduced to 0 HP***, they both return to their respective fetish.\n\nThey cannot be called forth again until the next new moon.\n\n*In life, Astor was a hunter, low-born but handsome and proud. Halix was the lordly heir of Astor's people: spoiled, manipulative, vain. Halix took Astor as one of many furtive lovers, making an insincere blood-oath that one day they would wed.*\n\n*Their clan fell under the sway of a sorcerer. Astor snuck away to warn the Makers of rebellion, but Halix sided with the sorcerer. The sorcerer used the blood-oath between them to work foul magic, wrenching Astor's soul from their body and binding it. To their surprise, Halix's soul was likewise bound. The sorcerer used them as spies and assassins, leaving Astor's once-noble soul bitter and distrustful. Halix, though, revels in immortality and delights in the opportunities afforded by this undead state.*",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [
+          "Follower-card substructure requires manual verification against layout."
+        ],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-blackwood-fetishes.txt"
+        }
+      },
+      {
+        "id": "major-storm-markings",
+        "ordinal": 14,
+        "type": "major_arcanum",
+        "name": "Storm Markings",
+        "grantable": true,
+        "source_ref": "major-storm-markings",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [
+          {
+            "key": "fury",
+            "type": "counter",
+            "max": 3,
+            "status": "verified"
+          }
+        ],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 7,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "After initial completion, further progress interacts with Fury; a consequence threshold grants another ability."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **STORM'S FURY** ◇◇◇◇ When you ***begin to roil with anger***, your markings crackle with electricity and the air thrums with pressure. Roll +CON: **on a 10+**, hold 3 Fury; **on a 7-9**, hold 2 Fury; **on a 6-**, hold 2 Fury but also mark a consequence.\n\nYou may spend Fury 1-for-1 to manifest one of the following:\n\n• Imbue your next strike with the force of thunder (+1d6 damage, *forceful*, *loud*)\n\n• Move like lightning, closing the distance between you and a nearby foe before they can react\n\n• Bellow like the storm itself, drawing no small amount of attention and making craven foes cringe in fear\n\nWhen you ***have marked 3 consequences***, you gain Chosen of the Storm-bringer.\n\n• **CHOSEN OF THE STORM-BRINGER** Add these to the list of potential manifestations granted by Storm's Fury:\n\n• Roll +CON to Let Fly with a bolt of lightning (2d6 damage, *thrown*, *forceful*, *loud*, *dangerous*, ignores armor)\n\n• Make a prodigious leap, buoyed by the wind\n\n• Summon a powerful gale with you at its center—dirt and debris swirl about, the wind is deafening, people must brace themselves to keep from getting bowled over, projectiles careen off course—and take disadvantage on all rolls as long as you sustain it\n\n• Lightning begins to arc off of you, striking objects and creatures nearby at random for 2d6 damage (*near*, *forceful*, *loud*, ignores armor). This lasts until you calm down.\n\n• A gale of winds forms around you, as with Chosen of the Storm-bringer (even if you can't normally use that move). You can't dismiss it easily; the effects (including the disadvantage) continue until you calm down.\n\n• Name an NPC who is present and whose regard you value. They are terrified of the power you wield and grow distant.\n\n• From now on, when you gain Fury, gain +1 Fury. But you also have disadvantage on rolls to control your temper.\n\n• A storm forms (or worsens) in your immediate area. It arrives unnaturally fast, but not miraculously so.\n\n• A terrible storm begins to form in your immediate area and pummels the entire region. Blizzards, tornados, floods—it's bad.\n\n• A terrible storm forms (as above) and the weather remains freakish for a few months. Your steading takes -2 to its next roll to generate Surplus, and its next Fortunes roll for Seasons Change is automatically a 6-. Other communities in the region likewise suffer.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-storm-markings.txt"
+        }
+      },
+      {
+        "id": "major-ineffable-words",
+        "ordinal": 15,
+        "type": "major_arcanum",
+        "name": "Ineffable Words",
+        "grantable": true,
+        "source_ref": "major-ineffable-words",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": "on_completion",
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 5,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "When full, master one Word and erase progress; this cycle can repeat."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **SPEAK THE UNUTTERABLE** When you ***speak an Ineffable Word that you have mastered***, roll +CON: **on a 10+**, the Word's power manifests as described; **on a 7-9**, the Word's power manifests, but choose 1 from the list below; **on a 6-**, the GM says what happens (which may or may not involve marking a consequence).\n\n• You collapse in a full-body seizure\n\n• Mark a consequence\n\n**MASTERED WORDS**\n\n• **Seal.** Name a portal, clasp, or seam in your presence. If you speak this Word forward, the target seals shut and holds against any mundane attempt to open it. If you speak backward, the target is pried open or apart.\n\n• **Purify.** Name an instance of corruption, infection, or taint in your presence. If you speak this Word forward, the target is cleansed. If you speak backward, the corruption grows and spreads aggressively.\n\n• **Gather.** Name an unliving object in your presence. If you speak this Word forward, the object is drawn forcefully towards you, possibly flying through the air and into your hand. If you speak backward, the object is flung away from you. If the object weighs more than you, or is secured by something that does, it is you that moves instead.\n\n• **Empower.** Name a living thing or vessel for power in your presence. If you speak this Word forward, the target surges with power. A creature heals 1d8 HP or gains advantage on its next roll. If you speak backward, the target is drained of energy. A creature takes 1d8 damage (ignores armor) or takes disadvantage on its next roll.\n\n• The Word's power draws the attention of every magical being for miles around. They will recognize you on sight as the bearer of the Word.\n\n• The power of the Word overflows, affecting every possible target within *far* range to violent effect.\n\n• Your voice takes on a metallic, inhuman edge. Henceforth, all creatures understand you as though you spoke their native tongue, but you can never again use language to lie or deceive.\n\n• The Word tears reality, leaving a rift from which primordial power pours into the world. Expect all manner of strange and chaotic effects.\n\n• You rouse an eternal, ancient being of Order. It seeks you out, implacably, to reprimand you for your reckless use of such primordial power.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-ineffable-words.txt"
+        }
+      },
+      {
+        "id": "major-redwood-effigy",
+        "ordinal": 16,
+        "type": "major_arcanum",
+        "name": "Redwood Effigy",
+        "grantable": true,
+        "source_ref": "major-redwood-effigy",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": null,
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [
+          {
+            "key": "conduit",
+            "type": "counter",
+            "initial_max": 1,
+            "status": "verified"
+          }
+        ],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress unlocks the core reverse move; every two consequences grants an additional move."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **SUFFERING UNLEASHED** When you ***feed the effigy the blood of another***, pick one of the harms recorded on the reverse and roll +CON: **on a 10+**, your target suffers that harm fully; **on a 7-9,** your target suffers that harm but pick 1; **on a 6-**, they suffer that harm but all 3 are true:\n\n• They suffer only half the harm's effects/damage\n\n• You fully suffer the unleashed harm (you can't divert it via Surrogate Suffering)\n\n• Mark a consequence\n\n**Regardless**, the harm is no longer stored in the effigy—erase it from the reverse.\n\nFor every 2 Consequences you mark, gain one of the following moves:\n\n• **GREATER CONDUIT** When you ***perform the secret rite***, hold 3 Conduit instead of 1 (and increase your max Conduit to 3). You no longer need the effigy on your person to use Surrogate Suffering. However, any magic that divines your location or spies on you also targets the effigy.\n\n• **THE ROOTS GROW DEEP** When you ***use Suffering Unleashed and roll a 12+***, clear a mark from the reverse.\n\n• **WE ARE AS ONE** You can sense, speak, and even work magic through the effigy as though it were an extension of yourself. (It remains inanimate.)\n\n• Your heartbeat slows and your emotions dull. Magic cannot stir your emotions unless it specifically targets the effigy. Alas, you can no longer Burn Brightly.\n\n• Your blood flows like sap and your muscles become like wood. Gain +1 armor and +4 max HP, but you can no longer regain HP via the Recover move. When you ***Make Camp***, you must rest while touching soil or you get no benefit.\n\n• Henceforth, when ***anyone works magic upon the effigy***, it affects you instead and bypasses any defenses that you have in place (including Surrogate Suffering).\n\n• Henceforth, when you ***suffer physical harm while you hold Conduit***, you must spend it and use Surrogate Suffering.\n\n• The effigy becomes both *fragile* and highly flammable. When you suffer damage from heat or fire, you take +1d6 damage. If the effigy suffers harm from heat or fire in your place, it will burst into flames and be destroyed.\n\n• When you ***roll 6- at Death's Door***, you have no choice: gain the Revenant insert until the effigy is destroyed (and you become a wraith controlled by the GM) or it is buried in a Red Grove (and you become an NPC spirit of that grove).\n\nWhen you ***would mark a consequence but they've all been marked***, pick a harm stored in the effigy at random. Erase that harm and suffer it now (it can't be diverted).\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-redwood-effigy.txt"
+        }
+      },
+      {
+        "id": "major-hungering-maw-of-hlad",
+        "ordinal": 17,
+        "type": "major_arcanum",
+        "name": "Hungering Maw of Hlad",
+        "grantable": true,
+        "source_ref": "major-hungering-maw-of-hlad",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 3,
+          "type": "mark_track",
+          "reset": "on_completion",
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "Completing progress grants the first reverse move and erases marks; later completed groups unlock more moves."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **SIPHON** When you ***raise your ringed hand and will the ring to consume someone's life-force*** (at up to *reach* range), roll +CON: **on a 10+**, deal 1d10 damage (*grabby*, ignores armor); **on a 7-9**, deal 1d10 damage (ignores armor) but choose one:\n\n• The ring eats at your life-force, too—lose 1d10 HP and mark a debility\n\n• Mark a consequence\n\n**On a 6-**, the GM says what happens (which may or may not involve marking a consequence).\n\n• **INESCAPABLE PULL** You can use Siphon at up to *near* range, and on a 10+ you can can choose to drag the victim closer.\n\n• **MAELSTROM** When you ***use Siphon***, you can mark a consequence before rolling to affect a number of victims within range. Roll +CON once, but roll damage separately for each target.\n\n• **DUST TO DUST** When you ***wear the ring and press it firmly against a work of mortal artifice***, mark a debility and then roll +CON: **on a 10+**, the artifice fails or is ruined (say how); **on a 7-9**, it is ruined (as per a 10+) but also mark a consequence; **on a 6-**, the GM says what happens (which may or may not involve marking a consequence.)\n\n• A powerful earthquake strikes the area. Each time you choose this option, the quake is longer, more powerful, more destructive.\n\n• The ring fuses to your flesh and bone and can no longer be removed without cutting off your finger.\n\n• The air in your presence is always noticeably colder, though you yourself are unharmed and unfazed by even the bitterest cold.\n\n• The ring wounds your soul, reducing your max HP by 4. Until your soul is healed, your instinct becomes \"Hunger: to fill the emptiness inside you with excess.\" Should you roll a 6- on Death's Door, you die and become a wraith (a monster in the GM's control).\n\n• The ring opens a gaping vortex, sucking in the life-force of everything around it (d10 damage, *near*, *area*, *grabby*, ignores armor) and weakening stone and metal and wood. You can, perhaps, close the vortex through a force of will.\n\n• The earth shakes. The ring tears at your life-force (1d10 damage, *messy*, ignores armor, mark all three debilities). The ring is gone and your hand is left a withered and palsied thing. And somewhere, a hole has opened in the world.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-hungering-maw-of-hlad.txt"
+        }
+      },
+      {
+        "id": "major-azure-hand",
+        "ordinal": 18,
+        "type": "major_arcanum",
+        "name": "Azure Hand",
+        "grantable": true,
+        "source_ref": "major-azure-hand",
+        "faces": [
+          "front",
+          "back"
+        ],
+        "progress": {
+          "slots": 4,
+          "type": "mark_track",
+          "reset": "on_completion",
+          "unlock_threshold": null,
+          "status": "verified"
+        },
+        "resources": [
+          {
+            "key": "battery",
+            "type": "slot",
+            "slots": 1,
+            "status": "verified"
+          }
+        ],
+        "consequences": {
+          "type": "checkbox_group",
+          "count": 6,
+          "status": "verified"
+        },
+        "mechanic_notes": [
+          "When full, choose a reverse-side move and erase progress; the cycle can repeat."
+        ],
+        "normalization_status": "verified_structure",
+        "rule_text": "• **BATTERY** ◇\n\nWhen you ***gather elemental power about the Azure Hand***, you can choose to store the energy in the staff itself. It no longer requires your touch or focus to maintain. You cannot do this again until you use up the energy contained within (see reverse).\n\n• **EYE OF THE STORM** When you ***grasp the Azure Hand and impose your will on the elements around you***, roll +CON: **on a 10+**, the elements calm or diminish in their power, and choose 2 from the list below; **on a 7-9**, the elements calm or diminish, and choose 1.\n\n• You suffer no consequence (otherwise, mark one)\n\n• The effect is far reaching, up to a mile around you (otherwise, it extends just a few paces)\n\n• You can maintain the effect easily (otherwise, it takes all of your concentration)\n\n• **RESONANCE** (Requires: Battery, Eye of the Storm) When you ***have captured a tremendous elemental force*** (like that from a storm or wildfire) and ***then channel it into the eddies of air or earth***, pick 1 from the list below and roll +INT: **on a 10+**, it comes to pass; **on a 7-9**, it will come to pass if you choose to mark a consequence; **on a 6-**, mark a consequence and prepare for the worst.\n\n• A potent storm or earthquake builds, unleashing itself within the next few hours.\n\n• The weather for the next few weeks is abnormal, hotter or colder, wetter or dryer, windier or more still, per your desires (though nothing too extreme).\n\n• The weather for the next few months is generally favorable; any steading in the area gains advantage to its next Seasons Change roll.\n\n• You are burned by the power you attempt to wield. Mark a debility and take 2d4 damage (ignores armor).\n\n• You become bound to the staff. You can call it to your hand from up to *far* range, but you fully suffer the effects of any harm or magic visited upon it.\n\n• Your eyes become a solid bluish white, darkening or brightening with your mood. You now see energy patterns, glowing brightly, which can obscure facial expressions and other details unless you focus.\n\n• Your skin takes on a bluish tint; your hair is steaked with white; the air about you thrums with power. Sensitive beings can easily sense your presence, even from afar.\n\n• Henceforth, any storm in your presence is unnaturally strong. If you spend a summer or a winter in a steading or within a day's march of one, the steading loses 1d4-1 Surplus due to storms.\n\n• Your body pulses with barely controlled energy. Henceforth, when you ***roll +CON and get a 6-***, you unleash bolts of elemental power all about you (1d10 damage, *near*, *area*, *forceful*, *dangerous*) in addition to whatever else the GM says.\n\nback",
+        "rule_text_status": "ingested_cc_by_sa",
+        "pending": [],
+        "rule_text_source": {
+          "license": "CC BY-SA 4.0",
+          "file": "book2/major-azure-hand.txt"
+        }
+      }
+    ]
+  }
+}
