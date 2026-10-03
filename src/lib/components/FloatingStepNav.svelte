@@ -62,9 +62,9 @@
     align-items: center;
     justify-content: center;
     gap: 0.1rem;
-    width: 2rem;
-    height: 2rem;
-    min-height: 2rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    min-height: 3.25rem;
     padding: 0;
     /* Guillemets sit low in the em box; a touch of bottom padding lifts them. */
     padding-bottom: 0.12em;
@@ -73,7 +73,7 @@
     background: color-mix(in srgb, var(--paper-2) 92%, transparent);
     color: var(--ink);
     font: inherit;
-    font-size: 1.15rem;
+    font-size: 1.75rem;
     line-height: 1;
     cursor: pointer;
     box-shadow: 0 3px 12px color-mix(in srgb, var(--ink) 10%, transparent);
@@ -86,8 +86,8 @@
   }
   .arrow.next.blocked {
     width: auto;
-    min-width: 2rem;
-    padding-inline: 0.45rem;
+    min-width: 3.25rem;
+    padding-inline: 0.6rem;
   }
   .arrow .cue {
     font-size: 0.8rem;

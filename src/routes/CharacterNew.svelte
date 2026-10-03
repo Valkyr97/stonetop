@@ -107,7 +107,7 @@
     display: grid;
     gap: 1.5rem;
     /* Keep the last playbook cards clear of the floating arrows. */
-    padding-bottom: 5.5rem;
+    padding-bottom: 6.25rem;
   }
   .hero {
     display: grid;

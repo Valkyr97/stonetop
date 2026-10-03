@@ -100,6 +100,15 @@ function effectGrantIds(
   return new Set((raw?.[kind] ?? []).map(String))
 }
 
+export function extraPossessionIds(state: CharacterState): Set<string> {
+  return effectGrantIds(state, 'possessions')
+}
+
+export function playerPossessionPicks(state: CharacterState): string[] {
+  const extra = extraPossessionIds(state)
+  return state.possessions.selected.filter((id) => !extra.has(id))
+}
+
 function extraMovesChosen(playbook: Playbook, state: CharacterState): number {
   const fixed = new Set(playbook.starting_move_rules.fixed ?? [])
   const bgGranted = new Set(
@@ -177,9 +186,7 @@ export function stepValid(id: WizardStepId, playbook: Playbook, state: Character
       const choose =
         (playbook.special_possessions as { choose?: number } | undefined)?.choose ?? 0
       if (choose === 0) return true
-      const effectPossessions = effectGrantIds(state, 'possessions')
-      const playerPicks = state.possessions.selected.filter((id) => !effectPossessions.has(id))
-      return playerPicks.length === choose
+      return playerPossessionPicks(state).length === choose
     }
     case 'details':
     case 'introductions':

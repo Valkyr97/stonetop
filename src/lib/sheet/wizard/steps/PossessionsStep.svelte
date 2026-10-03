@@ -3,6 +3,7 @@
   import type { PatchSheet } from '../../sheetPatch'
   import ChoiceCard from '../../../components/ChoiceCard.svelte'
   import Field from '../../../components/Field.svelte'
+  import { extraPossessionIds, playerPossessionPicks } from '../steps'
 
   interface PossessionItem {
     id: string
@@ -30,8 +31,11 @@
       sacred_pouch_setup?: Record<string, unknown>
     }) ?? {},
   )
-  const atLimit = $derived(
-    (possessions.choose ?? 0) > 0 && sheet.possessions.selected.length >= (possessions.choose ?? 0),
+  const extraIds = $derived(extraPossessionIds(sheet))
+  const playerPicks = $derived(playerPossessionPicks(sheet))
+  const atLimit = $derived((possessions.choose ?? 0) > 0 && playerPicks.length >= (possessions.choose ?? 0))
+  const extraItems = $derived(
+    (possessions.options ?? []).filter((item) => extraIds.has(item.id)),
   )
   const hasExtras = $derived((playbook.extras?.length ?? 0) > 0)
 </script>
@@ -39,7 +43,7 @@
 <h2>Possessions</h2>
 <p class="lede">
   Choose {possessions.choose ?? 0}
-  <span class="count-muted">({sheet.possessions.selected.length}/{possessions.choose ?? 0})</span>
+  <span class="count-muted">({playerPicks.length}/{possessions.choose ?? 0})</span>
 </p>
 {#if possessions.fixed?.length}
   <h3>You carry</h3>
@@ -49,9 +53,24 @@
     {/each}
   </ul>
 {/if}
+{#if extraItems.length}
+  <h3>From your background</h3>
+  <div class="choices">
+    {#each extraItems as item (item.id)}
+      <ChoiceCard
+        title={item.name}
+        selected={true}
+        disabled={true}
+        ruleText={item.rule_text}
+      />
+    {/each}
+  </div>
+{/if}
 <div class="choices">
   {#each possessions.options ?? [] as item}
-    {#if item.id === 'custom'}
+    {#if extraIds.has(item.id)}
+      <!-- Shown above as a background extra; does not consume the pick budget. -->
+    {:else if item.id === 'custom'}
       <input
         class="write-in"
         type="text"

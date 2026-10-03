@@ -27,9 +27,9 @@
   --text: 0.875rem;
   --text-sm: 0.8125rem;
   --text-prose: 0.875rem;
-  --btn-pad-y: 0.28rem;
-  --btn-pad-x: 0.6rem;
-  --btn-min: 1.7rem;
+  --btn-pad-y: 0.45rem;
+  --btn-pad-x: 0.75rem;
+  --btn-min: 2.5rem;
 
   color-scheme: light;
   font-family: var(--font-body);

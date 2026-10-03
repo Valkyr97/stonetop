@@ -221,8 +221,8 @@
     flex-shrink: 0;
   }
   .mark {
-    width: 0.85rem;
-    height: 0.85rem;
+    width: 1.05rem;
+    height: 1.05rem;
     border: 1.5px solid var(--ink-muted);
     border-radius: 2px;
     background: var(--paper-2);

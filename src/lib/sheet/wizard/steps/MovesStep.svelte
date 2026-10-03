@@ -17,6 +17,7 @@
   import { remainingBumpsForStat, type StatBumpPicks } from '../statBumps'
   import { STAT_KEYS } from '../../engine/stats'
   import { WELL_VERSED_MOVE_ID } from '../../engine/wellVersed'
+  import { moveRepeatCap } from '../../sections'
   import { sortMovesForCatalog, type CatalogRow } from '../../moves/sortMovesForCatalog'
 
   interface Props {
@@ -105,16 +106,48 @@
     else onMarkTake(id)
   }
 
+  function canAddFreeTake(move: MoveDef): boolean {
+    if (pickOneIds.has(move.id)) return !readonly
+    if (plan.chooseCount <= 0) return false
+    const takes = takesOf(move.id)
+    if (takes >= moveRepeatCap(move)) return false
+    if (takes > 0) {
+      // Another take of the same move still spends free budget.
+      return free.length < plan.chooseCount
+    }
+    if (atFreeLimit) return false
+    return !gateFor(move).gated
+  }
+
+  function onTakeSlot(move: MoveDef, slotIndex: number) {
+    if (readonly) return
+    const takes = takesOf(move.id)
+    if (slotIndex < takes) {
+      if (grantedSet.has(move.id) && takes <= 1) return
+      onUnmarkTake(move.id)
+      return
+    }
+    if (pickOneIds.has(move.id)) {
+      selectPickOne(move.id)
+      return
+    }
+    if (!canAddFreeTake(move)) return
+    onMarkTake(move.id)
+  }
+
   function toggleListMove(move: MoveDef) {
     if (readonly) return
     const on = selected.has(move.id)
     if (on) {
+      if (grantedSet.has(move.id)) return
       onUnmarkTake(move.id)
       return
     }
-    if (!canMarkNew(move)) return
-    const gate = gateFor(move)
-    if (gate.gated) return
+    if (pickOneIds.has(move.id)) {
+      selectPickOne(move.id)
+      return
+    }
+    if (!canAddFreeTake(move)) return
     onMarkTake(move.id)
   }
 
@@ -136,9 +169,21 @@
 
   function canMarkNew(move: MoveDef): boolean {
     if (selected.has(move.id)) return true
-    if (plan.chooseCount <= 0) return false
-    if (atFreeLimit) return false
-    return true
+    return canAddFreeTake(move)
+  }
+
+  function takeProps(move: MoveDef, locked: boolean) {
+    const takes = takesOf(move.id)
+    const takeCap = moveRepeatCap(move)
+    const use = trackProps(move)
+    return {
+      boxes: takeCap,
+      filled: takes,
+      forceMarks: true,
+      ...use,
+      onclick: locked ? undefined : () => toggleListMove(move),
+      onSlotClick: locked ? undefined : (i: number) => onTakeSlot(move, i),
+    }
   }
 
   function trackProps(move: MoveDef) {
@@ -226,13 +271,17 @@
         {@const takes = takesOf(id)}
         {@const bumpCap = move ? statBumpCap(move) : null}
         <div class="list-row held">
-          <ChoiceCard
-            title={move?.name ?? id}
-            selected={true}
-            disabled={true}
-            ruleText={move?.rule_text}
-            {...(move ? trackProps(move) : {})}
-          />
+          {#if move}
+            <ChoiceCard
+              title={move.name}
+              selected={true}
+              disabled={true}
+              ruleText={move.rule_text}
+              {...takeProps(move, true)}
+            />
+          {:else}
+            <ChoiceCard title={id} selected={true} disabled={true} />
+          {/if}
           {#if move && !readonly && showExtras(move)}
             {@render moveExtras(move, takes, bumpCap)}
           {/if}
@@ -250,14 +299,22 @@
         {@const move = moveById(playbook, id)}
         {@const kids = kidsByPickOne.get(id) ?? []}
         <div class="pick-stack">
-          <ChoiceCard
-            title={move?.name ?? id}
-            selected={selected.has(id)}
-            disabled={readonly}
-            ruleText={move?.rule_text}
-            {...(move ? trackProps(move) : {})}
-            onclick={() => selectPickOne(id)}
-          />
+          {#if move}
+            <ChoiceCard
+              title={move.name}
+              selected={selected.has(id)}
+              disabled={readonly}
+              ruleText={move.rule_text}
+              {...takeProps(move, readonly)}
+            />
+          {:else}
+            <ChoiceCard
+              title={id}
+              selected={selected.has(id)}
+              disabled={readonly}
+              onclick={() => selectPickOne(id)}
+            />
+          {/if}
           {#each kids as { move: child, depth } (child.id)}
             {@const on = selected.has(child.id)}
             {@const gate = gateFor(child)}
@@ -276,8 +333,7 @@
                 disabled={readonly || (!on && (gate.gated || !canMarkNew(child)))}
                 meta={gate.gated && !on ? gate.reasons[0] : undefined}
                 ruleText={child.rule_text}
-                {...trackProps(child)}
-                onclick={gate.gated && !on ? undefined : () => toggleListMove(child)}
+                {...takeProps(child, readonly || (!on && (gate.gated || !canMarkNew(child))))}
               />
               {#if on && !readonly && showExtras(child)}
                 {@render moveExtras(child, takes, bumpCap)}
@@ -316,8 +372,7 @@
             disabled={readonly || blocked}
             meta={gate.gated && !on ? gate.reasons[0] : undefined}
             ruleText={move.rule_text}
-            {...trackProps(move)}
-            onclick={blocked ? undefined : () => toggleListMove(move)}
+            {...takeProps(move, readonly || blocked)}
           />
           {#if on && !readonly && showExtras(move)}
             {@render moveExtras(move, takes, bumpCap)}
@@ -332,6 +387,22 @@
       This playbook has no extra starting-move picks. You can continue once any fields
       on the moves above are filled in.
     </p>
+    {#if listRows.length}
+      <h3>Other playbook moves</h3>
+      <div class="choices">
+        {#each listRows as { move, depth } (move.id)}
+          <div class="list-row gated" class:nested={depth > 0} style={`--depth: ${depth}`}>
+            <ChoiceCard
+              title={move.name}
+              selected={false}
+              disabled={true}
+              ruleText={move.rule_text}
+              {...takeProps(move, true)}
+            />
+          </div>
+        {/each}
+      </div>
+    {/if}
   </section>
 {/if}
 

@@ -83,7 +83,8 @@
     background: var(--paper-2);
     color: var(--ink);
     border-radius: var(--radius);
-    padding: 0.35rem 0.65rem;
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+    min-height: var(--btn-min);
     font: inherit;
     cursor: pointer;
   }

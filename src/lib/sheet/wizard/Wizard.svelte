@@ -1,14 +1,21 @@
 <script lang="ts">
   import type { Background, CharacterState, InsertDef, Playbook } from '../../content/types'
   import { evaluateSectionStatus, replaceBackgroundMoves, startingMoveIds } from '../sections'
+  import { attachAutoInserts } from '../engine/inserts'
+  import { setCreationTakes } from '../engine/moveTakes'
+  import { heldCountForMove } from '../engine/moves'
+  import { type StatAssignments, type StatKey } from '../engine/stats'
+  import { syncTrackers } from '../engine/trackers'
   import {
     WIZARD_STEPS,
     CREATION_STEP_COUNT,
     creationProgress,
     creationStepNumber,
     readyToFinish,
-    stepValid,
+    extraPossessionIds,
+    playerPossessionPicks,
     firstIncompleteStep,
+    stepValid,
     type WizardStepId,
   } from './steps'
   import { applyStatBumps, type StatBumpPicks } from './statBumps'
@@ -109,11 +116,13 @@
 
   $effect(() => {
     if (readonly || step !== 'moves') return
-    const normalized = startingMoveIds(
-      playbook,
-      sheet.identity.background_id,
-      sheet.moves.selected,
-    )
+    const effects = (
+      (sheet.setup.background_effect_grants as { moves?: string[] } | undefined)?.moves ?? []
+    ).map(String)
+    const normalized = startingMoveIds(playbook, sheet.identity.background_id, [
+      ...sheet.moves.selected,
+      ...effects,
+    ])
     const same =
       normalized.length === sheet.moves.selected.length &&
       normalized.every((id, i) => id === sheet.moves.selected[i])
@@ -166,8 +175,6 @@
     })
   }
 
-  const takeCounts = $derived(heldCounts(sheet, playbook))
-
   function setMoveField(moveId: string, key: string, value: unknown) {
     patch((d) => {
       const all = {
@@ -185,12 +192,21 @@
     })
   }
 
+  function snapshotSheet(): CharacterState {
+    try {
+      return $state.snapshot(sheet) as CharacterState
+    } catch {
+      return JSON.parse(JSON.stringify(sheet)) as CharacterState
+    }
+  }
+
   function markCreationTake(moveId: string) {
     if (readonly) return
-    const current = takeCounts.get(moveId) ?? 0
-    const result = setCreationTakes(sheet, playbook, moveId, current + 1)
+    const snapshot = snapshotSheet()
+    const current = heldCountForMove(snapshot, playbook, moveId)
+    const result = setCreationTakes(snapshot, playbook, moveId, current + 1)
     if (!result.ok) return
-    const nextCount = heldCounts(result.state, playbook).get(moveId) ?? 0
+    const nextCount = heldCountForMove(result.state, playbook, moveId)
     if (nextCount <= current) return
     const next = result.state
     next.section_status = evaluateSectionStatus(playbook, next)
@@ -205,8 +221,9 @@
 
   function unmarkCreationTake(moveId: string) {
     if (readonly) return
-    const current = takeCounts.get(moveId) ?? 0
-    const result = setCreationTakes(sheet, playbook, moveId, current - 1)
+    const snapshot = snapshotSheet()
+    const current = heldCountForMove(snapshot, playbook, moveId)
+    const result = setCreationTakes(snapshot, playbook, moveId, current - 1)
     if (!result.ok) return
     const next = result.state
     next.section_status = evaluateSectionStatus(playbook, next)
@@ -243,10 +260,13 @@
     if (readonly) return
     const max = possessions.choose ?? 0
     patch((d) => {
+      const extra = extraPossessionIds(d)
+      if (extra.has(id) && d.possessions.selected.includes(id)) return
       const set = new Set(d.possessions.selected)
       if (set.has(id)) set.delete(id)
       else {
-        if (max > 0 && set.size >= max) return
+        const player = playerPossessionPicks(d).length
+        if (max > 0 && player >= max) return
         set.add(id)
       }
       d.possessions.selected = [...set]
@@ -257,13 +277,16 @@
     if (readonly) return
     const max = possessions.choose ?? 0
     patch((d) => {
+      const extra = extraPossessionIds(d)
       const selected = new Set(d.possessions.selected)
       const has = selected.has('custom')
       if (value.trim()) {
-        if (!has && max > 0 && selected.size >= max) return
+        const player = playerPossessionPicks(d).length
+        if (!has && max > 0 && player >= max) return
         selected.add('custom')
         d.possessions.custom = value
       } else {
+        if (extra.has('custom')) return
         selected.delete('custom')
         d.possessions.custom = ''
       }
@@ -368,7 +391,7 @@
     flex-direction: column;
     gap: 1.25rem;
     min-height: 70vh;
-    padding-bottom: 5.5rem;
+    padding-bottom: 6.25rem;
   }
   .wiz-header {
     display: grid;

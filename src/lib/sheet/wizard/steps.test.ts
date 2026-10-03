@@ -1,7 +1,7 @@
 ﻿import { readFileSync } from 'fs'
 import { describe, it, expect } from 'vitest'
 import { emptyCharacterState } from '../../content/types'
-import { stepValid } from './steps'
+import { extraPossessionIds, playerPossessionPicks, stepValid } from './steps'
 import { replaceBackgroundMoves, startingMoveIds } from '../sections'
 import { setCreationTakes } from '../engine/moveTakes'
 import { applyBackgroundSelectionEffects } from './backgroundEffects'
@@ -111,5 +111,43 @@ describe('wizard gates', () => {
     if (!result.ok) return
     expect(result.state.moves.selected).toContain('animal-companion')
     expect(stepValid('moves', playbook, result.state)).toBe(true)
+  })
+
+  it('fox can mark pick-one pairs and a free pick', () => {
+    const playbook = pack.content.playbooks.find((p: any) => p.id === 'fox')
+    let state = emptyCharacterState(playbook)
+    state.identity.background_id = 'the-natural'
+    state.moves.selected = startingMoveIds(playbook, 'the-natural', [])
+    let r = setCreationTakes(state, playbook, 'ambush', 1)
+    expect(r.ok).toBe(true)
+    if (!r.ok) return
+    state = r.state
+    r = setCreationTakes(state, playbook, 'danger-sense', 1)
+    expect(r.ok).toBe(true)
+    if (!r.ok) return
+    state = r.state
+    r = setCreationTakes(state, playbook, 'catlike', 1)
+    expect(r.ok).toBe(true)
+    if (!r.ok) return
+    expect(r.state.moves.selected).toEqual(expect.arrayContaining(['ambush', 'danger-sense', 'catlike']))
+    expect(stepValid('moves', playbook, r.state)).toBe(true)
+  })
+
+  it('fox background extra possession does not consume the pick-2 budget', () => {
+    const playbook = pack.content.playbooks.find((p: any) => p.id === 'fox')
+    const state = emptyCharacterState(playbook)
+    state.identity.background_id = 'a-life-of-crime'
+    state.setup.background_fields = {
+      extra_move: 'burgle',
+      extra_possession: 'burglars-kit',
+    }
+    applyBackgroundSelectionEffects(state, playbook)
+    expect(extraPossessionIds(state).has('burglars-kit')).toBe(true)
+    expect(state.possessions.selected).toContain('burglars-kit')
+    expect(playerPossessionPicks(state)).toEqual([])
+    expect(stepValid('possessions', playbook, state)).toBe(false)
+    state.possessions.selected = ['burglars-kit', 'mummers-kit', 'scribes-tools']
+    expect(playerPossessionPicks(state)).toEqual(['mummers-kit', 'scribes-tools'])
+    expect(stepValid('possessions', playbook, state)).toBe(true)
   })
 })
