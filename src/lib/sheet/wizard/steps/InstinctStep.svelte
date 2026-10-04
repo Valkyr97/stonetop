@@ -28,6 +28,7 @@
         selected={sheet.identity.instinct_id === instinct.id}
         disabled={readonly}
         onclick={() => onSelect(instinct.id)}
+        fillSelected={true}
       />
     {:else}
       <ChoiceCard
@@ -36,6 +37,7 @@
         disabled={readonly}
         ruleText={instinct.description}
         onclick={() => onSelect(instinct.id)}
+        fillSelected={true}
       />
     {/if}
   {/each}

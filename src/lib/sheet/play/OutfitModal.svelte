@@ -49,7 +49,7 @@
   function close() {
     if (!readonly) {
       const aligned = alignDeclaredBandToLoad(state, catalog)
-      if ((aligned.loadBandId ?? 'normal') !== (state.loadBandId ?? 'normal')) {
+      if ((aligned.loadBandId ?? 'light') !== (state.loadBandId ?? 'light')) {
         onchange(aligned)
       }
     }
@@ -477,7 +477,7 @@
   }
   .row.on {
     border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
   }
   .info {
     display: grid;

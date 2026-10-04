@@ -208,6 +208,7 @@
               }
         }
         onSlotClick={takesLocked ? undefined : (i) => onTakeSlot(move, i)}
+        fillSelected={false}
       />
 
       {#if takes > 0 && choicesEditable}

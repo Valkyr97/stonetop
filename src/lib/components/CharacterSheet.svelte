@@ -404,6 +404,7 @@
             disabled={readonly}
             ruleText={instinct.description}
             onclick={() => selectInstinct(instinct.id)}
+            fillSelected={true}
           />
         {/each}
       </div>
@@ -566,6 +567,7 @@
                 disabled
                 badge="fija"
                 ruleText={item.rule_text}
+                fillSelected={true}
               />
               {#if nestedChoiceOptions(item).length}
                 <div class="nested">
@@ -600,6 +602,7 @@
               ruleText={item.rule_text}
               meta={item.state?.tag_choice ? `Opciones: ${((item.state.tag_choice as { options?: string[] }).options ?? []).join(' / ')}` : undefined}
               onclick={() => togglePossession(item.id)}
+              fillSelected={true}
             />
             {#if sheet.possessions.selected.includes(item.id) && (item.state?.tag_choice as { options?: string[] } | undefined)?.options}
               <div class="nested">
@@ -985,7 +988,7 @@
   }
   .pill.active {
     border-color: var(--c, var(--accent));
-    background: color-mix(in srgb, var(--c, var(--accent)) 14%, white);
+    background: color-mix(in srgb, var(--c, var(--accent)) var(--selected-mix), var(--paper-2));
     font-weight: 600;
   }
   .pill em {
@@ -1043,7 +1046,7 @@
   }
   .name-pick {
     border: 1px solid var(--line);
-    background: white;
+    background: var(--paper-2);
     border-radius: 999px;
     padding: 0.3rem 0.7rem;
     font: inherit;
@@ -1053,7 +1056,7 @@
   }
   .name-pick.on {
     border-color: var(--section-color, var(--accent));
-    background: color-mix(in srgb, var(--section-color, var(--accent)) 12%, white);
+    background: color-mix(in srgb, var(--section-color, var(--accent)) var(--selected-mix), var(--paper-2));
     font-weight: 600;
   }
   .name-pick:disabled {

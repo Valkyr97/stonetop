@@ -47,7 +47,7 @@
 }
 .wizard .step .pill.on {
   border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  background: var(--selected-bg);
   box-shadow: 0 0 0 1px var(--accent);
   font-weight: 600;
 }
@@ -85,7 +85,7 @@
 .wizard .step .origin-card.on {
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  background: var(--selected-bg);
 }
 .wizard .step .origin-name {
   font-family: var(--font-display);
@@ -180,7 +180,7 @@
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: color-mix(in srgb, var(--accent) 14%, var(--paper-2));
+  background: var(--selected-bg);
   color: var(--accent);
   font-size: 0.85rem;
   font-weight: 700;
@@ -218,7 +218,7 @@
 }
 .wizard .step .name-pick.on {
   border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  background: var(--selected-bg);
   box-shadow: 0 0 0 1px var(--accent);
   font-weight: 600;
 }
@@ -286,7 +286,7 @@
 }
 .wizard .step .stat-value.on {
   border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+  background: var(--selected-bg);
   box-shadow: 0 0 0 1px var(--accent);
   font-weight: 600;
 }

@@ -25,6 +25,8 @@
     onUseMaxChange?: (boxes: number) => void
     onclick?: () => void
     onSlotClick?: (index: number) => void
+    /** Green card wash when selected. Moves keep the take square only. */
+    fillSelected?: boolean
   }
 
   let {
@@ -47,6 +49,7 @@
     onUseMaxChange,
     onclick,
     onSlotClick,
+    fillSelected = false,
   }: Props = $props()
 
   const slotCount = $derived(Math.max(0, boxes))
@@ -89,6 +92,7 @@
 <div
   class="choice"
   class:selected
+  class:fill={fillSelected}
   class:clickable={interactive}
   role={onclick ? 'button' : undefined}
   tabindex={interactive ? 0 : undefined}
@@ -195,13 +199,13 @@
     opacity: 0.7;
   }
   .choice.clickable:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
   }
-  .choice.selected {
+  .choice.fill.selected {
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
   }
   .head {
     display: flex;
@@ -307,8 +311,8 @@
     white-space: nowrap;
   }
   .use-mark {
-    width: 0.72rem;
-    height: 0.72rem;
+    width: 0.95rem;
+    height: 0.95rem;
     border: 1.5px solid var(--ink-muted);
     border-radius: 50%;
     background: transparent;

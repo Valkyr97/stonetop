@@ -202,9 +202,9 @@
           <button
             type="button"
             class="band-pick"
-            class:on={(inv.loadBandId ?? 'normal') === id}
+            class:on={(inv.loadBandId ?? 'light') === id}
+            aria-pressed={(inv.loadBandId ?? 'light') === id}
             disabled={readonly}
-            aria-pressed={(inv.loadBandId ?? 'normal') === id}
             onclick={() => emit(setLoadBandId(inv, id))}
           >
             {LOAD_BAND_LABELS[id]}
@@ -431,7 +431,7 @@
     margin: 0 -0.15rem;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: color-mix(in srgb, var(--paper) 92%, var(--accent));
+    background: var(--selected-bg);
     box-shadow: 0 4px 12px color-mix(in srgb, var(--ink) 8%, transparent);
   }
   .load-sticky.over {
@@ -486,7 +486,7 @@
     min-height: var(--btn-min);
   }
   .band-pick.on {
-    border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--paper-2));
+    border-color: var(--accent); background: var(--selected-bg);
     box-shadow: 0 0 0 1px var(--accent);
   }
   .linkish {

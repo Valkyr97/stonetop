@@ -91,7 +91,7 @@
   }
   .chip.on {
     border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 10%, white);
+    background: var(--selected-bg);
   }
   .mark {
     flex-shrink: 0;
@@ -100,7 +100,7 @@
     margin-top: 0.15rem;
     border: 1.5px solid var(--ink-muted);
     border-radius: 3px;
-    background: white;
+    background: var(--paper-2);
   }
   .mark.radio {
     border-radius: 50%;
@@ -108,7 +108,7 @@
   .mark.on {
     border-color: var(--accent);
     background: var(--accent);
-    box-shadow: inset 0 0 0 2px white;
+    box-shadow: inset 0 0 0 2px var(--paper-2);
   }
   .text {
     display: grid;

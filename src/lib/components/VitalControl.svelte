@@ -172,7 +172,7 @@
   }
   .compact-row {
     display: grid;
-    grid-template-columns: 1.7rem 1fr 1.7rem;
+    grid-template-columns: var(--btn-min) 1fr var(--btn-min);
     gap: 0.2rem;
     align-items: center;
   }
@@ -182,29 +182,34 @@
     gap: 0.55rem;
   }
   .step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-height: var(--btn-min);
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: var(--paper);
     color: var(--ink);
     font: inherit;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 600;
     line-height: 1;
-    padding: var(--btn-pad-y) var(--btn-pad-x);
+    padding: 0;
     cursor: pointer;
     touch-action: manipulation;
   }
   .vital.compact .step {
+    width: 100%;
     min-height: var(--btn-min);
-    font-size: 0.95rem;
+    height: var(--btn-min);
+    font-size: 1.15rem;
   }
   .step:disabled {
     opacity: 0.35;
     cursor: default;
   }
   .step:not(:disabled):active {
-    background: color-mix(in srgb, var(--accent) 12%, var(--paper));
+    background: var(--selected-bg);
   }
   .boxes {
     display: flex;

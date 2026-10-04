@@ -62,6 +62,7 @@
         selected={true}
         disabled={true}
         ruleText={item.rule_text}
+        fillSelected={true}
       />
     {/each}
   </div>
@@ -86,6 +87,7 @@
         disabled={readonly || (atLimit && !sheet.possessions.selected.includes(item.id))}
         ruleText={item.rule_text}
         onclick={() => onToggle(item.id)}
+        fillSelected={true}
       />
       {#if sheet.possessions.selected.includes(item.id) && (item.state?.tag_choice as { options?: string[] } | undefined)?.options}
         <div class="nested">

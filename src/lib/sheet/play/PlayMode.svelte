@@ -405,6 +405,7 @@
           {insert}
           insertId={active}
           {sheet}
+          {playbook}
           {readonly}
           {mode}
           {patch}
@@ -469,7 +470,7 @@
     text-transform: uppercase;
     padding: 0.25rem 0.55rem;
     border-radius: var(--radius);
-    background: color-mix(in srgb, var(--accent) 12%, var(--paper-2));
+    background: var(--selected-bg);
     color: var(--accent);
     white-space: nowrap;
   }

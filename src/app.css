@@ -18,6 +18,9 @@
   --accent: #2a4a2a;
   --accent-contrast: #ffffff;
   --chip: color-mix(in srgb, var(--accent) 10%, var(--paper-2));
+  --selected-bg: color-mix(in srgb, var(--accent) 10%, var(--paper-2));
+  --focus-ring: var(--accent);
+  --selected-mix: 14%;
   --warn: #b45309;
   --danger: #8c2f22;
   --radius: 0.35rem;
@@ -48,17 +51,33 @@ html.dark {
   --paper: #17150f;
   --paper-2: #201d16;
   --line: rgba(236, 229, 216, 0.16);
-  --accent: #7fa46a;
-  --accent-contrast: #14170f;
-  --chip: color-mix(in srgb, var(--accent) 16%, var(--paper-2));
+  --accent: #b4d49a;
+  --accent-contrast: #16140e;
+  --chip: color-mix(in srgb, var(--accent) 26%, var(--paper-2));
+  --selected-bg: color-mix(in srgb, var(--accent) 36%, var(--paper-2));
+  --focus-ring: #e8f6c8;
+  --selected-mix: 42%;
   --warn: #d9a566;
   --danger: #d98b74;
 
   color-scheme: dark;
 }
 
+@media (min-width: 700px) {
+  :root {
+    --text: 0.95rem;
+    --text-sm: 0.875rem;
+    --text-prose: 0.95rem;
+  }
+}
+
 * {
   box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 body {

@@ -282,7 +282,7 @@
   }
   .pill.on {
     border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
     box-shadow: 0 0 0 1px var(--accent);
     font-weight: 600;
   }

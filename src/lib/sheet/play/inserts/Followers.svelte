@@ -2,6 +2,11 @@
   import type { InsertDef } from '../../../content/types'
   import Field from '../../../components/Field.svelte'
   import VitalControl from '../../../components/VitalControl.svelte'
+  import {
+    followerOtherTags,
+    followerSpecialTags,
+    withFollowerSpecialTags,
+  } from '../../engine/inserts'
 
   interface FollowerSlot {
     name: string
@@ -82,15 +87,39 @@
   function saveForm() {
     if (readonly || slots.length >= maxSlots) return
     patch((d) => {
-      d.slots = [...slots, { ...draft }]
+      d.slots = [...slots, { ...draft, hp_current: draft.hp_max }]
     })
     formOpen = false
   }
 
   function updateSlot(i: number, key: keyof FollowerSlot, value: string | number) {
     patch((d) => {
-      d.slots = slots.map((s, idx) => (idx === i ? { ...s, [key]: value } : s))
+      d.slots = slots.map((s, idx) => {
+        if (idx !== i) return s
+        if (key === 'hp_max') {
+          const max = Number(value)
+          const hp = s.hp_current === s.hp_max || s.hp_current > max ? max : s.hp_current
+          return { ...s, hp_max: max, hp_current: hp }
+        }
+        return { ...s, [key]: value }
+      })
     })
+  }
+
+  function updateSpecialTags(i: number, special: string[]) {
+    updateSlot(i, 'tags', withFollowerSpecialTags(slots[i]?.tags ?? '', special))
+  }
+
+  function updateOtherTags(i: number, other: string) {
+    updateSlot(i, 'tags', withFollowerSpecialTags(other, followerSpecialTags(slots[i]?.tags ?? '')))
+  }
+
+  function setDraftSpecial(special: string[]) {
+    draft = { ...draft, tags: withFollowerSpecialTags(draft.tags, special) }
+  }
+
+  function setDraftOtherTags(other: string) {
+    draft = { ...draft, tags: withFollowerSpecialTags(other, followerSpecialTags(draft.tags)) }
   }
 
   function removeSlot(i: number) {
@@ -123,8 +152,6 @@
           </div>
 
           <div class="grid">
-            <Field label="HP" type="counter" min={0} value={slot.hp_current} disabled={readonly}
-              onchange={(v) => updateSlot(i, 'hp_current', Number(v))} />
             <Field label="Max HP" type="counter" min={0} value={slot.hp_max} disabled={readonly}
               onchange={(v) => updateSlot(i, 'hp_max', Number(v))} />
             <Field label="Armor" type="counter" min={0} value={slot.armor} disabled={readonly}
@@ -134,8 +161,21 @@
           </div>
           <Field label="Damage" type="text" value={slot.damage} disabled={readonly}
             onchange={(v) => updateSlot(i, 'damage', String(v))} />
-          <Field label="Tags (comma separated)" type="text" value={slot.tags} disabled={readonly}
-            onchange={(v) => updateSlot(i, 'tags', String(v))} />
+          <Field
+            label="Special tags"
+            type="multi_choice"
+            options={['exceptional', 'group']}
+            value={followerSpecialTags(slot.tags)}
+            disabled={readonly}
+            onchange={(v) => updateSpecialTags(i, Array.isArray(v) ? v.map(String) : [])}
+          />
+          <Field
+            label="Other tags (comma separated)"
+            type="text"
+            value={followerOtherTags(slot.tags)}
+            disabled={readonly}
+            onchange={(v) => updateOtherTags(i, String(v))}
+          />
           <Field label="Instinct" type="text" value={slot.instinct} disabled={readonly}
             onchange={(v) => updateSlot(i, 'instinct', String(v))} />
           <Field label="Moves (comma separated)" type="text" value={slot.moves} disabled={readonly}
@@ -209,8 +249,6 @@
         <Field label="Name" type="text" value={draft.name} disabled={readonly}
           onchange={(v) => (draft.name = String(v))} />
         <div class="grid">
-          <Field label="HP" type="counter" min={0} value={draft.hp_current} disabled={readonly}
-            onchange={(v) => (draft.hp_current = Number(v))} />
           <Field label="Max HP" type="counter" min={0} value={draft.hp_max} disabled={readonly}
             onchange={(v) => (draft.hp_max = Number(v))} />
           <Field label="Armor" type="counter" min={0} value={draft.armor} disabled={readonly}
@@ -220,8 +258,21 @@
         </div>
         <Field label="Damage" type="text" value={draft.damage} disabled={readonly}
           onchange={(v) => (draft.damage = String(v))} />
-        <Field label="Tags (comma separated)" type="text" value={draft.tags} disabled={readonly}
-          onchange={(v) => (draft.tags = String(v))} />
+        <Field
+          label="Special tags"
+          type="multi_choice"
+          options={['exceptional', 'group']}
+          value={followerSpecialTags(draft.tags)}
+          disabled={readonly}
+          onchange={(v) => setDraftSpecial(Array.isArray(v) ? v.map(String) : [])}
+        />
+        <Field
+          label="Other tags (comma separated)"
+          type="text"
+          value={followerOtherTags(draft.tags)}
+          disabled={readonly}
+          onchange={(v) => setDraftOtherTags(String(v))}
+        />
         <Field label="Instinct" type="text" value={draft.instinct} disabled={readonly}
           onchange={(v) => (draft.instinct = String(v))} />
         <Field label="Moves (comma separated)" type="text" value={draft.moves} disabled={readonly}
@@ -285,6 +336,7 @@
   @media (min-width: 520px) {
     .play-vitals {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: start;
     }
   }
   .k {
@@ -324,7 +376,7 @@
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
   }
   .add {

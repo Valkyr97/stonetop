@@ -76,3 +76,60 @@ export function isAnimalCompanionCreated(data: Record<string, unknown> | undefin
   const typeId = typeof data.type_id === 'string' ? data.type_id.trim() : ''
   return Boolean(name || typeId)
 }
+
+export const FOLLOWER_SPECIAL_TAGS = ['exceptional', 'group'] as const
+export const MAGNIFICENT_SPECIMEN_MOVE_ID = 'magnificent-specimen'
+export const BEAST_OF_LEGEND_MOVE_ID = 'beast-of-legend'
+/** Each Magnificent Specimen take grants two extra type-option picks. */
+export const MAGNIFICENT_SPECIMEN_EXTRA_PICKS = 2
+
+export const BEAST_OF_LEGEND_OPTIONS = [
+  { id: 'exceptional', label: 'They are exceptional (roll +2 instead of +1)' },
+  { id: 'hp-armor', label: 'They get +4 HP and +1 armor' },
+  { id: 'unique-trait', label: 'They develop some unique ability or trait' },
+] as const
+
+export function splitFollowerTags(tags: string): string[] {
+  return tags
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean)
+}
+
+export function hasFollowerTag(tags: string, tag: string): boolean {
+  const key = tag.trim().toLowerCase()
+  return splitFollowerTags(tags).some((t) => t.toLowerCase() === key)
+}
+
+export function setFollowerTag(tags: string, tag: string, on: boolean): string {
+  const key = tag.trim().toLowerCase()
+  const parts = splitFollowerTags(tags)
+  const without = parts.filter((t) => t.toLowerCase() !== key)
+  if (!on) return without.join(', ')
+  const existing = parts.find((t) => t.toLowerCase() === key)
+  return [...without, existing ?? tag.trim()].join(', ')
+}
+
+export function followerSpecialTags(tags: string): string[] {
+  return FOLLOWER_SPECIAL_TAGS.filter((t) => hasFollowerTag(tags, t))
+}
+
+export function followerOtherTags(tags: string): string {
+  return splitFollowerTags(tags)
+    .filter((t) => t.toLowerCase() !== 'exceptional' && t.toLowerCase() !== 'group')
+    .join(', ')
+}
+
+export function withFollowerSpecialTags(otherTags: string, special: string[]): string {
+  let next = splitFollowerTags(otherTags)
+    .filter((t) => t.toLowerCase() !== 'exceptional' && t.toLowerCase() !== 'group')
+    .join(', ')
+  for (const tag of FOLLOWER_SPECIAL_TAGS) {
+    next = setFollowerTag(next, tag, special.includes(tag))
+  }
+  return next
+}
+
+export function companionTraitPickMax(basePick: number, magnificentTakes: number): number {
+  return Math.max(0, basePick) + MAGNIFICENT_SPECIMEN_EXTRA_PICKS * Math.max(0, magnificentTakes)
+}

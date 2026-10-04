@@ -157,7 +157,7 @@
   .opt.on {
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
   }
   .opt:disabled {
     opacity: 0.4;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CharacterState, InsertDef } from '../../../content/types'
+  import type { CharacterState, InsertDef, Playbook } from '../../../content/types'
   import type { PatchSheet } from '../../sheetPatch'
   import Field from '../../../components/Field.svelte'
   import { renderRuleProse } from '../../../content/renderProse'
@@ -10,6 +10,11 @@
   import Followers from '../inserts/Followers.svelte'
   import UndeadInsert from '../inserts/UndeadInsert.svelte'
   import Thrall from '../inserts/Thrall.svelte'
+  import {
+    BEAST_OF_LEGEND_MOVE_ID,
+    MAGNIFICENT_SPECIMEN_MOVE_ID,
+  } from '../../engine/inserts'
+  import { heldCountForMove } from '../../engine/moves'
 
   const RICH_INSERT_IDS = new Set([
     'animal-companion',
@@ -26,13 +31,14 @@
     insert: InsertDef
     insertId: string
     sheet: CharacterState
+    playbook?: Playbook
     readonly?: boolean
     mode?: 'play' | 'edit'
     patch: PatchSheet
     onDetach: (id: string) => void
   }
 
-  let { insert, insertId, sheet, readonly = false, mode = 'play', patch, onDetach }: Props = $props()
+  let { insert, insertId, sheet, playbook, readonly = false, mode = 'play', patch, onDetach }: Props = $props()
 
   function insertState(id: string): Record<string, unknown> {
     return (sheet.inserts[id] as Record<string, unknown> | undefined) ?? {}
@@ -46,8 +52,15 @@
 <h2>{insert.name}</h2>
 
 {#if insertId === 'animal-companion'}
-  <AnimalCompanion {insert} data={insertState(insertId)} {readonly} {mode}
-    onchange={(v) => patchInsertState(insertId, v)} />
+  <AnimalCompanion
+    {insert}
+    data={insertState(insertId)}
+    {readonly}
+    {mode}
+    magnificentTakes={playbook ? heldCountForMove(sheet, playbook, MAGNIFICENT_SPECIMEN_MOVE_ID) : 0}
+    beastOfLegendTakes={playbook ? heldCountForMove(sheet, playbook, BEAST_OF_LEGEND_MOVE_ID) : 0}
+    onchange={(v) => patchInsertState(insertId, v)}
+  />
 {:else if insertId === 'crew'}
   <Crew {insert} data={insertState(insertId)} backgroundId={sheet.identity.background_id} {readonly}
     onchange={(v) => patchInsertState(insertId, v)} />

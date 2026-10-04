@@ -3,7 +3,12 @@
   import Field from '../../../components/Field.svelte'
   import ChipPicker from '../../../components/ChipPicker.svelte'
   import VitalControl from '../../../components/VitalControl.svelte'
-  import { isAnimalCompanionCreated } from '../../engine/inserts'
+  import {
+    BEAST_OF_LEGEND_OPTIONS,
+    MAGNIFICENT_SPECIMEN_EXTRA_PICKS,
+    companionTraitPickMax,
+    isAnimalCompanionCreated,
+  } from '../../engine/inserts'
 
   interface AnimalType {
     id: string
@@ -20,10 +25,20 @@
     data: Record<string, unknown>
     readonly?: boolean
     mode?: 'play' | 'edit'
+    magnificentTakes?: number
+    beastOfLegendTakes?: number
     onchange: (next: Record<string, unknown>) => void
   }
 
-  let { insert, data, readonly = false, mode = 'play', onchange }: Props = $props()
+  let {
+    insert,
+    data,
+    readonly = false,
+    mode = 'play',
+    magnificentTakes = 0,
+    beastOfLegendTakes = 0,
+    onchange,
+  }: Props = $props()
 
   const types = $derived((insert.types as AnimalType[] | undefined) ?? [])
   const created = $derived(isAnimalCompanionCreated(data))
@@ -88,6 +103,45 @@
     return typeof formData.loyalty === 'number' ? formData.loyalty : 0
   }
 
+  function specialTagsOf(formData: Record<string, unknown>): string[] {
+    const tags: string[] = []
+    if (formData.exceptional) tags.push('exceptional')
+    if (formData.group) tags.push('group')
+    return tags
+  }
+
+  function displayTagsOf(formData: Record<string, unknown>): string[] {
+    const tags = specialTagsOf(formData)
+    if (beastPicksOf(formData).includes('exceptional') && !tags.includes('exceptional')) {
+      tags.push('exceptional')
+    }
+    return tags
+  }
+
+  function setSpecialTags(next: Record<string, unknown>, tags: string[]) {
+    next.exceptional = tags.includes('exceptional')
+    next.group = tags.includes('group')
+  }
+
+  function beastPicksOf(formData: Record<string, unknown>): string[] {
+    return Array.isArray(formData.beast_of_legend) ? formData.beast_of_legend.map(String) : []
+  }
+
+  function setBeastPick(next: Record<string, unknown>, index: number, id: string) {
+    const picks = [...beastPicksOf(next)]
+    while (picks.length <= index) picks.push('')
+    picks[index] = id
+    next.beast_of_legend = picks
+    if (id === 'exceptional') next.exceptional = true
+  }
+
+  function setHpMax(next: Record<string, unknown>, type: AnimalType | undefined, max: number) {
+    const prev = hpMaxOf(next, type)
+    const cur = hpOf(next, type)
+    next.hp_max = max
+    if (typeof next.hp_current !== 'number' || cur === prev || cur > max) next.hp_current = max
+  }
+
   function openCreate() {
     if (readonly) return
     draft = snapshot(data)
@@ -142,14 +196,18 @@
     </div>
 
     {#if activeType.options?.length}
+      {@const traitMax = companionTraitPickMax(activeType.pick_extra ?? 0, magnificentTakes)}
       <p class="field-label">
-        Pick {activeType.pick_extra ?? 0} more traits
+        Pick {traitMax} more traits
         {#if Array.isArray(formData.options)}· {(formData.options as string[]).length} picked{/if}
+        {#if magnificentTakes > 0}
+          · +{magnificentTakes * MAGNIFICENT_SPECIMEN_EXTRA_PICKS} from Magnificent Specimen
+        {/if}
       </p>
       <ChipPicker
         mode="multi"
         disabled={readonly}
-        max={activeType.pick_extra}
+        max={traitMax}
         value={Array.isArray(formData.options) ? (formData.options as string[]) : []}
         options={activeType.options.map((o) => ({ id: o, label: o }))}
         onchange={(v) => apply((d) => { d.options = v })}
@@ -158,21 +216,12 @@
   {/if}
 
   <Field
-    label="HP"
-    type="counter"
-    min={0}
-    max={hpMaxOf(formData, activeType) || undefined}
-    value={hpOf(formData, activeType)}
-    disabled={readonly}
-    onchange={(v) => apply((d) => { d.hp_current = Number(v) })}
-  />
-  <Field
     label="Max HP"
     type="counter"
     min={0}
     value={hpMaxOf(formData, activeType)}
     disabled={readonly}
-    onchange={(v) => apply((d) => { d.hp_max = Number(v) })}
+    onchange={(v) => apply((d) => { setHpMax(d, activeType, Number(v)) })}
   />
   <Field
     label="Armor"
@@ -182,6 +231,31 @@
     disabled={readonly}
     onchange={(v) => apply((d) => { d.armor = Number(v) })}
   />
+
+  <Field
+    label="Special tags"
+    type="multi_choice"
+    options={['exceptional', 'group']}
+    value={specialTagsOf(formData)}
+    disabled={readonly}
+    onchange={(v) => apply((d) => { setSpecialTags(d, Array.isArray(v) ? v.map(String) : []) })}
+  />
+
+  {#if beastOfLegendTakes > 0}
+    <p class="field-label">Beast of Legend · pick {beastOfLegendTakes}</p>
+    <p class="hint">
+      Apply +4 HP / +1 armor on the fields above when you choose that option. Write a unique trait in notes.
+    </p>
+    {#each Array(beastOfLegendTakes) as _, i}
+      <ChipPicker
+        mode="single"
+        disabled={readonly}
+        value={beastPicksOf(formData)[i] ?? ''}
+        options={BEAST_OF_LEGEND_OPTIONS.map((o) => ({ id: o.id, label: o.label }))}
+        onchange={(v) => apply((d) => { setBeastPick(d, i, String(v)) })}
+      />
+    {/each}
+  {/if}
 
   {#if commonFields.instinct?.options}
     <p class="field-label">Instinct</p>
@@ -272,8 +346,20 @@
           onchange={(v) => patchLive((d) => { d.loyalty = v })}
         />
       </div>
+      {#if displayTagsOf(data).length}
+        <p class="line"><span class="k">Tags</span> {displayTagsOf(data).join(', ')}</p>
+      {/if}
       {#if options.length}
         <p class="line"><span class="k">Traits</span> {options.join(', ')}</p>
+      {/if}
+      {#if beastPicksOf(data).some(Boolean)}
+        <p class="line">
+          <span class="k">Beast of Legend</span>
+          {beastPicksOf(data)
+            .map((id) => BEAST_OF_LEGEND_OPTIONS.find((o) => o.id === id)?.label ?? id)
+            .filter(Boolean)
+            .join('; ')}
+        </p>
       {/if}
       {#if data.instinct}
         <p class="line"><span class="k">Instinct</span> {String(data.instinct)}</p>
@@ -368,6 +454,7 @@
   @media (min-width: 520px) {
     .play-vitals {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: start;
     }
   }
   .k {
@@ -377,6 +464,11 @@
     text-transform: uppercase;
     color: var(--ink-muted);
     margin-right: 0.35rem;
+  }
+  .hint {
+    margin: 0.15rem 0 0.35rem;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
   }
   .field-label {
     margin: 0.6rem 0 0;

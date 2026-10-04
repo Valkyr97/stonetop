@@ -28,7 +28,7 @@
       <select
         class="load-select"
         disabled={readonly}
-        value={state.loadBandId ?? 'normal'}
+        value={state.loadBandId ?? 'light'}
         onchange={(e) => onchange(setLoadBandId(state, e.currentTarget.value as (typeof LOAD_BAND_IDS)[number]))}
       >
         {#each LOAD_BAND_IDS as id}

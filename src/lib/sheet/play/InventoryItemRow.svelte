@@ -157,7 +157,7 @@
     display: flex; gap: 0.55rem; align-items: flex-start; justify-content: space-between;
     padding: 0.55rem 0.65rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2);
   }
-  .gear-row.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--paper-2)); box-shadow: 0 0 0 1px var(--accent); }
+  .gear-row.on { border-color: var(--accent); background: var(--selected-bg); box-shadow: 0 0 0 1px var(--accent); }
   .gear-row.dropped { opacity: 0.72; border-style: dashed; }
   .gear-row.editing { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
   .gear-row.compact { align-items: center; }
@@ -183,14 +183,14 @@
   .box.big { width: 0.92rem; height: 0.92rem; }
   .box.static { pointer-events: none; }
   button.box { cursor: pointer; font: inherit; color: inherit; }
-  button.box:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  button.box:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
   .box.on { background: var(--accent); border-color: var(--accent); }
   .circle {
-    width: 1rem; height: 1rem; border: 1.5px solid var(--line); border-radius: 50%;
+    width: 1.15rem; height: 1.15rem; border: 1.5px solid var(--line); border-radius: 50%;
     background: var(--paper); padding: 0; display: inline-block; box-sizing: border-box;
     flex-shrink: 0; cursor: pointer; font: inherit; color: inherit;
   }
-  .circle:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .circle:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 1px; }
   .circle:disabled { cursor: default; opacity: 0.75; }
   .circle.on { background: var(--accent); border-color: var(--accent); }
 </style>

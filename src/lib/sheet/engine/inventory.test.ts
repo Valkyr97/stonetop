@@ -65,6 +65,7 @@ describe('inventory custom gear + bands', () => {
 
   it('sticky progress follows counted load into each band', () => {
     let state = readInventory({})
+    expect(state.loadBandId).toBe('light')
     expect(loadBandProgress(state, catalog).text).toBe('Light 0/3')
 
     state = takeGear(state, 'Bedroll') // 1◇

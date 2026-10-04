@@ -1,6 +1,17 @@
 import { describe, expect, it } from 'vitest'
 import { emptyCharacterState } from '../../content/types'
-import { attachAutoInserts, attachInsert, autoAttachedInsertIds, detachInsert, isAnimalCompanionCreated, isInsertAttached } from './inserts'
+import {
+  attachAutoInserts,
+  attachInsert,
+  autoAttachedInsertIds,
+  companionTraitPickMax,
+  detachInsert,
+  followerSpecialTags,
+  isAnimalCompanionCreated,
+  isInsertAttached,
+  setFollowerTag,
+  withFollowerSpecialTags,
+} from './inserts'
 import { TEST_INSERTS, makeTestPlaybook } from './test-fixtures'
 
 describe('autoAttachedInsertIds', () => {
@@ -40,6 +51,26 @@ describe('attach / detach', () => {
     expect(isInsertAttached(state, 'inventory')).toBe(true)
     expect(isInsertAttached(state, 'auto-by-playbook')).toBe(true)
     expect(isInsertAttached(state, 'followers')).toBe(false)
+  })
+})
+
+describe('follower special tags', () => {
+  it('toggles exceptional and group without dropping other tags', () => {
+    const start = 'alert, keen-nosed'
+    const withEx = setFollowerTag(start, 'exceptional', true)
+    expect(followerSpecialTags(withEx)).toEqual(['exceptional'])
+    expect(withFollowerSpecialTags('alert, keen-nosed', ['exceptional', 'group'])).toBe(
+      'alert, keen-nosed, exceptional, group',
+    )
+    expect(setFollowerTag(withEx, 'exceptional', false)).toBe('alert, keen-nosed')
+  })
+})
+
+describe('companionTraitPickMax', () => {
+  it('adds two options per Magnificent Specimen take', () => {
+    expect(companionTraitPickMax(4, 0)).toBe(4)
+    expect(companionTraitPickMax(4, 1)).toBe(6)
+    expect(companionTraitPickMax(3, 2)).toBe(7)
   })
 })
 

@@ -135,7 +135,7 @@
   .row.on {
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
   }
   .row.locked {
     cursor: default;

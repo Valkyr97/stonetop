@@ -102,13 +102,13 @@
     cursor: pointer;
   }
   .bg.clickable:focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 2px;
   }
   .bg.selected {
     border-color: var(--accent);
     box-shadow: 0 0 0 1px var(--accent);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper-2));
+    background: var(--selected-bg);
   }
   .pick {
     display: flex;

@@ -220,7 +220,7 @@
   .tag {
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--accent) 14%, white);
+    background: var(--selected-bg);
     border: 1px solid var(--accent);
     font-size: 0.82rem;
     font-weight: 600;

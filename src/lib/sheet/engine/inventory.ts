@@ -161,6 +161,7 @@ export interface InventoryState {
 }
 
 export const LOAD_BAND_IDS: LoadBandId[] = ['light', 'normal', 'heavy']
+export const DEFAULT_LOAD_BAND_ID: LoadBandId = 'light'
 
 export const LOAD_BAND_LABELS: Record<LoadBandId, string> = {
   light: 'Light',
@@ -221,7 +222,7 @@ export function emptyInventoryState(): InventoryState {
     droppedGear: [],
     droppedSmall: [],
     droppedCustom: [],
-    loadBandId: 'normal',
+    loadBandId: DEFAULT_LOAD_BAND_ID,
     gearLoadOverride: {},
     itemUsesMarked: {},
     itemUsesMaxOverride: {},
@@ -307,7 +308,7 @@ export function readInventory(blob: unknown): InventoryState {
   const loadBandId =
     raw.loadBandId === 'light' || raw.loadBandId === 'normal' || raw.loadBandId === 'heavy'
       ? raw.loadBandId
-      : 'normal'
+      : DEFAULT_LOAD_BAND_ID
   const overrideBands = Array.isArray(raw.loadBandsOverride)
     ? raw.loadBandsOverride
         .filter((b) => b && typeof b === 'object')
@@ -590,7 +591,7 @@ export function declaredBandRange(
   state: InventoryState,
   catalog: OutfitCatalog,
 ): { id: LoadBandId; band: OutfitLoadBand; min: number; max: number } | null {
-  const id = state.loadBandId ?? 'normal'
+  const id = state.loadBandId ?? DEFAULT_LOAD_BAND_ID
   const band = bandById(state, catalog, id)
   if (!band) return null
   const [min, max] = parseMarks(band.marks)
@@ -612,7 +613,7 @@ export function loadReminder(
 } {
   const load = gearLoad(state, catalog)
   const declared = declaredBandRange(state, catalog)
-  const bandId = declared?.id ?? 'normal'
+  const bandId = declared?.id ?? DEFAULT_LOAD_BAND_ID
   const label = LOAD_BAND_LABELS[bandId]
   const min = declared?.min ?? 0
   const max = declared?.max ?? maxLoad(catalog, state)
@@ -669,7 +670,7 @@ export function alignDeclaredBandToLoad(
   catalog: OutfitCatalog,
 ): InventoryState {
   const id = loadBandIdForState(state, catalog)
-  if ((state.loadBandId ?? 'normal') === id) return state
+  if ((state.loadBandId ?? DEFAULT_LOAD_BAND_ID) === id) return state
   return setLoadBandId(state, id)
 }
 

@@ -417,7 +417,7 @@
   .instinct-name { font-size: 1rem; font-weight: 700; line-height: 1.25; }
   .instinct-blurb { margin: 0; font-size: 0.82rem; line-height: 1.4; color: var(--ink-muted); }
   @media (min-width: 560px) {
-    .compact-vitals { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .compact-vitals { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; }
     .damage-readout { min-height: auto; }
     .xp-instinct { grid-template-columns: minmax(0, 1.35fr) minmax(9rem, 0.85fr); align-items: stretch; }
   }
