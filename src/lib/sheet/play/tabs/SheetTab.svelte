@@ -18,18 +18,21 @@
   import VitalControl from '../../../components/VitalControl.svelte'
   import XpTally from '../../../components/XpTally.svelte'
   import CreationFields from '../../../components/CreationFields.svelte'
+  import ChoiceCard from '../../../components/ChoiceCard.svelte'
   import { renderRuleProse } from '../../../content/renderProse'
+  import { possessionUseTrack } from '../../engine/possessionTracks'
   import Inventory from '../Inventory.svelte'
 
   interface Props {
     playbook: Playbook
     sheet: CharacterState
+    mode?: 'play' | 'edit'
     readonly?: boolean
     patch: PatchSheet
     onOpenLevelUp: () => void
   }
 
-  let { playbook, sheet, readonly = false, patch, onOpenLevelUp }: Props = $props()
+  let { playbook, sheet, mode = 'play', readonly = false, patch, onOpenLevelUp }: Props = $props()
 
   const customTokens = $derived(readCustomTrackers(sheet))
   const xpCost = $derived(xpForNextLevel(sheet.mechanics.level))
@@ -193,6 +196,7 @@
   <Inventory
     bandOnly
     data={sheet.inserts.inventory}
+    {mode}
     {readonly}
     onchange={(next) => patch((d) => {
       d.inserts.inventory = next as unknown as Record<string, unknown>
@@ -255,57 +259,23 @@
   <h3>Special possessions</h3>
   <div class="specials compact-specials">
     {#each heldSpecials as item}
-      {@const usesMax = possessionUsesMax(item.id, item.usesMax)}
+      {@const catalog = possessionUseTrack(item)}
+      {@const usesMax = possessionUsesMax(item.id, catalog.boxes)}
       {@const marked = Math.min(possessionUsesMarked(item.id), usesMax)}
-      <article class="special-card">
-        <header class="special-head">
-          <strong>{item.name}</strong>
-          {#if usesMax > 0}
-            <span class="meta">{marked}/{usesMax}</span>
-          {/if}
-        </header>
-        {#if item.rule_text}
-          <div class="move-prose">{@html renderRuleProse(item.rule_text)}</div>
-        {/if}
-        {#if !readonly || usesMax > 0}
-          <div class="special-uses-row">
-            {#if !readonly}
-              <label class="uses-edit">
-                <span class="meta">Uses</span>
-                <input
-                  type="number"
-                  min="0"
-                  max={POSSESSION_USES_CAP}
-                  step="1"
-                  value={usesMax}
-                  oninput={(e) =>
-                    setPossessionUsesMax(item.id, Number(e.currentTarget.value) || 0, item.usesMax)
-                  }
-                />
-              </label>
-            {/if}
-            {#if usesMax > 0}
-              <div class="item-uses" role="group" aria-label={`${item.name} uses`}>
-                {#each Array(usesMax) as _, i}
-                  <button
-                    type="button"
-                    class="use-circle"
-                    class:on={i < marked}
-                    disabled={readonly}
-                    aria-pressed={i < marked}
-                    onclick={() => setPossessionUses(item.id, marked === i + 1 ? i : i + 1)}
-                  ></button>
-                {/each}
-              </div>
-            {/if}
-          </div>
-        {/if}
-        {#if String((sheet.possessions.details as Record<string, unknown> | undefined)?.[`${item.id}:tag`] ?? '')}
-          <p class="meta">
-            Tag: {String((sheet.possessions.details as Record<string, unknown>)[`${item.id}:tag`])}
-          </p>
-        {/if}
-      </article>
+      {@const tag = String((sheet.possessions.details as Record<string, unknown> | undefined)?.[`${item.id}:tag`] ?? '')}
+      <ChoiceCard
+        title={item.name}
+        ruleText={catalog.prose}
+        meta={tag ? `Tag: ${tag}` : undefined}
+        useBoxes={usesMax}
+        useMarked={marked}
+        useLabel={catalog.title}
+        useMarkLabels={catalog.markLabels}
+        useInteractive={mode === 'play' && !readonly && usesMax > 0}
+        useMaxEditable={mode === 'edit' && !readonly && usesMax > 0}
+        onUseMark={(n) => setPossessionUses(item.id, n)}
+        onUseMaxChange={(n) => setPossessionUsesMax(item.id, n, catalog.boxes)}
+      />
     {/each}
   </div>
 {/if}
@@ -478,13 +448,7 @@
   .debility.on { color: var(--ink); font-weight: 700; }
   .specials { display: grid; gap: 0.75rem; }
   .compact-specials { gap: 0.4rem; }
-  .special-card {
-    display: grid; gap: 0.4rem; padding: 0.75rem 0.85rem;
-    border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2);
-  }
-  .compact-specials .special-card { padding: 0.5rem 0.65rem; gap: 0.35rem; }
-  .special-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
-  .compact-specials .move-prose { font-size: 0.82rem; }
+  .compact-specials :global(.choice) { padding: 0.5rem 0.65rem; }
   .bg-fold { border: 1px solid var(--line); border-radius: var(--radius); padding: 0.45rem 0.65rem; background: var(--paper-2); margin-bottom: 0.5rem; }
   .bg-fold summary { cursor: pointer; list-style: none; display: grid; gap: 0.25rem; }
   .bg-fold summary::-webkit-details-marker { display: none; }
@@ -496,19 +460,6 @@
     font-size: 0.82rem; line-height: 1.4; color: var(--ink-muted); font-weight: 400;
   }
   .bg-fold[open] .bg-preview { display: none; }
-  .item-uses { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; }
-  .special-uses-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem 0.85rem; margin-top: 0.35rem; }
-  .uses-edit { display: inline-flex; align-items: center; gap: 0.35rem; }
-  .uses-edit input {
-    width: 3.25rem; box-sizing: border-box; border: 1px solid var(--line); border-radius: var(--radius);
-    background: var(--paper); color: var(--ink); padding: 0.25rem 0.35rem; font: inherit;
-  }
-  .use-circle {
-    width: 1.15rem; height: 1.15rem; border: 1.5px solid var(--line); border-radius: 50%;
-    background: var(--paper); padding: 0; cursor: pointer; flex-shrink: 0;
-  }
-  .use-circle.on { background: var(--accent); border-color: var(--accent); }
-  .use-circle:disabled { cursor: default; opacity: 0.7; }
   .fold-block { margin: 0.85rem 0; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.45rem 0.65rem; background: var(--paper-2); }
   .fold-block summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; list-style: none; }
   .fold-block summary::-webkit-details-marker { display: none; }
@@ -542,9 +493,6 @@
   }
   .level-btn { margin: 0.65rem 0 1rem; width: 100%; max-width: 22rem; }
   .level-btn:disabled { opacity: 0.45; }
-  .move-prose { margin-bottom: 0.35rem; }
-  .move-prose :global(p) { margin: 0 0 0.5rem; }
-  .move-prose :global(p:last-child) { margin-bottom: 0; }
   .action {
     margin-top: 0.55rem;
   }

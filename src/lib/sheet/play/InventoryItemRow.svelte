@@ -13,6 +13,7 @@
     blurb?: string
     usesMax: number
     usesMarked: number
+    usesMaxEditable?: boolean
     onMarkUses: (boxIndex: number) => void
     onMarkLoad?: (boxIndex: number) => void
     onToggleEdit: () => void
@@ -33,6 +34,7 @@
     blurb = '',
     usesMax,
     usesMarked,
+    usesMaxEditable = false,
     onMarkUses,
     onMarkLoad,
     onToggleEdit,
@@ -91,17 +93,6 @@
             <span class="meta">{effective}/{printed}</span>
           </div>
         {/if}
-        <label class="uses-edit">
-          <span class="load-label">Uses</span>
-          <input
-            type="number"
-            min="0"
-            max={ITEM_USES_MAX_CAP}
-            step="1"
-            value={usesMax}
-            oninput={(e) => onSetUsesMax(Number(e.currentTarget.value) || 0)}
-          />
-        </label>
       </div>
     {:else if printed > 0}
       <div class="item-load" role="group" aria-label={`${name} load`}>
@@ -111,6 +102,19 @@
         {/each}
         <span class="meta">{effective}/{printed}</span>
       </div>
+    {/if}
+    {#if usesMaxEditable && !dropped}
+      <label class="uses-edit">
+        <span class="load-label">Uses</span>
+        <input
+          type="number"
+          min="0"
+          max={ITEM_USES_MAX_CAP}
+          step="1"
+          value={usesMax}
+          oninput={(e) => onSetUsesMax(Number(e.currentTarget.value) || 0)}
+        />
+      </label>
     {/if}
   </div>
   <div class="item-actions stack">

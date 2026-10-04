@@ -3,6 +3,8 @@
   import type { LocalArcanaState, LocalGrant } from '../../db/idb'
   import type { PatchSheet } from '../sheetPatch'
   import {
+    attachAutoInserts,
+    autoAttachedInsertIds,
     attachInsert,
     canLevelUp,
     detachInsert,
@@ -13,6 +15,7 @@
     syncTrackers,
     grantSourceMap,
     heldCounts,
+    heldMoveIds,
     markTakeEdit,
     markTakeLevelUp,
     unmarkTakeEdit,
@@ -32,6 +35,7 @@
   import RelationsTab from './tabs/RelationsTab.svelte'
   import InsertPane from './tabs/InsertPane.svelte'
   import LevelUpModal from './LevelUpModal.svelte'
+  import DetailsStep from '../wizard/steps/DetailsStep.svelte'
 
   interface Props {
     playbook: Playbook
@@ -63,44 +67,46 @@
 
   const moveGrantSources = $derived(grantSourceMap(playbook, sheet))
 
-  type TabId = 'sheet' | 'moves' | 'inventory' | 'relations' | 'arcana' | 'add' | string
+  type TabId = 'sheet' | 'moves' | 'inventory' | 'specials' | 'relations' | 'arcana' | 'add' | string
+
+  const FOLLOWERS_ID = 'followers'
+  const ANIMAL_ID = 'animal-companion'
 
   const hasArcana = $derived(grants.some((g) => g.content_type.startsWith('arcana')))
-  const attachedInsertIds = $derived(Object.keys(sheet.inserts).filter((id) => id !== 'inventory'))
+  const held = $derived(heldMoveIds(sheet, playbook))
+  const showAnimalCompanion = $derived(held.includes(ANIMAL_ID) || ANIMAL_ID in sheet.inserts)
+  const attachedInsertIds = $derived(
+    Object.keys(sheet.inserts).filter(
+      (id) => id !== 'inventory' && id !== FOLLOWERS_ID && id !== ANIMAL_ID,
+    ),
+  )
   const attachableManualIds = $derived(
-    visibleManualInsertIds(grants, inserts).filter((id) => !(id in sheet.inserts)),
+    visibleManualInsertIds(grants, inserts).filter(
+      (id) => id !== FOLLOWERS_ID && !(id in sheet.inserts),
+    ),
+  )
+
+  const hasSpecials = $derived(
+    (playbook.extras?.length ?? 0) > 0 || Object.keys(playbook.playbook_setup ?? {}).length > 0,
   )
 
   const tabs = $derived([
     { id: 'sheet' as TabId, label: 'Sheet' },
     { id: 'moves' as TabId, label: 'Moves' },
     { id: 'inventory' as TabId, label: 'Inventory' },
-    { id: 'relations' as TabId, label: 'Relations' },
+    ...(showAnimalCompanion
+      ? [{ id: ANIMAL_ID as TabId, label: inserts.find((i) => i.id === ANIMAL_ID)?.name ?? 'Animal Companion' }]
+      : []),
     ...attachedInsertIds.map((id) => ({
       id,
       label: inserts.find((i) => i.id === id)?.name ?? id,
     })),
+    { id: FOLLOWERS_ID as TabId, label: 'Followers' },
+    ...(hasSpecials ? [{ id: 'specials' as TabId, label: 'Specials' }] : []),
+    { id: 'relations' as TabId, label: 'Relations' },
     ...(hasArcana ? [{ id: 'arcana' as TabId, label: 'Arcana' }] : []),
     ...(attachableManualIds.length ? [{ id: 'add' as TabId, label: '+' }] : []),
   ])
-
-  let active = $state<TabId>('sheet')
-  let tabsEl = $state<HTMLElement | null>(null)
-  let tabsHeight = $state(44)
-  $effect(() => {
-    if (!tabs.some((t) => t.id === active)) active = 'sheet'
-  })
-  $effect(() => {
-    const el = tabsEl
-    if (!el || typeof ResizeObserver === 'undefined') return
-    const apply = () => {
-      tabsHeight = Math.max(40, Math.ceil(el.getBoundingClientRect().height))
-    }
-    apply()
-    const ro = new ResizeObserver(apply)
-    ro.observe(el)
-    return () => ro.disconnect()
-  })
 
   const patch: PatchSheet = (mutator) => {
     if (readonly) return
@@ -113,6 +119,32 @@
     mutator(next)
     onchange(next)
   }
+
+  let active = $state<TabId>('sheet')
+  let tabsEl = $state<HTMLElement | null>(null)
+  let tabsHeight = $state(44)
+  $effect(() => {
+    if (!tabs.some((t) => t.id === active)) active = 'sheet'
+  })
+  $effect(() => {
+    if (readonly) return
+    const missing = autoAttachedInsertIds(sheet, playbook, inserts).some((id) => !(id in sheet.inserts))
+    if (!missing) return
+    patch((d) => {
+      d.inserts = attachAutoInserts(d, playbook, inserts)
+    })
+  })
+  $effect(() => {
+    const el = tabsEl
+    if (!el || typeof ResizeObserver === 'undefined') return
+    const apply = () => {
+      tabsHeight = Math.max(40, Math.ceil(el.getBoundingClientRect().height))
+    }
+    apply()
+    const ro = new ResizeObserver(apply)
+    ro.observe(el)
+    return () => ro.disconnect()
+  })
 
   function markTracker(moveId: string, marked: number) {
     if (mode !== 'play' || readonly) return
@@ -312,7 +344,7 @@
 
   <main class="pane">
     {#if active === 'sheet'}
-      <SheetTab {playbook} {sheet} {readonly} {patch} onOpenLevelUp={openLevelUp} />
+      <SheetTab {playbook} {sheet} {mode} {readonly} {patch} onOpenLevelUp={openLevelUp} />
     {:else if active === 'moves'}
       <MovesTab
         {playbook}
@@ -331,12 +363,22 @@
       <Inventory
         data={sheet.inserts.inventory}
         {readonly}
+        {mode}
         onchange={(next) => patch((d) => {
           d.inserts.inventory = next as unknown as Record<string, unknown>
         })}
       />
+    {:else if active === 'specials'}
+      <DetailsStep
+        {playbook}
+        {sheet}
+        {mode}
+        heading="Specials"
+        {readonly}
+        {patch}
+      />
     {:else if active === 'relations'}
-      <RelationsTab {playbook} {sheet} {readonly} {patch} />
+      <RelationsTab {playbook} {sheet} {mode} {readonly} {patch} />
     {:else if active === 'arcana'}
       <ArcanaPanel
         {grants}
@@ -364,6 +406,7 @@
           insertId={active}
           {sheet}
           {readonly}
+          {mode}
           {patch}
           onDetach={detach}
         />

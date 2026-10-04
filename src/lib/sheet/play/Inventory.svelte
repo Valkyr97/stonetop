@@ -45,12 +45,14 @@
   interface Props {
     data: unknown
     readonly?: boolean
+    mode?: 'play' | 'edit'
     /** When true, show only the load band selector + Outfit opener (Sheet front). */
     bandOnly?: boolean
     onchange: (next: InventoryState) => void
   }
 
-  let { data, readonly = false, bandOnly = false, onchange }: Props = $props()
+  let { data, readonly = false, mode = 'play', bandOnly = false, onchange }: Props = $props()
+  const usesMaxEditable = $derived(mode === 'edit' && !readonly)
 
   const catalog = OUTFIT_CATALOG
   const inv = $derived(readInventory(data))
@@ -264,6 +266,7 @@
               blurb={itemBlurb(def)}
               {usesMax}
               {usesMarked}
+              {usesMaxEditable}
               onMarkUses={(i) => markItemUses(item.key, usesMax, i, usesMarked)}
               onMarkLoad={(i) => markItemLoad(item.key, item.printed, i, effective)}
               onToggleEdit={() => toggleLoadEdit(item.key)}
@@ -292,6 +295,7 @@
               blurb={itemBlurb(custom)}
               {usesMax}
               {usesMarked}
+              {usesMaxEditable}
               onMarkUses={(i) => markItemUses(item.key, usesMax, i, usesMarked)}
               onMarkLoad={(i) => markItemLoad(item.key, item.printed, i, effective)}
               onToggleEdit={() => toggleLoadEdit(item.key)}
@@ -319,6 +323,7 @@
               blurb={itemBlurb(def)}
               {usesMax}
               {usesMarked}
+              {usesMaxEditable}
               onMarkUses={(i) => markItemUses(item.key, usesMax, i, usesMarked)}
               onToggleEdit={() => toggleLoadEdit(item.key)}
               onSetUsesMax={(n) => setUsesMax(item.key, n, catalogUses)}

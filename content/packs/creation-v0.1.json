@@ -782,7 +782,7 @@
               "name": "BIG MAGIC"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "danus-grasp",
@@ -1034,7 +1034,7 @@
               "name": "WILD SOUL"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "natures-wrath",
@@ -3384,7 +3384,9 @@
               "license": "CC BY-SA 4.0",
               "section": "Moves",
               "name": "SEASONED WARRIOR"
-            }
+            },
+            "repeatable": true,
+            "boxes": 3
           },
           {
             "id": "bringer-of-ruin",
@@ -6606,7 +6608,9 @@
               "license": "CC BY-SA 4.0",
               "section": "Moves",
               "name": "ARTS OF WAR"
-            }
+            },
+            "repeatable": true,
+            "boxes": 2
           },
           {
             "id": "crew",
@@ -6642,7 +6646,7 @@
               "name": "VETERAN CREW"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "front-line-leader",
@@ -6922,7 +6926,7 @@
               "name": "HEROES TO THE LAST"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "focus-fire",
@@ -7800,7 +7804,7 @@
               "name": "MAGNIFICENT SPECIMEN"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "big-game-hunter",
@@ -8105,7 +8109,9 @@
               "license": "CC BY-SA 4.0",
               "section": "Moves",
               "name": "WORLDLY"
-            }
+            },
+            "repeatable": true,
+            "boxes": 2
           },
           {
             "id": "alpha",
@@ -8143,7 +8149,7 @@
               "name": "BEAST OF LEGEND"
             },
             "repeatable": true,
-            "boxes": 3
+            "boxes": 2
           },
           {
             "id": "constant-vigilance",
@@ -10433,7 +10439,9 @@
               "license": "CC BY-SA 4.0",
               "section": "Moves",
               "name": "VERSATILE"
-            }
+            },
+            "repeatable": true,
+            "boxes": 4
           },
           {
             "id": "a-force-to-be-reckoned-with",

@@ -55,7 +55,15 @@
 
   let { playbook, inserts, sheet, readonly = false, onchange, onFinish }: Props = $props()
 
-  let step = $state<WizardStepId>(firstIncompleteStep(playbook, sheet))
+  function resumeStep(playbook: Playbook, sheet: CharacterState): WizardStepId {
+    const saved = sheet.setup?.wizard_step
+    if (typeof saved === 'string' && WIZARD_STEPS.some((s) => s.id === saved)) {
+      return saved as WizardStepId
+    }
+    return firstIncompleteStep(playbook, sheet)
+  }
+
+  let step = $state<WizardStepId>(resumeStep(playbook, sheet))
   const stepIndex = $derived(WIZARD_STEPS.findIndex((s) => s.id === step))
 
   const patch: PatchSheet = (mutator) => {
@@ -67,6 +75,7 @@
       next = JSON.parse(JSON.stringify(sheet)) as CharacterState
     }
     mutator(next)
+    next.setup = { ...next.setup, wizard_step: step }
     next.section_status = evaluateSectionStatus(playbook, next)
     onchange(next)
   }
@@ -102,10 +111,17 @@
     if (!next) return
     if (delta > 0 && !stepValid(step, playbook, sheet)) return
     step = next.id
+    patch((d) => {
+      d.setup.wizard_step = next.id
+    })
   }
 
   function jumpTo(stepId: WizardStepId) {
-    if (WIZARD_STEPS.some((s) => s.id === stepId)) step = stepId
+    if (!WIZARD_STEPS.some((s) => s.id === stepId)) return
+    step = stepId
+    patch((d) => {
+      d.setup.wizard_step = stepId
+    })
   }
 
   const stepNumber = $derived(creationStepNumber(stepIndex))
@@ -363,7 +379,7 @@
             onWriteIn={setPossessionWriteIn}
           />
         {:else if step === 'details'}
-          <DetailsStep {playbook} {sheet} {readonly} {patch} />
+          <DetailsStep {playbook} {sheet} mode="edit" {readonly} {patch} />
         {:else if step === 'introductions'}
           <IntroductionsStep {playbook} {sheet} {readonly} onAnswer={setIntroAnswer} />
         {:else if step === 'review'}

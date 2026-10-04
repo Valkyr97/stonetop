@@ -5,12 +5,13 @@
  *   of Danu, invocations when the playbook/background/move says so) are
  *   pack-driven via `creation_required_when` and auto-attach — no player or
  *   GM action needed.
- * - "Manual" inserts (`manual: true` in the pack: followers, ghost,
- *   revenant, thrall) never auto-attach. They only become attachable once
- *   the GM hangs them via a `content_grants` row
- *   (`content_type: 'insert'`, `content_id: <insertId>`) — see
- *   `grant/visibility.ts`. The player then attaches (or removes) them from
- *   the play binder's "+" menu.
+ * - "Manual" inserts (`manual: true` in the pack: ghost, revenant,
+ *   thrall) never auto-attach. They only become attachable once the GM
+ *   hangs them via a `content_grants` row (`content_type: 'insert'`,
+ *   `content_id: <insertId>`) — see `grant/visibility.ts`. The player then
+ *   attaches (or removes) them from the play binder's "+" menu.
+ * - Followers is also `manual` in the pack (not auto-attached at creation),
+ *   but play mode always shows a Followers tab. Players add slots themselves.
  */
 import type { CharacterState, InsertDef, Playbook } from '../../content/types'
 import { heldMoveIds } from './moves'
@@ -66,4 +67,12 @@ export function detachInsert(state: CharacterState, insertId: string): Record<st
   const next = { ...state.inserts }
   delete next[insertId]
   return next
+}
+
+/** True once the player has saved an animal companion (name or type). */
+export function isAnimalCompanionCreated(data: Record<string, unknown> | undefined): boolean {
+  if (!data) return false
+  const name = typeof data.name === 'string' ? data.name.trim() : ''
+  const typeId = typeof data.type_id === 'string' ? data.type_id.trim() : ''
+  return Boolean(name || typeId)
 }

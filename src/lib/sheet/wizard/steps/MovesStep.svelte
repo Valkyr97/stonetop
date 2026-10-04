@@ -298,15 +298,21 @@
       {#each group as id (id)}
         {@const move = moveById(playbook, id)}
         {@const kids = kidsByPickOne.get(id) ?? []}
+        {@const on = selected.has(id)}
+        {@const takes = takesOf(id)}
+        {@const bumpCap = move ? statBumpCap(move) : null}
         <div class="pick-stack">
           {#if move}
             <ChoiceCard
               title={move.name}
-              selected={selected.has(id)}
+              selected={on}
               disabled={readonly}
               ruleText={move.rule_text}
               {...takeProps(move, readonly)}
             />
+            {#if on && !readonly && showExtras(move)}
+              {@render moveExtras(move, takes, bumpCap)}
+            {/if}
           {:else}
             <ChoiceCard
               title={id}

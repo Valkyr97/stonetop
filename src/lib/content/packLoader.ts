@@ -17,12 +17,12 @@ async function fetchPackBytes(file: string): Promise<ArrayBuffer> {
 
 async function loadOnePack(pack: ManifestPack) {
   const existing = await getPack(pack.id)
-  if (existing?.sha256 === pack.sha256 && existing.version === pack.version) {
-    return existing
-  }
-
   const bytes = await fetchPackBytes(pack.file)
   const hash = await sha256Hex(bytes)
+  // Invalidate IDB when the on-disk pack changed even if manifest.sha256 is stale.
+  if (existing?.sha256 === hash) {
+    return existing
+  }
   if (hash !== pack.sha256) {
     console.warn(`Hash mismatch for ${pack.id}: expected ${pack.sha256}, got ${hash}`)
   }

@@ -27,11 +27,12 @@
     insertId: string
     sheet: CharacterState
     readonly?: boolean
+    mode?: 'play' | 'edit'
     patch: PatchSheet
     onDetach: (id: string) => void
   }
 
-  let { insert, insertId, sheet, readonly = false, patch, onDetach }: Props = $props()
+  let { insert, insertId, sheet, readonly = false, mode = 'play', patch, onDetach }: Props = $props()
 
   function insertState(id: string): Record<string, unknown> {
     return (sheet.inserts[id] as Record<string, unknown> | undefined) ?? {}
@@ -45,7 +46,7 @@
 <h2>{insert.name}</h2>
 
 {#if insertId === 'animal-companion'}
-  <AnimalCompanion {insert} data={insertState(insertId)} {readonly}
+  <AnimalCompanion {insert} data={insertState(insertId)} {readonly} {mode}
     onchange={(v) => patchInsertState(insertId, v)} />
 {:else if insertId === 'crew'}
   <Crew {insert} data={insertState(insertId)} backgroundId={sheet.identity.background_id} {readonly}
@@ -57,7 +58,7 @@
   <Invocations {insert} data={insertState(insertId)} level={sheet.mechanics.level} {readonly}
     onchange={(v) => patchInsertState(insertId, v)} />
 {:else if insertId === 'followers'}
-  <Followers {insert} data={insertState(insertId)} {readonly}
+  <Followers {insert} data={insertState(insertId)} {readonly} {mode}
     onchange={(v) => patchInsertState(insertId, v)} />
 {:else if insertId === 'ghost' || insertId === 'revenant'}
   <UndeadInsert {insert} data={insertState(insertId)} {readonly}
@@ -88,7 +89,7 @@
   </details>
 {/if}
 
-{#if insert.manual && !readonly}
+{#if insert.manual && insertId !== 'followers' && !readonly}
   <button type="button" class="action danger" onclick={() => onDetach(insertId)}>
     Remove from sheet
   </button>

@@ -101,6 +101,19 @@ describe('wizard gates', () => {
     ])
   })
 
+  it('heavy Armored needs starting armor; Uncanny Reflexes does not', () => {
+    const playbook = pack.content.playbooks.find((p: any) => p.id === 'heavy')
+    const state = emptyCharacterState(playbook)
+    state.identity.background_id = 'sheriff'
+    state.moves.selected = startingMoveIds(playbook, 'sheriff', ['armored'])
+    expect(stepValid('moves', playbook, state)).toBe(false)
+    state.setup.move_fields = { armored: { starting_armor: 'iron_hauberk' } }
+    expect(stepValid('moves', playbook, state)).toBe(true)
+    state.moves.selected = startingMoveIds(playbook, 'sheriff', ['uncanny-reflexes'])
+    state.setup.move_fields = {}
+    expect(stepValid('moves', playbook, state)).toBe(true)
+  })
+
   it('ranger can take Animal Companion as a free pick', () => {
     const playbook = pack.content.playbooks.find((p: any) => p.id === 'ranger')
     const state = emptyCharacterState(playbook)

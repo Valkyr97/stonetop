@@ -118,7 +118,10 @@
 <AppShell>
   <section class="hub">
     <header class="hero">
-      <h1 class="brand-display">Stonetop</h1>
+      <div class="hero-brand">
+        <img src="/icons/pwa-512.png" alt="" width="88" height="88" />
+        <h1 class="brand-display">Stonetop</h1>
+      </div>
       <p class="tagline">Your characters, kept on this device and synced to the table when you join one.</p>
       <div class="toolbar">
         <a href="#/character/new" use:link class="cta">+ Create a character</a>
@@ -139,6 +142,9 @@
               <span class="pb">{ch.playbookId}</span>
             </a>
             <div class="aside">
+              {#if ch.state?.creation_complete !== true}
+                <span class="status">Creating · on this device</span>
+              {/if}
               {#if ch.claim}
                 <span class="status linked">{ch.claim.campaignName}</span>
               {:else}
@@ -146,7 +152,7 @@
                   Join a table
                 </button>
               {/if}
-              {#if ch.dirty}<span class="dirty">unsynced</span>{/if}
+              {#if ch.claim && ch.dirty}<span class="dirty">unsynced</span>{/if}
               <button
                 type="button"
                 class="linkish danger"
@@ -191,6 +197,18 @@
     gap: 0.6rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--line);
+  }
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .hero-brand img {
+    display: block;
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    background: #f4efe4;
   }
   .hero h1 {
     margin: 0;

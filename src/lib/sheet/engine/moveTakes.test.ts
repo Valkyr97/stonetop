@@ -1,3 +1,5 @@
+import { readFileSync, readdirSync } from 'fs'
+import { join } from 'path'
 import { describe, expect, it } from 'vitest'
 import { emptyCharacterState, type MoveDef } from '../../content/types'
 import { moveRepeatCap } from '../sections'
@@ -13,6 +15,37 @@ describe('moveRepeatCap', () => {
         rule_text: 'Mark 1 topic. Each additional time you take this move, mark 2 more topics.',
       }),
     ).toBeGreaterThan(1)
+  })
+
+  it('Magnificent Specimen is two takes', () => {
+    const pack = JSON.parse(readFileSync('content/packs/creation-v0.1.json', 'utf8'))
+    const ranger = pack.content.playbooks.find((p: { id: string }) => p.id === 'ranger')
+    const move = ranger.moves.find((m: { id: string }) => m.id === 'magnificent-specimen')
+    expect(moveRepeatCap(move)).toBe(2)
+  })
+
+  it('pack take caps match splatbook maxTakes', () => {
+    const pack = JSON.parse(readFileSync('content/packs/creation-v0.1.json', 'utf8'))
+    const splatDir = '../splatbook/content/stonetop/data'
+    const files = readdirSync(splatDir).filter(
+      (f) => f.startsWith('the-') && f.endsWith('.json') && f !== 'the-steading.json',
+    )
+    const mismatches: string[] = []
+    for (const f of files) {
+      const data = JSON.parse(readFileSync(join(splatDir, f), 'utf8'))
+      const pbId = f.replace(/^the-/, '').replace(/\.json$/, '')
+      const packPb = pack.content.playbooks.find((p: { id: string }) => p.id === pbId)
+      if (!packPb) continue
+      for (const m of data.moves?.list ?? []) {
+        if (m.maxTakes == null) continue
+        const pm = packPb.moves.find((x: { id: string }) => x.id === m.id)
+        const cap = pm ? moveRepeatCap(pm) : null
+        if (cap !== m.maxTakes) {
+          mismatches.push(`${pbId}:${m.id} splat ${m.maxTakes} pack ${cap}`)
+        }
+      }
+    }
+    expect(mismatches).toEqual([])
   })
 })
 

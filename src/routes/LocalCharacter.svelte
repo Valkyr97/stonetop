@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import { onDestroy } from 'svelte'
   import { link } from 'svelte-spa-router'
   import AppShell from '../lib/components/AppShell.svelte'
   import Wizard from '../lib/sheet/wizard/Wizard.svelte'
@@ -33,16 +33,33 @@
   let notice = $state('')
   let sheetMode = $state<'play' | 'edit'>('play')
 
-  onMount(load)
+  function plainClone<T>(value: T): T {
+    return JSON.parse(JSON.stringify(value)) as T
+  }
 
-  async function load() {
+  $effect(() => {
     const id = params.id
     if (!id) return
+    let cancelled = false
+    void load(id, () => cancelled)
+    return () => {
+      cancelled = true
+    }
+  })
+
+  onDestroy(() => {
+    if (!draft) return
+    void saveCharacterDraft(plainClone(draft))
+  })
+
+  async function load(id: string, isCancelled: () => boolean = () => false) {
     error = ''
     try {
       const local = await getCharacterDraft(id)
+      if (isCancelled()) return
       if (!local) {
         error = 'This character sheet was not found on this device.'
+        draft = null
         return
       }
       draft = local
@@ -50,11 +67,13 @@
       if (draft.claim && navigator.onLine) {
         try {
           await syncAll([draft.claim.characterId])
+          if (isCancelled()) return
           draft = (await getCharacterDraft(id)) ?? draft
         } catch {
           // keep local
         }
       }
+      if (isCancelled()) return
 
       // Upgrade pre-schema-v2 drafts so play/wizard see a consistent shape.
       if (needsMigration(draft.state)) {
@@ -66,10 +85,12 @@
           updatedAt: new Date().toISOString(),
         }
         await saveCharacterDraft(updated)
+        if (isCancelled()) return
         draft = updated
       }
 
       const pack = await getCreationPack()
+      if (isCancelled()) return
       playbook = pack.content.playbooks.find((p) => p.id === draft!.playbookId) ?? null
       inserts = pack.content.inserts
 
@@ -88,33 +109,44 @@
             updatedAt: new Date().toISOString(),
           }
           await saveCharacterDraft(updated)
+          if (isCancelled()) return
           draft = updated
         }
       }
       const arcana = await getArcanaPack()
+      if (isCancelled()) return
       arcanaCards = [...(arcana?.arcana.minor ?? []), ...(arcana?.arcana.major ?? [])]
       grants = await getGrantsForCharacter(id)
+      if (isCancelled()) return
       arcanaStates = await getArcanaStatesForCharacter(id)
     } catch (e) {
-      error = (e as Error).message
+      if (!isCancelled()) error = (e as Error).message
     }
   }
 
   async function persist(next: CharacterState) {
     if (!draft) return
-    const updated: LocalCharacterDraft = {
-      ...draft,
-      state: next as unknown as Record<string, unknown>,
-      name: next.identity.character_name || draft.name,
-      dirty: true,
-      updatedAt: new Date().toISOString(),
-    }
-    // Optimistic UI update before IndexedDB so checks/origin feel instant
-    // and rapid clicks don't clone a stale sheet.
-    draft = updated
-    notice = 'Saved locally'
     try {
-      await saveCharacterDraft(updated)
+      const state = plainClone(next) as unknown as Record<string, unknown>
+      const name = next.identity?.character_name?.trim() || draft.name
+      const updatedAt = new Date().toISOString()
+      // Mutate in place so the wizard is not remounted (replacing `draft`
+      // would reset the step and drop in-progress creation).
+      draft.state = state
+      draft.name = name
+      draft.dirty = true
+      draft.updatedAt = updatedAt
+      notice = 'Saved locally'
+      await saveCharacterDraft(
+        plainClone({
+          ...draft,
+          state,
+          name,
+          dirty: true,
+          updatedAt,
+        }),
+      )
+      error = ''
     } catch (e) {
       error = (e as Error).message
     }
@@ -141,7 +173,7 @@
   {#if notice}<p class="ok">{notice}</p>{/if}
 
   {#if draft && playbook}
-    {#key draft.id}
+    {#key params.id ?? draft.id}
       {#if !(draft.state as unknown as CharacterState).creation_complete}
         <Wizard
           {playbook}

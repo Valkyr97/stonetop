@@ -46,13 +46,25 @@
 {#if $authReady}
   <Router {routes} on:conditionsFailed={conditionsFailed} />
 {:else}
-  <p class="boot">Cargando Stonetop…</p>
+  <p class="boot">
+    <img src="/icons/pwa-192.png" alt="" width="48" height="48" />
+    Cargando Stonetop…
+  </p>
 {/if}
 
 <style>
   .boot {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
     padding: 2rem;
     text-align: center;
     color: #5b4a37;
+  }
+  .boot img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #f4efe4;
   }
 </style>

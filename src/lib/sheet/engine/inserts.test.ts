@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { emptyCharacterState } from '../../content/types'
-import { attachAutoInserts, attachInsert, autoAttachedInsertIds, detachInsert, isInsertAttached } from './inserts'
+import { attachAutoInserts, attachInsert, autoAttachedInsertIds, detachInsert, isAnimalCompanionCreated, isInsertAttached } from './inserts'
 import { TEST_INSERTS, makeTestPlaybook } from './test-fixtures'
 
 describe('autoAttachedInsertIds', () => {
@@ -40,5 +40,17 @@ describe('attach / detach', () => {
     expect(isInsertAttached(state, 'inventory')).toBe(true)
     expect(isInsertAttached(state, 'auto-by-playbook')).toBe(true)
     expect(isInsertAttached(state, 'followers')).toBe(false)
+  })
+})
+
+describe('isAnimalCompanionCreated', () => {
+  it('is false for an empty insert blob', () => {
+    expect(isAnimalCompanionCreated({})).toBe(false)
+    expect(isAnimalCompanionCreated({ loyalty: 0 })).toBe(false)
+  })
+
+  it('is true once a name or type is saved', () => {
+    expect(isAnimalCompanionCreated({ name: 'Ash' })).toBe(true)
+    expect(isAnimalCompanionCreated({ type_id: 'bird' })).toBe(true)
   })
 })

@@ -735,7 +735,30 @@
           onchange={(v) =>
             patch((d) => {
               const list = [...(d.session_zero_notes.npc_connections ?? [])]
-              list[i] = { prompt_id: `npc-${i}`, answer_name: String(v) }
+              const prev = list[i]
+              list[i] = {
+                prompt_id: prev?.prompt_id ?? `npc-${i}`,
+                answer_name: String(v),
+                notes: prev?.notes ?? prompt,
+                nature: prev?.nature,
+              }
+              d.session_zero_notes.npc_connections = list
+            })}
+        />
+        <Field
+          label="Nature of the relationship"
+          value={sheet.session_zero_notes.npc_connections?.[i]?.nature ?? ''}
+          disabled={readonly}
+          onchange={(v) =>
+            patch((d) => {
+              const list = [...(d.session_zero_notes.npc_connections ?? [])]
+              const prev = list[i]
+              list[i] = {
+                prompt_id: prev?.prompt_id ?? `npc-${i}`,
+                answer_name: prev?.answer_name ?? '',
+                notes: prev?.notes ?? prompt,
+                nature: String(v),
+              }
               d.session_zero_notes.npc_connections = list
             })}
         />
@@ -749,10 +772,31 @@
           onchange={(v) =>
             patch((d) => {
               const list = [...(d.session_zero_notes.pc_connections ?? [])]
+              const prev = list[i]
               list[i] = {
-                prompt_id: `pc-${i}`,
+                prompt_id: prev?.prompt_id ?? `pc-${i}`,
                 target_character_name: String(v),
-                target_character_id: null,
+                target_character_id: prev?.target_character_id ?? null,
+                notes: prev?.notes ?? prompt,
+                nature: prev?.nature,
+              }
+              d.session_zero_notes.pc_connections = list
+            })}
+        />
+        <Field
+          label="Nature of the relationship"
+          value={sheet.session_zero_notes.pc_connections?.[i]?.nature ?? ''}
+          disabled={readonly}
+          onchange={(v) =>
+            patch((d) => {
+              const list = [...(d.session_zero_notes.pc_connections ?? [])]
+              const prev = list[i]
+              list[i] = {
+                prompt_id: prev?.prompt_id ?? `pc-${i}`,
+                target_character_name: prev?.target_character_name ?? '',
+                target_character_id: prev?.target_character_id ?? null,
+                notes: prev?.notes ?? prompt,
+                nature: String(v),
               }
               d.session_zero_notes.pc_connections = list
             })}

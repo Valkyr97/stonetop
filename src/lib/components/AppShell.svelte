@@ -12,7 +12,10 @@
 
 <div class="shell">
   <header>
-    <a href="#/" use:link class="brand">Stonetop</a>
+    <a href="#/" use:link class="brand">
+      <img src="/icons/pwa-192.png" alt="" width="32" height="32" />
+      Stonetop
+    </a>
     <nav>
       {#if $user}
         <a href="#/gm" use:link class:active={$location.startsWith('/gm')}>GM</a>
@@ -54,11 +57,21 @@
     background: var(--paper-2);
   }
   .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-display);
     font-weight: 400;
     font-size: 1.35rem;
     text-decoration: none;
     color: var(--ink);
+  }
+  .brand img {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #f4efe4;
   }
   nav {
     display: flex;

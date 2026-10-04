@@ -326,12 +326,13 @@ export interface CharacterState {
     literacy?: Record<string, unknown>
     family?: Record<string, unknown>
     home?: Record<string, unknown>
-    npc_connections?: { prompt_id: string; answer_name: string; notes?: string }[]
+    npc_connections?: { prompt_id: string; answer_name: string; notes?: string; nature?: string }[]
     pc_connections?: {
       prompt_id: string
       target_character_id?: string | null
       target_character_name?: string | null
       notes?: string
+      nature?: string
     }[]
   }
   section_status: Record<string, 'not_started' | 'in_progress' | 'complete'>

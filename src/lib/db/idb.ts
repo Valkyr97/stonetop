@@ -79,6 +79,11 @@ interface StonetopDB extends DBSchema {
 
 let dbPromise: Promise<IDBPDatabase<StonetopDB>> | null = null
 
+/** IndexedDB uses structured clone, which cannot store Svelte 5 `$state` proxies. */
+function toPlain<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T
+}
+
 function getDb() {
   if (!dbPromise) {
     dbPromise = openDB<StonetopDB>('stonetop', 1, {
@@ -99,7 +104,7 @@ function getDb() {
 
 export async function savePack(pack: CachedPack) {
   const db = await getDb()
-  await db.put('packs', pack)
+  await db.put('packs', toPlain(pack))
 }
 
 export async function getPack<T = unknown>(id: string): Promise<CachedPack & { data: T } | undefined> {
@@ -114,7 +119,7 @@ export async function listPacks() {
 
 export async function setMeta(key: string, value: unknown) {
   const db = await getDb()
-  await db.put('meta', { key, value })
+  await db.put('meta', toPlain({ key, value }))
 }
 
 export async function getMeta<T = unknown>(key: string): Promise<T | undefined> {
@@ -125,7 +130,7 @@ export async function getMeta<T = unknown>(key: string): Promise<T | undefined> 
 
 export async function saveCharacterDraft(draft: LocalCharacterDraft) {
   const db = await getDb()
-  await db.put('characters', draft)
+  await db.put('characters', toPlain(draft))
 }
 
 export async function getCharacterDraft(id: string) {
@@ -154,12 +159,15 @@ export async function softDeleteCharacterDraft(id: string) {
   const db = await getDb()
   const draft = await db.get('characters', id)
   if (!draft) return
-  await db.put('characters', {
-    ...draft,
-    deletedAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    dirty: false,
-  })
+  await db.put(
+    'characters',
+    toPlain({
+      ...draft,
+      deletedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      dirty: false,
+    }),
+  )
 }
 
 /** Stable per-device id, generated once and cached in the meta store. */
@@ -175,7 +183,7 @@ export async function ensureLocalClientId(): Promise<string> {
 export async function saveGrants(grants: LocalGrant[]) {
   const db = await getDb()
   const tx = db.transaction('grants', 'readwrite')
-  await Promise.all(grants.map((g) => tx.store.put(g)))
+  await Promise.all(grants.map((g) => tx.store.put(toPlain(g))))
   await tx.done
 }
 
@@ -189,13 +197,13 @@ export async function replaceGrantsForCharacter(characterId: string, grants: Loc
   const existing = await db.getAllFromIndex('grants', 'by-character', characterId)
   const tx = db.transaction('grants', 'readwrite')
   await Promise.all(existing.map((g) => tx.store.delete(g.id)))
-  await Promise.all(grants.map((g) => tx.store.put(g)))
+  await Promise.all(grants.map((g) => tx.store.put(toPlain(g))))
   await tx.done
 }
 
 export async function saveArcanaStateLocal(row: LocalArcanaState) {
   const db = await getDb()
-  await db.put('arcanaState', row)
+  await db.put('arcanaState', toPlain(row))
 }
 
 export async function getArcanaStatesForCharacter(characterId: string) {
@@ -211,6 +219,6 @@ export async function replaceArcanaStatesForCharacter(
   const existing = await db.getAllFromIndex('arcanaState', 'by-character', characterId)
   const tx = db.transaction('arcanaState', 'readwrite')
   await Promise.all(existing.map((r) => tx.store.delete(r.id)))
-  await Promise.all(rows.map((r) => tx.store.put(r)))
+  await Promise.all(rows.map((r) => tx.store.put(toPlain(r))))
   await tx.done
 }
