@@ -260,6 +260,7 @@
               name={item.name}
               dropped={item.dropped}
               editing={editingLoadKey === item.key}
+              highlight={mode === 'edit' && editingLoadKey === item.key}
               {readonly}
               printed={item.printed}
               {effective}
@@ -288,6 +289,7 @@
               name={item.name}
               dropped={item.dropped}
               editing={editingLoadKey === item.key}
+              highlight={mode === 'edit' && editingLoadKey === item.key}
               {readonly}
               printed={item.printed}
               {effective}
@@ -318,6 +320,7 @@
               compact
               dropped={item.dropped}
               editing={editingLoadKey === item.key}
+              highlight={mode === 'edit' && editingLoadKey === item.key}
               {readonly}
               badge="small"
               blurb={itemBlurb(def)}

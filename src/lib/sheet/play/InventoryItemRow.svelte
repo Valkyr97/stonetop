@@ -6,6 +6,7 @@
     compact?: boolean
     dropped: boolean
     editing: boolean
+    highlight?: boolean
     readonly?: boolean
     printed?: number
     effective?: number
@@ -27,6 +28,7 @@
     compact = false,
     dropped,
     editing,
+    highlight = false,
     readonly = false,
     printed = 0,
     effective = 0,
@@ -44,7 +46,7 @@
   }: Props = $props()
 </script>
 
-<li class="gear-row" class:compact class:on={!dropped} class:dropped class:editing>
+<li class="gear-row" class:compact class:dropped class:editing={highlight}>
   <div class="gear-body">
     <div class="title-row">
       {#if printed > 0}
@@ -157,9 +159,12 @@
     display: flex; gap: 0.55rem; align-items: flex-start; justify-content: space-between;
     padding: 0.55rem 0.65rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-2);
   }
-  .gear-row.on { border-color: var(--accent); background: var(--selected-bg); box-shadow: 0 0 0 1px var(--accent); }
   .gear-row.dropped { opacity: 0.72; border-style: dashed; }
-  .gear-row.editing { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .gear-row.editing {
+    border-color: var(--accent);
+    background: var(--selected-bg);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
   .gear-row.compact { align-items: center; }
   .gear-body { display: grid; gap: 0.15rem; min-width: 0; flex: 1; }
   .title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.55rem; }
